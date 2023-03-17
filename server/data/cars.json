@@ -1,0 +1,36 @@
+{
+
+    "7e2c3823-5e27-4e88-ae53-0bebc8b5a9bf": {
+        "brand": "Volks Wagen",
+        "model": "IV",
+        "year": "2003",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/VW_Golf_IV_front_20071205.jpg/1200px-VW_Golf_IV_front_20071205.jpg",
+        "fuel": "Diesel",
+        "parts": [
+            {
+                "wheels": "true"
+            },
+            {
+                "mirrors": "true"
+            }
+        ],
+        "_id": "7e2c3823-5e27-4e88-ae53-0bebc8b5a9bf"
+    },
+    "0bef4982-6717-4f79-a806-1c0b39a4371a": {
+        "brand": "Mercedess",
+        "model": "190",
+        "year": "1995",
+        "imageUrl": "https://mobistatic3.focus.bg/mobile/photosorg/404/1/11668649636041404_bA.jpg",
+        "fuel": "Diesel",
+        "parts": [
+            {
+                "wheels": "true"
+            },
+            {
+                "mirrors": "true"
+            }
+        ],
+        "_id": "0bef4982-6717-4f79-a806-1c0b39a4371a"
+    }
+    
+}

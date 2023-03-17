@@ -1,0 +1,56 @@
+
+
+.contactpost label{
+
+	margin-right: 30px;
+}
+
+ .contactpost p {
+	
+	margin-bottom: 30px;
+	align-self: center;
+
+}
+.contactpost input{
+
+	font-size: large;
+	display: block;
+	float: right;
+	height: 30px;
+	width: 280px;
+	padding-left: 3px;
+}
+
+.register {
+
+	display: inline-block;
+	margin-right: 0;
+	margin-top: 30px;
+	margin-right: 100px;
+	 text-align: right; 
+	color: #fff;
+	font-family: LeagueGothic, sans-serif;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	
+}
+
+ input[type="submit"]{
+	display: block;
+	font-family: LeagueGothic, sans-serif;
+	font-size: 30px;
+	text-transform: uppercase;
+	border: 2px outset #e44444;
+	color: #121212;
+	height: 50px;
+	margin-right: 3px;
+}
+
+input[type="submit"]:hover{
+	cursor:pointer;
+    border: 4px inset #dd3b3b;
+}
+input[type="submit"]:active{
+	border: 2px inset #dd3b3b;
+}

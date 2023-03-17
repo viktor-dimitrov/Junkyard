@@ -1,0 +1,63 @@
+header h1{
+	font-family: LeagueGothic, Impact, sans-serif;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: .5em;
+	text-shadow: 1px 1px 0 #000;
+	position: relative;
+	width: 300px;
+	margin-bottom: 2px;
+}
+header h2{
+	font-size: 16px;
+	font-weight: normal;
+	font-family: LeagueGothic, sans-serif;
+	width: 170px;
+	text-shadow: 1px 1px 0 #000;
+	text-transform: uppercase;
+}
+#tagline{
+		margin-top: -8px;
+}		
+#logo, nav, nav li{
+	display: inline-block;
+	vertical-align: top;
+	*display: inline;
+	zoom:1;
+}
+#logo{
+	width: 270px;
+}
+nav a {
+	color: #fff;
+	font-family: LeagueGothic, sans-serif;
+	text-decoration: none;
+	font-size: 1.5em;
+	margin-left: 25px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0px #000;
+}
+
+nav{
+	margin: 20px 24px 0 0;
+	float: right;
+	
+	
+}
+header {
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+
+#header{
+	height: 40px;
+	margin-top: 0px;
+	margin-bottom: 2px;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+}
+#home a#homenav, #blog a#blognav, #fullwidth a#fullwidthnav, #contact a#contactnav{
+	color: #b82924;
+}
