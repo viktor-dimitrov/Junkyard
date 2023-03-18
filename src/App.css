@@ -74,7 +74,7 @@ p{
 	width: 90%;
 	height:max-content;
 	margin: 16px auto;
-	margin-top: 100px;
+	margin-top: 130px;
 	background-color: #121212;
 	padding: 20px 20px;
 	border: 1px solid #B82924;
@@ -88,13 +88,13 @@ body{
 	font-size: 14px;
 	text-shadow: 1px 1px 0px #000;
 }
-#srt{
+.srt{
 	color: #f9f9f9;
 	display: block;
 	float: right;
 	position: absolute;
 	top: 14px;
-	left: 180px;
+	left: 55px;
 	text-shadow: 1px 1px 0px #000;
 	font-size: 36px;
 	font-style: italic;
@@ -106,7 +106,7 @@ body{
 	font-family: LeagueGothic, sans-serif;
 	font-weight: bold;
 	position: absolute;
-	left: 169px;
+	left: 10px;
 	top: -3px;
 	color: #b82924;
 	display: block;

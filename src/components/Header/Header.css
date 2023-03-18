@@ -5,19 +5,35 @@ header h1{
 	font-size: .5em;
 	text-shadow: 1px 1px 0 #000;
 	position: relative;
-	width: 300px;
+	width: 200px;
 	margin-bottom: 2px;
 }
 header h2{
-	font-size: 16px;
+	
+	font-size: 26px;
 	font-weight: normal;
 	font-family: LeagueGothic, sans-serif;
 	width: 170px;
 	text-shadow: 1px 1px 0 #000;
 	text-transform: uppercase;
 }
+
+ .profile{
+	margin-right: 500px;
+
+	font-size: 2.5em;
+}
+
+
 #tagline{
-		margin-top: -8px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 50px;
+		margin-right: 0px;
+		margin-top: 0px;
+		border: 1px solid #B82924;
+		box-shadow: 0 3px 4px #B82924;
+		border-radius: 10%;
 }		
 #logo, nav, nav li{
 	display: inline-block;
@@ -26,7 +42,7 @@ header h2{
 	zoom:1;
 }
 #logo{
-	width: 270px;
+	width: 230px;
 }
 nav a {
 	color: #fff;
@@ -50,7 +66,8 @@ header {
 }
 
 #header{
-	height: 40px;
+
+	height: 60px;
 	margin-top: 0px;
 	margin-bottom: 2px;
 position: fixed;

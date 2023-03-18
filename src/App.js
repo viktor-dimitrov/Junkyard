@@ -86,21 +86,21 @@ function App() {
 
   return (
 <>
+
+
     < Header logedUser={logedUser} />
 
-    
-
     <div className="wrapper ">
-      
-    <div >post message </div>
-
+    
       < Routes >
         < Route path="/" element={< Home /> } />
         < Route path="/login" element={ < Login /> } />
-        < Route path="/register" element={ < Register logHandler={logHandler} /> } />
+        < Route path="/register" element={ < Register logHandler={logHandler} navigate={navigate} /> } />
         < Route path="/catalog" element={ < CatalogSmall cars={cars}  />} />
         < Route path="/create" element={ < Create onSubmitCreateCar={onSubmitCreateCar} /> } />
         < Route path="/details/:carId" element={ < Details />} />
+        < Route path="/logout" element={}  />
+        
       </Routes>
    
      

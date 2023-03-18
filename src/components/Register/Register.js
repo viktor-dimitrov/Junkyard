@@ -8,7 +8,10 @@ import { getUserData } from '../../services/util';
 
 
 
-export default function Register({logHandler}) {
+export default function Register({
+    logHandler,
+    navigate
+}) {
 
     const[user, setUser] = useState({
         username: '',
@@ -25,11 +28,15 @@ export default function Register({logHandler}) {
     const onSubmitRegister = async (e) => {
         e.preventDefault();
 
-        // TODO VALIDATIONS
+       
+        
          await userService.register(user.username, user.email, user.phone, user.password);
 
          const userData = getUserData();
-         logHandler(userData)
+         logHandler(userData);
+
+
+         navigate('/catalog');
 
     
 
