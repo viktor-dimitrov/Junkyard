@@ -4,7 +4,8 @@ import styles from './Header.css';
 console.log(styles)
 
 export default function Header({
-    logedUser
+    logedUser,
+    onLogout
 }) {
     return (
         <header className="wrapper" id="header">
@@ -16,12 +17,14 @@ export default function Header({
             </div>
 
 
-
-            <Link to="/catalog" >
+        {logedUser.isLoged ?   <Link to="/catalog" >
                 <div id="tagline">
                     <h2>-{logedUser?.userInfo?.username}-</h2>
+                    <input type="button" value="logout" onClick={onLogout} />
                 </div>
-            </Link>
+            </Link> : null
+            }
+       
 
             <nav>
                 <ul>
@@ -30,7 +33,7 @@ export default function Header({
                     <li><Link to="/create" >Create</Link></li>
                     <li><Link to="/login">Login</Link></li>
                     <li><Link to="/register">Register</Link></li>
-                    <li><Link to="/logout">logout</Link></li>
+                    {/* <li><Link to="/logout">logout</Link></li> */}
                 </ul>
             </nav>
         </header>

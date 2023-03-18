@@ -3,7 +3,7 @@ import {useState} from 'react';
 import LineLarge from "../Lines/LineLarge";
 import styles from './Register.module.css';
 import * as userService from '../../services/userService';
-import { getUserData } from '../../services/util';
+// import { getUserData } from '../../services/util';
 
 
 
@@ -27,16 +27,11 @@ export default function Register({
 
     const onSubmitRegister = async (e) => {
         e.preventDefault();
-
-       
-        
          await userService.register(user.username, user.email, user.phone, user.password);
-
-         const userData = getUserData();
-         logHandler(userData);
+         logHandler();
 
 
-         navigate('/catalog');
+        //  navigate('/catalog');
 
     
 

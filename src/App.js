@@ -2,6 +2,7 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as carService from './services/carService';
+import * as userService from './services/userService';
 
 
 import './App.css';
@@ -17,6 +18,7 @@ import LineLarge from "./components/Lines/LineLarge";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { getUserData } from './services/util';
+import Logout from "./components/Logout/Logout";
 
 
 
@@ -25,22 +27,11 @@ import { getUserData } from './services/util';
 
 function App() {
 
- 
-
-
-
   const [cars, setCars] = useState([]);
   const[logedUser, setLoged] = useState({
     isLoged: false,
-    userInfo: {}
+    userInfo: ''
   });
-
-  const userData = getUserData();
-
-  useEffect( () => {
-    setLoged(state => ({isLoged: true, userInfo: userData}))
-
-  },[])
 
   useEffect( () => {
       carService.getAll()
@@ -52,28 +43,37 @@ function App() {
       })
   },[]);
 
- 
-
-
+  const navigate = useNavigate();
 
   console.log(logedUser)
 
-  const logHandler = (userData) => {
+  const logHandler = () => {
+    const userData = getUserData();
+
     if (userData){
-      setLoged(
+      setLoged( state => (
         {isLoged: true,
-        userInfo: userData})
+        userInfo: userData}));
+        navigate('/catalog')
     } else {
-      setLoged(
+      setLoged(state => (
         {isLoged: false,
-        userInfo: ''})
+        userInfo: ''}))
     }
+  }
+
+  const onLogout = async (e) => {
+    e.preventDefault();
+    await userService.logout();
+    logHandler();
+    navigate('/');
+
   }
 
   
 
 
-  const navigate = useNavigate();
+ 
  
   const onSubmitCreateCar = async (inputData) => {
     const newCar = await carService.createCar(inputData)
@@ -88,18 +88,18 @@ function App() {
 <>
 
 
-    < Header logedUser={logedUser} />
+    < Header logedUser={logedUser} onLogout={onLogout} />
 
     <div className="wrapper ">
     
       < Routes >
         < Route path="/" element={< Home /> } />
         < Route path="/login" element={ < Login /> } />
-        < Route path="/register" element={ < Register logHandler={logHandler} navigate={navigate} /> } />
+        < Route path="/register" element={ < Register logHandler={logHandler}/> } />
         < Route path="/catalog" element={ < CatalogSmall cars={cars}  />} />
         < Route path="/create" element={ < Create onSubmitCreateCar={onSubmitCreateCar} /> } />
         < Route path="/details/:carId" element={ < Details />} />
-        < Route path="/logout" element={}  />
+        {/* < Route path="/logout" element={ < Logout logHandler={logHandler} /> }  /> */}
         
       </Routes>
    

@@ -1,5 +1,5 @@
 import LineLarge from "../Lines/LineLarge"
-import LineSmall from "../Lines/LineSmall"
+
 import styles from './Login.module.css'
 
 
