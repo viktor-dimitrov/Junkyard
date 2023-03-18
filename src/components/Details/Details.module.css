@@ -1,6 +1,7 @@
 
 
 .details {
+    display:flex;
 
     height:260px;
     margin-top: 30px;
@@ -10,10 +11,12 @@
 }
 
 .details li {
+    width: 400px;
     border: 1px solid #B82924;
     box-shadow: 0 3px 4px #B82924;
     float:center;
     margin-left:10px;
+   
 
 }
 
@@ -24,10 +27,7 @@
 
 
 
-.right {
-    float: right;
-    margin-right: 30px;;
-}
+
 
 .left {
     margin-left: 30px;;
@@ -45,6 +45,7 @@
         border: 1px solid #B82924;
     box-shadow: 0 3px 4px #B82924;
 }
+
 
 
 

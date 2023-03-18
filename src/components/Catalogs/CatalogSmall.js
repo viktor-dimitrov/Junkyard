@@ -7,7 +7,7 @@ import CardSmall from "../Cards/CardSmall";
 export default function CatalogSmall({ cars }) {
 
 
-
+console.log(cars)
 
     return (
 

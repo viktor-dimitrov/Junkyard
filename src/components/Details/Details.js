@@ -18,8 +18,9 @@ export default function Details() {
 
     useEffect(() => {
         carService.getOne(carId)
-            .then(car => {
-                setCar(car)
+            .then(result => {
+              
+                setCar(result)
             })
             .catch(err => {
                 console.log(err.message)
@@ -39,24 +40,19 @@ export default function Details() {
 
             <div className={styles['details']} >
 
-
-                <div className="right" >
-                    <img className="largepic" src={car.imageUrl} alt="" />
-                </div>
-
-
-                <ul>
-
+                <ul >
                     <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
                     <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
                     <li ><h1 className={styles.left} >Engine</h1> <h1 className={styles.right}> {car.engine} </h1>  </li>
                     <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
                     <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
                     <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
-                    <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
-               
-
+                    <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {} </h1>  </li>
                 </ul>
+
+                <div  >
+                    <img className="largepic" src={car.imageUrl} alt="car" />
+                </div>
             </div>
 
            

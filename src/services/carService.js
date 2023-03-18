@@ -1,28 +1,24 @@
 import { get, post } from "./requester.js";
 
-const endpoints = {
-    "getAll": "/data/cars/",
-    "postCar": "/data/cars/",
-    "getOne":"/data/cars/",
-    "deleteCar":"/data/cars/"
+const baseUrl =  '/data/cars/'
 
-}
 
 
 export const getAll = async () => {
-    const result = await get(endpoints.getAll);
+    const result = await get(baseUrl);
 
     return result
 }
 
 export const getOne = async (carId) => {
-    const result = await get(`${endpoints.getOne}/${carId}`);
-   
+
+    let result = await get(`${baseUrl}${carId}`);
+    result = {...result, ...result.body}
     return result
 }
 
 export const createCar = async (body) => {
-    const result = await post(endpoints.postCar, {body})
+    const result = await post(baseUrl, {body})
  
     return result;
 }
