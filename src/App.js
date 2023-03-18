@@ -35,6 +35,7 @@ function App() {
   useEffect( () => {
       carService.getAll()
       .then(cars => {
+     
           setCars(cars);
       })
        .catch(err => {
@@ -44,7 +45,6 @@ function App() {
 
   const navigate = useNavigate();
 
-  console.log(logedUser)
 
   const logHandler = () => {
     const userData = getUserData();
