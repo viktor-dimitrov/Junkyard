@@ -20,14 +20,30 @@ import { get, post } from "./requester.js";
 const endpoints = {
     "login": "/users/login",
     "register": "/users/register",
-    "logout":"/users/logout"
+    "logout":"/users/logout",
+    "myData":"/users/me"
 
 }
+
+
+    // export async function myData() {
+    //     const {username, phone, _id, email, accessToken} = await get(endpoints.myData);
+
+    //     setUserData({
+    //         _id,
+    //         username,
+    //         phone,
+    //         email,
+    //         accessToken
+    //     });
+       
+    // }
 
 
 
 export async function login(email, password) {
     const {_id, email: resultEmail, accessToken} = await post(endpoints.login, {email, password} );
+  
 
     setUserData({
         _id,
@@ -37,7 +53,7 @@ export async function login(email, password) {
 }
 
 export async function register(username, email, phone, password) {
-    const {_id, email: resultEmail, accessToken} = await post(endpoints.register, {email, password} );
+    const {_id, email: resultEmail, accessToken} = await post(endpoints.register, {username, email, phone, password} );
     
     setUserData({
         _id,

@@ -19,7 +19,7 @@ export default function Header({
 
         {logedUser.isLoged ?   <Link to="/catalog" >
                 <div id="tagline">
-                    <h2>-{logedUser?.userInfo?.username}-</h2>
+                    <h2>-{logedUser?.userInfo?.email}-</h2>
                     <input type="button" value="logout" onClick={onLogout} />
                 </div>
             </Link> : null

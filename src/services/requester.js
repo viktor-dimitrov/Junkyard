@@ -32,7 +32,7 @@ export async function request(method, url, data) {
         if(response.url === 'http://localhost:3030/users/logout') {
             return response
         }
-            // console.log(response)
+
         const result = await response.json();
 
        

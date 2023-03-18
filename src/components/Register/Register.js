@@ -10,7 +10,7 @@ import * as userService from '../../services/userService';
 
 export default function Register({
     logHandler,
-    navigate
+   
 }) {
 
     const[user, setUser] = useState({
@@ -29,11 +29,6 @@ export default function Register({
         e.preventDefault();
          await userService.register(user.username, user.email, user.phone, user.password);
          logHandler();
-
-
-        //  navigate('/catalog');
-
-    
 
     }
 
