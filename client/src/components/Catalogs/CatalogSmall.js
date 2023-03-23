@@ -5,6 +5,8 @@ import LineLarge from "../Lines/LineLarge";
 import CardSmall from "../Cards/CardSmall";
 
 export default function CatalogSmall({ cars }) {
+
+    console.log(cars)
     return (
 
         <>

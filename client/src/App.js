@@ -28,7 +28,6 @@ function App() {
 
   const [cars, setCars] = useState([]);
 
-
   useEffect( () => {
       carService.getAll()
       .then(cars => {
@@ -39,11 +38,6 @@ function App() {
           console.log(err.message)
       })
   },[]);  
-
-
-
-
-
    
   const onSubmitCreateCar = async (inputData) => {
     const newCar = await carService.createCar(inputData)

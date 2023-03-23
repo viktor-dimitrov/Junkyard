@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+
+import { AuthContext } from '../../contexts/AuthContext';
+
 import styles from './Header.css';
 
 
 
-export default function Header({
+export default function Header() {
 
-}) {
+    const { username, isAuth } = useContext(AuthContext);
+
+    console.log(isAuth)
+
+
     return (
         <header className="wrapper" id="header">
 
@@ -16,11 +24,13 @@ export default function Header({
             </div>
 
 
-      
-                <div id="tagline">
-                    <h2>--</h2>
+        
+        {isAuth && <div id="tagline">
+                    <h2>{username}</h2>
                     <Link to="/logout" >Logout</Link>
-                </div>
+                </div>}
+      
+           
            
             
        
@@ -29,9 +39,12 @@ export default function Header({
                 <ul>
                     <li><Link to="/" >Home</Link></li>
                     <li><Link to="/catalog" >Catalog</Link></li>
-                    <li><Link to="/create" >Create</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                    {isAuth && <li><Link to="/create" >Create</Link></li> }
+
+                    {!isAuth && <li><Link to="/login">Login</Link></li> }
+                    {!isAuth && <li><Link to="/register">Register</Link></li> }
+                    
+                    
                     {/* <li><Link to="/logout">logout</Link></li> */}
                 </ul>
             </nav>

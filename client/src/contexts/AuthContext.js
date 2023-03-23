@@ -11,7 +11,7 @@ export const AuthProvider = ({
     children
 }) => {
 
-    const [auth, setAuth] = useLocalStorage('user',{});
+    const [auth, setAuth] = useLocalStorage('user', {});
 
     const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({
       const onLogout = async () => {
         try{
             await userService.logout();
-            setAuth(null);
+            setAuth({});
             navigate('/');
         }catch(error){
             console.log(error);
@@ -50,7 +50,9 @@ export const AuthProvider = ({
       const context = {
         onLoginSubmit,
         onRegisterSubmit,
-        onLogout
+        onLogout,
+        username: auth?.username,
+        isAuth: !!auth?.accessToken,
       }
 
     return <>

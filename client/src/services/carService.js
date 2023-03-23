@@ -18,7 +18,7 @@ export const getOne = async (carId) => {
 }
 
 export const createCar = async (body) => {
-    const result = await post(baseUrl, {body})
+    const result = await post(baseUrl, {...body})
  
     return result;
 }
