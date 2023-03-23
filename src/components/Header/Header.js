@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './Header.css';
 
-console.log(styles)
+
 
 export default function Header({
-    logedUser,
-    onLogout
+
 }) {
     return (
         <header className="wrapper" id="header">
@@ -17,13 +16,13 @@ export default function Header({
             </div>
 
 
-        {logedUser.isLoged ?   <Link to="/catalog" >
+      
                 <div id="tagline">
-                    <h2>-{logedUser?.userInfo?.email}-</h2>
-                    <input type="button" value="logout" onClick={onLogout} />
+                    <h2>--</h2>
+                    <Link to="/logout" >Logout</Link>
                 </div>
-            </Link> : null
-            }
+           
+            
        
 
             <nav>

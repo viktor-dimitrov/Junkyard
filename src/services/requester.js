@@ -1,4 +1,4 @@
-import { getUserData } from "./util";
+
 
 
 const host = 'http://localhost:3030';
@@ -9,12 +9,12 @@ export async function request(method, url, data) {
         headers: {}
     };
 
-    if (data !== undefined) {
+    if (data) {
         options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(data);
     }
 
-    const user = getUserData();
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if(user){
         options.headers['X-Authorization'] = user.accessToken;
@@ -29,17 +29,22 @@ export async function request(method, url, data) {
             return response;
         }
 
-        if(response.url === 'http://localhost:3030/users/logout') {
-            return response
-        }
+   
+
+        // if (response.url === 'http://localhost:3030/users/me') {
+        //    const result = await response.json()
+        // //    const data =  await JSON.parse(result)
+          
+        //     return result
+        // }
 
         const result = await response.json();
 
        
 
-        if (response.ok === false) {
+        if (!response.ok) {
        
-            throw new Error(result.message);
+            throw result;
         }
 
         return result;
