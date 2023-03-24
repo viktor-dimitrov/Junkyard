@@ -3,28 +3,24 @@ import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import * as carService from '../../services/carService';
 import LineLarge from '../Lines/LineLarge';
-import CatalogLagre from '../Catalogs/CatalogLarge';
+
 
 import styles from './Details.module.css'
-
-
-
-
-
+import Likes from '../Likes/Likes';
+import { LikeContext } from '../../contexts/LikeContext';
 
 export default function Details() {
 
     const { userId } = useContext(AuthContext);
+    const { dealerLikes, getDealerLikes } = useContext(LikeContext);
     const { carId } = useParams();
 
     const [car, setCar] = useState({});
-
-
     useEffect(() => {
         carService.getOne(carId)
             .then(result => {
-
                 setCar(result)
+                getDealerLikes(result.dealer._id);
             })
             .catch(err => {
                 console.log(err.message)
@@ -42,7 +38,7 @@ export default function Details() {
     const formattedDate = date.toLocaleString();
 
 
-    console.log(car)
+    console.log(dealerLikes)
 
 
 
@@ -80,15 +76,10 @@ export default function Details() {
                         <div>
                             <h3>Cars 5</h3>
                             
-                            <h3>Rating 0</h3>
+                            <h3>Rating {dealerLikes.length}</h3>
                         </div>
 
-                        <div>
-                            <form action="" className={styles['rating']}>
-                                <input id="correct" type="submit" value="Correct" />
-                                <input type="submit" value="Incorrect" />
-                            </form>
-                        </div>
+                    < Likes dealerId={dealer._id} userId={userId}/>
 
                   
 

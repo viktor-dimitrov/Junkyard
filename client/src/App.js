@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import * as carService from './services/carService';
 
 import { AuthProvider } from "./contexts/AuthContext";
+import { LikeProvider } from "./contexts/LikeContext";
+
+
 
 import CatalogSmall from "./components/Catalogs/CatalogSmall";
 import Create from "./components/Create/Create";
@@ -16,6 +19,7 @@ import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
 
 import './App.css';
+
 
 
 
@@ -63,8 +67,14 @@ function App() {
         < Route path="/register" element={ < Register /> } />
         < Route path="/catalog" element={ < CatalogSmall cars={cars}  />} />
         < Route path="/create" element={ < Create onSubmitCreateCar={onSubmitCreateCar} /> } />
-        < Route path="/details/:carId" element={ < Details />} />
         < Route path="/logout" element={ < Logout  /> }  />
+        < Route path="/details/:carId" element={ < LikeProvider> < Details /> </LikeProvider>} />
+        
+        
+      
+      
+
+        
         
       </Routes>
    
