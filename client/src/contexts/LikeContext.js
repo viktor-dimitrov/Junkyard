@@ -15,17 +15,24 @@ export const LikeProvider = ({
         const result =  await likeService.getDealerLikes(dealerId);
         setDealerLikes(result);
     }
+
+
+    const unlikeDealer = async (likeId) => {
+         await likeService.unlikeDealer(likeId);
+         setDealerLikes(state => state.filter(x => x._id != likeId));
+    }
        
   
-    const onClickLikeDealer = async (dealerId) => {
+    const likeDealer = async (dealerId) => {
         const result = await likeService.likeDealer(dealerId);
         setDealerLikes(state => ([...state, result]))
      }
 
     const context = {
         dealerLikes,
-        onClickLikeDealer,
+        likeDealer,
         getDealerLikes,
+        unlikeDealer,
         
     }
 

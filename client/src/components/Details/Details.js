@@ -11,8 +11,8 @@ import { LikeContext } from '../../contexts/LikeContext';
 
 export default function Details() {
 
-    const { userId } = useContext(AuthContext);
-    const { dealerLikes, getDealerLikes } = useContext(LikeContext);
+    const { userId, isAuth } = useContext(AuthContext);
+    const { dealerLikes, getDealerLikes} = useContext(LikeContext);
     const { carId } = useParams();
 
     const [car, setCar] = useState({});
@@ -20,7 +20,7 @@ export default function Details() {
         carService.getOne(carId)
             .then(result => {
                 setCar(result)
-                getDealerLikes(result.dealer._id);
+                getDealerLikes(result?.dealer?._id);
             })
             .catch(err => {
                 console.log(err.message)
@@ -29,6 +29,7 @@ export default function Details() {
 
 
     const dealer = { ...car.dealer }
+   
 
 
     const isOwner = (userId === car._ownerId) ? true : false
@@ -36,11 +37,6 @@ export default function Details() {
     const timestamp = car._createdOn;
     const date = new Date(timestamp);
     const formattedDate = date.toLocaleString();
-
-
-    console.log(dealerLikes)
-
-
 
     return (
         <>
@@ -51,11 +47,11 @@ export default function Details() {
             <p>Posted at: {formattedDate} </p>
 
 
-            <div className={styles['details']} >
+                  <div className={styles['details']} >
 
                 <article>
 
-                    <div className={styles['dealer']}>
+          {isAuth &&     <div className={styles['dealer']}>
 
                         <div>
                             <h3>Dealer</h3>
@@ -81,10 +77,8 @@ export default function Details() {
 
                     < Likes dealerId={dealer._id} userId={userId}/>
 
-                  
-
                     </div>
-
+                }
 
                     <div className={styles['specifications']}>
                         <ul >

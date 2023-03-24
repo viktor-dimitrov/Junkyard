@@ -1337,7 +1337,7 @@
     var seedData = {
         cars: {
             "4be91d66-a99c-4d99-8a80-e08779565967":     {
-                "_ownerId": "641a3e95-3912-43b6-9ea2-bbc53bec2047",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "model": "Golf",
                 "year": "2005",
                 "fuel": "Diesel",
@@ -1362,6 +1362,9 @@
             }
            
   
+        },
+        dealerLikes: {
+           
         },
         comments: {
         
