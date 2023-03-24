@@ -1,6 +1,6 @@
 import { get, post } from "./requester.js";
 
-const baseUrl =  '/data/cars/'
+const baseUrl =  '/data/cars'
 
 
 
@@ -12,9 +12,14 @@ export const getAll = async () => {
 
 export const getOne = async (carId) => {
 
-    let result = await get(`${baseUrl}${carId}`);
-    result = {...result, ...result.body}
-    return result
+    // let result = await get(`${baseUrl}/${carId}`);
+
+    const where = encodeURIComponent(`_id="${carId}"`);
+    const load = encodeURIComponent(`dealer=_ownerId:users`);
+
+    let result = await get(`${baseUrl}?where=${where}&load=${load}`)
+   
+    return result[0]
 }
 
 export const createCar = async (body) => {

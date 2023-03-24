@@ -36,7 +36,7 @@
 	
 }
 
- input[type="submit"]{
+.contactpost input[type="submit"]{
 	display: block;
 	font-family: LeagueGothic, sans-serif;
 	font-size: 30px;
@@ -47,10 +47,10 @@
 	margin-right: 3px;
 }
 
-input[type="submit"]:hover{
+.contactpost input[type="submit"]:hover{
 	cursor:pointer;
     border: 4px inset #dd3b3b;
 }
-input[type="submit"]:active{
+.contactpost input[type="submit"]:active{
 	border: 2px inset #dd3b3b;
 }

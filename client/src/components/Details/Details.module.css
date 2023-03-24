@@ -7,16 +7,71 @@
     height:max-content;
     margin-top: 30px;
     padding: 30px;
-    
-    
 }
 
 
-.border li {
+
+.details article {
+    display:flex;
+    justify-content: center;
+    max-width: 100%;
+   
+  
+}
+
+.img{
+
     width: 400px;
+    height: 260px;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 5px #B82924;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+}
+.img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dealer {
+    width: 200px;
+    height: 260px;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 5px #B82924;
+    padding: 10px;
+}
+
+.dealer div {
+    margin: 10px;
+}
+
+.dealer form {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.specifications {
+    
+  
+    margin-left:100px;
+    display: flex;
+  
+    align-items:baseline;
+}
+
+.specifications li {
+    width: 400px;
+    max-width: 400px;
     border: 1px solid #B82924;
     box-shadow: 0 3px 4px #B82924;
-    margin-left:10px;
+  
    
 
 }
@@ -43,32 +98,23 @@
    
 }
 
-.user {
-  
-    height: 100px;
-   
-    margin-top: 10px;
-        border: 1px solid #B82924;
-    box-shadow: 0 3px 4px #B82924;
-}
 
- button{
-	display: block;
+.dealer input[type="submit"]{
+	display: inline;
 	font-family: LeagueGothic, sans-serif;
-	font-size: 10px;
-	text-transform: uppercase;
+	font-size: 15px;
+	
 	border: 2px outset #e44444;
 	color: #121212;
-	height: 40px;
-    width: 80px;
-	margin-left: 100px;
+	height: 25px;
+	
 }
 
- button:hover{
+.dealer input[type="submit"]:hover{
 	cursor:pointer;
     border: 4px inset #dd3b3b;
 }
- button:active{
+.dealer input[type="submit"]:active{
 	border: 2px inset #dd3b3b;
 }
 

@@ -14,17 +14,11 @@ import styles from './Details.module.css'
 
 export default function Details() {
 
+    const { userId } = useContext(AuthContext);
     const { carId } = useParams();
 
     const [car, setCar] = useState({});
 
-    const { userId } = useContext(AuthContext);
-
-    const isOwner = (userId === car._ownerId) ? true : false
-
-    
-
-    console.log(isOwner);
 
     useEffect(() => {
         carService.getOne(carId)
@@ -35,11 +29,20 @@ export default function Details() {
             .catch(err => {
                 console.log(err.message)
             })
-    }, [carId])
+    }, [carId]);
 
 
+    const dealer = { ...car.dealer }
 
 
+    const isOwner = (userId === car._ownerId) ? true : false
+
+    const timestamp = car._createdOn;
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleString();
+
+
+    console.log(car)
 
 
 
@@ -49,49 +52,76 @@ export default function Details() {
             < LineLarge title={"Details"} />
 
 
-            <p>Posted at:  </p>
+            <p>Posted at: {formattedDate} </p>
 
-            
+
             <div className={styles['details']} >
 
-               
+                <article>
 
-                <ul className={styles['border']}>
-                    <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
-                    <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
-                    <li ><h1 className={styles.left} >Engine</h1> <h1 className={styles.right}> {car.engine} </h1>  </li>
-                    <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
-                    <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
-                    <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
-                    <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { } </h1>  </li>
-                     
-                </ul>
-            
-                <div  >
-                    <img className="largepic" src={car.imageUrl} alt="car" />
-                </div>
+                    <div className={styles['dealer']}>
+
+                        <div>
+                            <h3>Dealer</h3>
+                            <h2> {dealer.username}</h2>
+                        </div>
+
+
+                        <div>
+                            <h3>Email</h3>
+                            <h2>{dealer.email} </h2>
+                        </div>
+
+                        <div>
+                            <h3>Phone</h3>
+                            <h2>{dealer.phone} </h2>
+                        </div>
+
+                        <div>
+                            <h3>Cars 5</h3>
+                            
+                            <h3>Rating 0</h3>
+                        </div>
+
+                        <div>
+                            <form action="" className={styles['rating']}>
+                                <input id="correct" type="submit" value="Correct" />
+                                <input type="submit" value="Incorrect" />
+                            </form>
+                        </div>
+
+                  
+
+                    </div>
+
+
+                    <div className={styles['specifications']}>
+                        <ul >
+                            <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
+                            <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
+                            <li ><h1 className={styles.left} >Engine</h1> <h1 className={styles.right}> {car.engine} </h1>  </li>
+                            <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
+                            <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
+                            <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
+                            <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { } </h1>  </li>
+                        </ul>
+                    </div>
+
+
+                    <div className={styles['img']} >
+                        <img src={car.imageUrl} alt="car" />
+                    </div>
+
+                </article>
+
             </div>
 
 
-            <div>
 
-{
-    (userId !== car._ownerId) && <>
-     <button > Add to WatchList  </button> 
-     <button > Like  </button>
-      <button > Comment  </button> 
-      </>
-    
-    
-}
-           
-           
 
-            </div>
 
-      
             <div className={styles['details']} >
-             
+
                 <div className="sidebar ">
                     <aside>
                         <h1>Recent Posts</h1>
