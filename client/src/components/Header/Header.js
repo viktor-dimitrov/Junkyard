@@ -9,9 +9,9 @@ import styles from './Header.css';
 
 export default function Header() {
 
-    const { username, isAuth } = useContext(AuthContext);
+    const { userName, isAuth } = useContext(AuthContext);
 
-    console.log(isAuth)
+  
 
 
     return (
@@ -26,7 +26,7 @@ export default function Header() {
 
         
         {isAuth && <div id="tagline">
-                    <h2>{username}</h2>
+                    <h2>{userName}</h2>
                     <Link to="/logout" >Logout</Link>
                 </div>}
       

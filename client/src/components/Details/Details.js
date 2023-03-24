@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import * as carService from '../../services/carService';
 import LineLarge from '../Lines/LineLarge';
 import CatalogLagre from '../Catalogs/CatalogLarge';
@@ -10,11 +11,20 @@ import styles from './Details.module.css'
 
 
 
+
 export default function Details() {
 
     const { carId } = useParams();
 
-    const [car, setCar] = useState({})
+    const [car, setCar] = useState({});
+
+    const { userId } = useContext(AuthContext);
+
+    const isOwner = (userId === car._ownerId) ? true : false
+
+    
+
+    console.log(isOwner);
 
     useEffect(() => {
         carService.getOne(carId)
@@ -39,7 +49,7 @@ export default function Details() {
             < LineLarge title={"Details"} />
 
 
-            <p>Posted at: </p>
+            <p>Posted at:  </p>
 
             
             <div className={styles['details']} >
@@ -65,7 +75,17 @@ export default function Details() {
 
             <div>
 
-            <button > Add to WatchList  </button>
+{
+    (userId !== car._ownerId) && <>
+     <button > Add to WatchList  </button> 
+     <button > Like  </button>
+      <button > Comment  </button> 
+      </>
+    
+    
+}
+           
+           
 
             </div>
 
