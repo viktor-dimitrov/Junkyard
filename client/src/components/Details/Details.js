@@ -1,19 +1,26 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import * as carService from '../../services/carService';
 import LineLarge from '../Lines/LineLarge';
+import DeleteConfirmation from '../DeleteCar/DeleteCar';
+
 
 
 import styles from './Details.module.css'
 import Likes from '../Likes/Likes';
 import { LikeContext } from '../../contexts/LikeContext';
 
-export default function Details() {
+
+export default function Details({
+    onSubmitDeleteCar
+}) {
 
     const { userId, isAuth } = useContext(AuthContext);
-    const { dealerLikes, getDealerLikes} = useContext(LikeContext);
+    const { dealerLikes, getDealerLikes } = useContext(LikeContext);
     const { carId } = useParams();
+
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     const [car, setCar] = useState({});
     useEffect(() => {
@@ -27,37 +34,47 @@ export default function Details() {
             })
     }, [carId]);
 
-
     const dealer = { ...car.dealer }
-   
-
-
     const isOwner = (userId === car._ownerId) ? true : false
-
     const timestamp = car._createdOn;
     const date = new Date(timestamp);
     const formattedDate = date.toLocaleString();
 
+    const handleDeleteClick = () => {
+        setShowConfirmation(true);
+      };
+    
+      const handleCloseConfirmation = () => {
+        setShowConfirmation(false);
+      };
+
     return (
         <>
+            <p>Posted at: {formattedDate} </p>
 
             < LineLarge title={"Details"} />
 
 
-            <p>Posted at: {formattedDate} </p>
 
 
-                  <div className={styles['details']} >
+         
 
+           
+
+
+
+            <div className={styles['details']} >
+            {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId} onSubmitDeleteCar={onSubmitDeleteCar} /> }
+
+            
                 <article>
 
-          {isAuth &&     <div className={styles['dealer']}>
+                    {isAuth && <div className={styles['dealer']}>
 
                         <div>
                             <h3>Dealer</h3>
                             <h2> {dealer.username}</h2>
                         </div>
-
 
                         <div>
                             <h3>Email</h3>
@@ -71,16 +88,29 @@ export default function Details() {
 
                         <div>
                             <h3>Cars 5</h3>
-                            
                             <h3>Rating {dealerLikes.length}</h3>
                         </div>
 
-                    < Likes dealerId={dealer._id} userId={userId}/>
+                        {!isOwner && < Likes dealerId={dealer._id} userId={userId} />}
 
                     </div>
-                }
+                    }
+
+       
 
                     <div className={styles['specifications']}>
+
+                        {isOwner && <div className={styles['ownerbtn']}>
+                            <button type="button" className={styles['rm']}  >Edit  </button>
+                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete  </button>
+                        </div>}
+                       
+
+                       
+
+
+
+
                         <ul >
                             <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
                             <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
@@ -89,9 +119,11 @@ export default function Details() {
                             <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
                             <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
                             <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { } </h1>  </li>
+                            <li></li>
                         </ul>
-                    </div>
 
+                    </div>
+                    
 
                     <div className={styles['img']} >
                         <img src={car.imageUrl} alt="car" />

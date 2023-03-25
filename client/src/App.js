@@ -19,6 +19,7 @@ import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
 
 import './App.css';
+import DeleteCar from "./components/DeleteCar/DeleteCar";
 
 
 
@@ -47,7 +48,13 @@ function App() {
     const newCar = await carService.createCar(inputData)
     setCars( cars => [...cars, newCar]);
     navigate('/catalog');
+    
 
+  }
+  const onSubmitDeleteCar = async (carId) => {
+            await carService.deleteCar(carId);
+            setCars(cars => cars.filter(car => car._id !== carId))
+             navigate('/catalog');
   }
 
 
@@ -68,7 +75,9 @@ function App() {
         < Route path="/catalog" element={ < CatalogSmall cars={cars}  />} />
         < Route path="/create" element={ < Create onSubmitCreateCar={onSubmitCreateCar} /> } />
         < Route path="/logout" element={ < Logout  /> }  />
-        < Route path="/details/:carId" element={ < LikeProvider> < Details /> </LikeProvider>} />
+        < Route path="/details/:carId" element={ < LikeProvider> < Details onSubmitDeleteCar={onSubmitDeleteCar} /> </LikeProvider>} />
+        < Route path="/details/:carId/edit" element={ < Logout  /> }  />
+     
         
         
       

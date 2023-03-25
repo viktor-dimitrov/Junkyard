@@ -13,7 +13,6 @@ export default function Likes({
 
     const [myLike, setMyLike] = useState([]);
 
-  
 
     useEffect( () => {
         console.log(userId)
@@ -22,7 +21,6 @@ export default function Likes({
             
                 setMyLike(result[0])
             
-           
         }).catch(error => {
             console.log(error)
         })

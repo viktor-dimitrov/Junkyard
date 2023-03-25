@@ -1,0 +1,42 @@
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+
+  }
+  
+  .confirmation-dialog {
+    width: 400px;
+    height: 400px;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 5px #B82924;
+  }
+  
+  .confirmation-dialog-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .confirmation-buttons button {
+    margin: 0 10px;
+  }
