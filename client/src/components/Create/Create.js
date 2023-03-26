@@ -1,13 +1,14 @@
 import './Create.css';
 import LineLarge from "../Lines/LineLarge";
 import { carList } from '../../constants/carList';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CarContext } from '../../contexts/CarContext';
 
 
 
-export default function Create( { onSubmitCreateCar } ) {
+export default function Create() {
 
-    const currYear = new Date().getFullYear();
+    const { onSubmitCreateCar } = useContext( CarContext )
 
     const [car, setCar] = useState({});
     const [carInputs, setCarInputs] = useState({
@@ -18,6 +19,8 @@ export default function Create( { onSubmitCreateCar } ) {
         color: '',
         imageUrl: '',
     })
+
+    const currYear = new Date().getFullYear();
 
     const onChangeBrand = (e) => {
         let selectedCar = carList.find(c => c.brand === (e.target.value));

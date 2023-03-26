@@ -1,11 +1,10 @@
 
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import * as carService from './services/carService';
+import { Routes, Route } from "react-router-dom";
+
 
 import { AuthProvider } from "./contexts/AuthContext";
 import { LikeProvider } from "./contexts/LikeContext";
-
+import { CarProvider } from "./contexts/CarContext";
 
 
 import CatalogSmall from "./components/Catalogs/CatalogSmall";
@@ -28,34 +27,11 @@ import DeleteCar from "./components/DeleteCar/DeleteCar";
 
 
 
+
 function App() {
-  const navigate = useNavigate();
 
-  const [cars, setCars] = useState([]);
-
-  useEffect( () => {
-      carService.getAll()
-      .then(cars => {
-     
-          setCars(cars);
-      })
-       .catch(err => {
-          console.log(err.message)
-      })
-  },[]);  
    
-  const onSubmitCreateCar = async (inputData) => {
-    const newCar = await carService.createCar(inputData)
-    setCars( cars => [...cars, newCar]);
-    navigate('/catalog');
-    
 
-  }
-  const onSubmitDeleteCar = async (carId) => {
-            await carService.deleteCar(carId);
-            setCars(cars => cars.filter(car => car._id !== carId))
-             navigate('/catalog');
-  }
 
 
   return (
@@ -64,33 +40,35 @@ function App() {
 
 < AuthProvider >   
 
+< CarProvider >
+
  < Header />
 
     <div className="wrapper ">
     
       < Routes >
-        < Route path="/" element={< Home /> } />
+        
         < Route path="/login" element={ < Login /> } />
         < Route path="/register" element={ < Register /> } />
-        < Route path="/catalog" element={ < CatalogSmall cars={cars}  />} />
-        < Route path="/create" element={ < Create onSubmitCreateCar={onSubmitCreateCar} /> } />
         < Route path="/logout" element={ < Logout  /> }  />
-        < Route path="/details/:carId" element={ < LikeProvider> < Details onSubmitDeleteCar={onSubmitDeleteCar} /> </LikeProvider>} />
-        < Route path="/details/:carId/edit" element={ < Logout  /> }  />
      
-        
-        
+        < Route path="/" element={< Home /> } />
+        < Route path="/catalog" element={ < CatalogSmall  />} />
+        < Route path="/create" element={ < Create /> } />
       
+        < Route path="/details/:carId" element={ < LikeProvider> < Details /> </LikeProvider>} />
+        < Route path="/details/:carId/edit" element={ < Logout  /> }  />
       
+       
 
-        
-        
       </Routes>
    
      
     
     </div>
     < Footer />
+
+    </CarProvider>
 
     </AuthProvider>
 

@@ -1,12 +1,16 @@
 
+import { useContext } from 'react';
+import { CarContext } from '../../contexts/CarContext';
 import styles from './DeleteCar.module.css'
 
 
 export default function DeleteConfirmation ({
     closeConfirmation, 
     carId,
-    onSubmitDeleteCar
+    
  }) {
+
+  const { onSubmitDeleteCar } = useContext( CarContext )
 
     const confirmDelete = async() => {
         closeConfirmation();

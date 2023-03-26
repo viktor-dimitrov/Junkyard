@@ -13,7 +13,7 @@ import { LikeContext } from '../../contexts/LikeContext';
 
 
 export default function Details({
-    onSubmitDeleteCar
+ 
 }) {
 
     const { userId, isAuth } = useContext(AuthContext);
@@ -64,7 +64,7 @@ export default function Details({
 
 
             <div className={styles['details']} >
-            {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId} onSubmitDeleteCar={onSubmitDeleteCar} /> }
+            {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId}  /> }
 
             
                 <article>
