@@ -1345,6 +1345,7 @@
                 "fuel": "Diesel",
                 "engine": "3.2 TDI",
                 "color": "White",
+                "mileage": "175984",
                 "imageUrl": "https://cdn6.focus.bg/bazar/f9/pics/f9c4194ac5f7c03600bd9652521ef60b.jpg",
                 "brand": "Volkswagen",
                 "_createdOn": 1679578986904,
@@ -1357,15 +1358,47 @@
                 "fuel": "LPG",
                 "engine": "1.8 i",
                 "color": "Red",
+                "mileage": "205242",
                 "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPsbHiyAQHEdVZ11OYKwYJN3L3lXPR0lPn9A&usqp=CAU",
                 "brand": "Toyota",
                 "_createdOn": 1679579652681,
                 "_id": "bc520d99-4567-4a06-87c4-38d67c764b4c"
+            },
+            
+                "673de213-bfcd-4465-9f5f-4648ee54d23c": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "model": "C4 Grand Picasso",
+                "year": "2014",
+                "fuel": "Diesel",
+                "engine": "1.5D",
+                "color": "Blue",
+                "imageUrl": "https://mobistatic4.focus.bg/mobile/photosorg/525/1/big/11630159869520525_6Y.jpg",
+                "mileage": "112234",
+                "brand": "Citroën",
+                "_createdOn": 1680032119699,
+                "_id": "673de213-bfcd-4465-9f5f-4648ee54d23c"
+            },
+            "2d572b73-aa31-46bc-a870-9454a0442436" : {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "model": "HR-V",
+                "year": "2005",
+                "fuel": "LPG",
+                "engine": "1.6i 2WD",
+                "color": "Silver Blue",
+                "imageUrl": "https://www.schadeautos.nl/cache/picture/66/1446581/a03f1b29871e21b06bf4ae5921bd7045~v77263504.jpg",
+                "mileage": "190000",
+                "brand": "Honda",
+                "_createdOn": 1680038196623,
+                "_id": "2d572b73-aa31-46bc-a870-9454a0442436"
             }
+            
            
   
         },
         dealerLikes: {
+           
+        },
+        carLikes: {
            
         },
         comments: {

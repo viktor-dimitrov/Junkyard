@@ -20,6 +20,7 @@ export default function Create() {
         engine: '',
         color: '',
         imageUrl: '',
+        mileage: '',
     })
 
     const currYear = new Date().getFullYear();
@@ -96,6 +97,12 @@ export default function Create() {
                             </tr>
 
                             <tr>
+
+                            <td>
+                                    <label htmlFor="engine">Mileage</label>
+                                    <input id="mileage" name="mileage" type="number" value={carInputs.mileage} onChange={onChangeCarInputs} />
+                                </td>
+
                                 <td>
                                     <label htmlFor="image">Image</label>
                                     <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs}/>

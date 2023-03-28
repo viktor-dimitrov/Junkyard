@@ -1,10 +1,32 @@
-export default function CardLarge() {
+export default function CardLarge({
+    imageUrl
+}) {
     return (
         <article>
+
+            <div>
             <h1>Web Design</h1>
-            <img src="images/1.jpg" alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet.</p>
-            <a href="fullwidth.html" className="rm">Read More</a>
+            <img className="largepic" src={imageUrl} alt="car" />
+            </div>
+   
+
+
+            <aside className="right">
+
+<h1>Recent Posts</h1>
+<ul>
+    <li><a href="#">Suspendisse Enim Elit Tempor Acer</a></li>
+    <li><a href="#">Mauris Sed Lectus Duieleifend Quis Sem</a></li>
+    <li><a href="#">Suspendisse Enim Elit Tempor Acer Fermentum Vulputate</a></li>
+    <li><a href="#">Mauris Sed Lectus Duieleifend Quis Sem</a></li>
+</ul>
+<a href="fullwidth.html" className="rm">Read More</a>
+
+</aside>
+           
+           
+
+            
         </article>
     )
 }

@@ -255,7 +255,7 @@ body{
 	margin-bottom: 10px;
 
 }
-#latestp article{
+.latestp article{
 	width: 210px;
 	display: inline-block;
 	*display: inline;
@@ -423,6 +423,13 @@ footer{
 .smallpic {
 	width: 200px;
 	height: 130px;
+	border: 1px solid #B82924;
+	box-shadow: 0 3px 5px #B82924;
+}
+
+.largepic {
+	width: 400px;
+	height: 230px;
 	border: 1px solid #B82924;
 	box-shadow: 0 3px 5px #B82924;
 }

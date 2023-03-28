@@ -1,0 +1,13 @@
+
+
+
+.home {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.home article {
+    display: flex;
+    justify-content: flex-start;
+}

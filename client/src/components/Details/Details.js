@@ -8,8 +8,11 @@ import DeleteConfirmation from '../DeleteCar/DeleteCar';
 
 
 import styles from './Details.module.css'
-import Likes from '../Likes/Likes';
+import LikeDealer from '../Likes/LikeDealer';
+import LikeCar from '../Likes/LikeCar';
+
 import { LikeContext } from '../../contexts/LikeContext';
+
 
 
 export default function Details({
@@ -17,7 +20,7 @@ export default function Details({
 }) {
 
     const { userId, isAuth } = useContext(AuthContext);
-    const { dealerLikes, getDealerLikes } = useContext(LikeContext);
+    const { dealerLikes, getDealerLikes, carLikes, getCarLikes } = useContext(LikeContext);
     const { carId } = useParams();
 
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -26,8 +29,9 @@ export default function Details({
     useEffect(() => {
         carService.getOne(carId)
             .then(result => {
-                setCar(result)
+                setCar(result);
                 getDealerLikes(result?.dealer?._id);
+                getCarLikes(result?._id);
             })
             .catch(err => {
                 console.log(err.message)
@@ -54,7 +58,7 @@ export default function Details({
       };
 
 
-      console.log(car._updatedOn)
+   
 
     return (
         <>
@@ -65,11 +69,47 @@ export default function Details({
 
 
             <div className={styles['details']} >
-            {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId}  /> }
+           
 
             
                 <article>
 
+                {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId}  /> }
+
+
+
+                {isOwner && <div className={styles['ownerbtn']}>
+                          < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
+                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
+                        </div>}
+    
+                    <div className={styles['specifications']}>
+
+                
+                       
+
+                        <ul >
+                            <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
+                            <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
+                            <li ><h1 className={styles.left} >Engine</h1> <h1 className={styles.right}> {car.engine} </h1>  </li>
+                            <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
+                            <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
+                            <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
+                            <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { car.mileage } </h1>  </li>
+                            <li> 
+                                <h1 className={styles.center} > <strong> {carLikes.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1> 
+                             { !isOwner && <h1 className={styles.right} > < LikeCar carId={carId} userId={userId}  /> </h1> }
+                            </li>
+                        </ul>
+
+                    </div>
+                    
+
+                    <div className={styles['img']} >
+                        <img src={car.imageUrl} alt="car" />
+                    </div>
+
+                    
                     {isAuth && <div className={styles['dealer']}>
 
                         <div>
@@ -88,41 +128,16 @@ export default function Details({
                         </div>
 
                         <div>
-                            <h3>Cars 5</h3>
-                            <h3>Rating {dealerLikes.length}</h3>
+                            <h3>5 &nbsp;&nbsp;&nbsp; Cars </h3>
+                            <h3> {dealerLikes.length} &nbsp;&nbsp;&nbsp; Followers</h3>
                         </div>
 
-                        {!isOwner && < Likes dealerId={dealer._id} userId={userId} />}
+
+
+                        {!isOwner && < LikeDealer dealerId={dealer._id} userId={userId} />}
 
                     </div>
                     }
-
-    
-                    <div className={styles['specifications']}>
-
-                        {isOwner && <div className={styles['ownerbtn']}>
-                          < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
-                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
-                        </div>}
-                       
-
-                        <ul >
-                            <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
-                            <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
-                            <li ><h1 className={styles.left} >Engine</h1> <h1 className={styles.right}> {car.engine} </h1>  </li>
-                            <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
-                            <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
-                            <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
-                            <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { } </h1>  </li>
-                            <li></li>
-                        </ul>
-
-                    </div>
-                    
-
-                    <div className={styles['img']} >
-                        <img src={car.imageUrl} alt="car" />
-                    </div>
 
                 </article>
 

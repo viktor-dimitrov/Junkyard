@@ -19,7 +19,7 @@ export default function CatalogSmall( ) {
 
          < LineLarge title={'Catalog'} />
 
-        <div id="latestp">
+        <div className="latestp">
 
             {cars.map(car => < CardSmall key={car._id} {...car} /> )}
 

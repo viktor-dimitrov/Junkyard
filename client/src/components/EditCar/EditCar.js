@@ -22,6 +22,7 @@ export default  function EditCar () {
         engine: '',
         color: '',
         imageUrl: '',
+        mileage: '',
     });
 
     useEffect( () => {
