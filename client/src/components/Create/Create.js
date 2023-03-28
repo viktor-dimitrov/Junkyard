@@ -10,7 +10,9 @@ export default function Create() {
 
     const { onSubmitCreateCar } = useContext( CarContext )
 
-    const [car, setCar] = useState({});
+    const [carBrand, setCarBrand] = useState({});
+
+
     const [carInputs, setCarInputs] = useState({
         model: '',
         year: '',
@@ -24,7 +26,7 @@ export default function Create() {
 
     const onChangeBrand = (e) => {
         let selectedCar = carList.find(c => c.brand === (e.target.value));
-        setCar(selectedCar);
+        setCarBrand(selectedCar);
     }
 
     const onChangeCarInputs = (e) => {
@@ -33,7 +35,7 @@ export default function Create() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        onSubmitCreateCar({...carInputs, brand: car.brand});
+        onSubmitCreateCar({...carInputs, brand: carBrand.brand});
     }
 
     return (
@@ -46,7 +48,7 @@ export default function Create() {
                             <tr>
                                 <td>
                                     <label htmlFor="brand">Brand</label>
-                                    <select id="brand" name="brand" value={car.brand} onChange={onChangeBrand} >
+                                    <select id="brand" name="brand" value={carBrand.brand} onChange={onChangeBrand} >
                                         <option defaultValue={''} ></option>
                                         {carList.sort((a, b) => a.brand.localeCompare(b.brand)).map(x => <option key={x.brand} defaultValue={x.brand}>{x.brand}</option>)}
                                     </select>
@@ -56,7 +58,7 @@ export default function Create() {
                                     <label htmlFor="model">Model</label>
                                     <select id="model" name="model" value={carInputs.model} onChange={onChangeCarInputs}>
                                     <option defaultValue={''} ></option>
-                                        {car.models?.map((x, i) => <option key={i} defaultValue={x}>{x}</option>)}
+                                        {carBrand.models?.map((x, i) => <option key={i} defaultValue={x}>{x}</option>)}
                                     </select>
                                 </td>
 

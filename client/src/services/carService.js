@@ -25,3 +25,9 @@ export const createCar = async (body) => {
 export const deleteCar = async (carId) => {
     await del(`${baseUrl}/${carId}`);
 }
+
+export const editCar = async (carId, body) => {
+    const result = await put(`${baseUrl}/${carId}`, body);
+    return result
+}
+

@@ -36,9 +36,14 @@ export default function Details({
 
     const dealer = { ...car.dealer }
     const isOwner = (userId === car._ownerId) ? true : false
-    const timestamp = car._createdOn;
-    const date = new Date(timestamp);
-    const formattedDate = date.toLocaleString();
+
+
+    const timestampCreate = car._createdOn;
+    const timestampUpdate = car._updatedOn;
+    const dateCreate = new Date(timestampCreate);
+    const dateUpdate = new Date(timestampUpdate);
+    const formattedDateCreate = dateCreate.toLocaleString();
+    const formattedDateUpdate = dateUpdate.toLocaleString();
 
     const handleDeleteClick = () => {
         setShowConfirmation(true);
@@ -48,19 +53,15 @@ export default function Details({
         setShowConfirmation(false);
       };
 
+
+      console.log(car._updatedOn)
+
     return (
         <>
-            <p>Posted at: {formattedDate} </p>
+            <p>Posted at: {formattedDateCreate} </p>
+            {car._updatedOn && <p>Last Update: {formattedDateUpdate} </p> }
 
             < LineLarge title={"Details"} />
-
-
-
-
-         
-
-           
-
 
 
             <div className={styles['details']} >
@@ -96,20 +97,14 @@ export default function Details({
                     </div>
                     }
 
-       
-
+    
                     <div className={styles['specifications']}>
 
                         {isOwner && <div className={styles['ownerbtn']}>
-                            <button type="button" className={styles['rm']}  >Edit  </button>
-                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete  </button>
+                          < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
+                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
                         </div>}
                        
-
-                       
-
-
-
 
                         <ul >
                             <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
@@ -132,9 +127,6 @@ export default function Details({
                 </article>
 
             </div>
-
-
-
 
 
             <div className={styles['details']} >

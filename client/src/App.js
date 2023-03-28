@@ -16,9 +16,10 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
+import EditCar from "./components/EditCar/EditCar";
 
 import './App.css';
-import DeleteCar from "./components/DeleteCar/DeleteCar";
+
 
 
 
@@ -30,50 +31,50 @@ import DeleteCar from "./components/DeleteCar/DeleteCar";
 
 function App() {
 
-   
+
 
 
 
   return (
-<>
+    <>
 
 
-< AuthProvider >   
+      < AuthProvider >
 
-< CarProvider >
+        < CarProvider >
 
- < Header />
+          < Header />
 
-    <div className="wrapper ">
-    
-      < Routes >
-        
-        < Route path="/login" element={ < Login /> } />
-        < Route path="/register" element={ < Register /> } />
-        < Route path="/logout" element={ < Logout  /> }  />
-     
-        < Route path="/" element={< Home /> } />
-        < Route path="/catalog" element={ < CatalogSmall  />} />
-        < Route path="/create" element={ < Create /> } />
-      
-        < Route path="/details/:carId" element={ < LikeProvider> < Details /> </LikeProvider>} />
-        < Route path="/details/:carId/edit" element={ < Logout  /> }  />
-      
-       
+          <div className="wrapper ">
 
-      </Routes>
-   
-     
-    
-    </div>
-    < Footer />
+            < Routes >
 
-    </CarProvider>
+              < Route path="/login" element={< Login />} />
+              < Route path="/register" element={< Register />} />
+              < Route path="/logout" element={< Logout />} />
 
-    </AuthProvider>
+              < Route path="/" element={< Home />} />
+              < Route path="/catalog" element={< CatalogSmall />} />
+              < Route path="/create" element={< Create />} />
+
+              < Route path="/details/:carId" element={< LikeProvider> < Details /> </LikeProvider>} />
+              < Route path="/details/:carId/edit" element={< EditCar />} />
 
 
-   
+
+            </Routes>
+
+
+
+          </div>
+          < Footer />
+
+        </CarProvider>
+
+      </AuthProvider>
+
+
+
     </>
   );
 }

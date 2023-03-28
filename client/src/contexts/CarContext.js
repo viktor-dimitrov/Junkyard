@@ -37,11 +37,18 @@ export const CarProvider = ({
                  navigate('/catalog');
       }
 
+      const onSubmitEditCar = async (carId, body) => {
+            const result = await carService.editCar(carId, body);
+            setCars(cars => cars.map( car => car._id === carId ? result : car ))
+            navigate(`/details/${carId}`);
+      }
+
 
       const context = {
         cars,
         onSubmitCreateCar,
-        onSubmitDeleteCar
+        onSubmitDeleteCar,
+        onSubmitEditCar,
       }
 
 
