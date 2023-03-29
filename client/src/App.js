@@ -64,7 +64,7 @@ function App() {
 
               < Route path="/details/:carId" element={ < Details />} />
               < Route path="/details/:carId/edit" element={< EditCar />} />
-              < Route path="/profile/:userId" element={< Profile />} />
+              < Route path="/profile/:userId/*" element={< Profile />} />
 
 
 

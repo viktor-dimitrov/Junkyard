@@ -1,6 +1,7 @@
 
 import {  useCarContext } from "../../contexts/CarContext"
 import CardLarge from "../Cards/CardLarge"
+import LineLarge from "../Lines/LineLarge"
 
 import styles from './CatalogLarge.module.css'
 
@@ -14,7 +15,7 @@ export default function CatalogLagre({
     return (
 
         <>
-
+     < LineLarge title={`cars`}/>
 
         <div className={styles['home']} >
 

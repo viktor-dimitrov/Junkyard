@@ -21,3 +21,13 @@
 .profile h1 {
     margin-bottom: 10px;
 }
+
+.profile h3 {
+    text-align: center;
+    font-size: x-large;
+    width:300px;
+    padding: 3px;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 5px #B82924;
+    margin-bottom: 20px;
+}
