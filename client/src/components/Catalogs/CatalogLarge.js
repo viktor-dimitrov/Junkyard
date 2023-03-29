@@ -7,12 +7,9 @@ import styles from './CatalogLarge.module.css'
 
 
 
-export default function CatalogLagre() {
-
-    const { cars } = useCarContext();
-
-
-
+export default function CatalogLagre({
+    cars
+}) {
 
     return (
 

@@ -1,32 +1,48 @@
+import { Link } from 'react-router-dom'
+
+
+import styles from './CardLarge.module.css'
+
+
 export default function CardLarge({
-    imageUrl
+    imageUrl,
+    brand,
+    model,
+    year,
+    engine,
+    mileage,
+    color, 
+    fuel,
+    _id
+
 }) {
     return (
-        <article>
+        <article className={styles['card-large']} >
 
             <div>
-            <h1>Web Design</h1>
-            <img className="largepic" src={imageUrl} alt="car" />
-            </div>
-   
 
+                <img className="largepic" src={imageUrl} alt="car" />
+            </div>
 
             <aside className="right">
 
-<h1>Recent Posts</h1>
-<ul>
-    <li><a href="#">Suspendisse Enim Elit Tempor Acer</a></li>
-    <li><a href="#">Mauris Sed Lectus Duieleifend Quis Sem</a></li>
-    <li><a href="#">Suspendisse Enim Elit Tempor Acer Fermentum Vulputate</a></li>
-    <li><a href="#">Mauris Sed Lectus Duieleifend Quis Sem</a></li>
-</ul>
-<a href="fullwidth.html" className="rm">Read More</a>
 
-</aside>
-           
-           
+                <ul>
+                    <li> <h3>{brand}  &nbsp;&nbsp;&nbsp;   {model}</h3>  </li>
+                    <li> <h3>{engine} &nbsp;&nbsp;&nbsp; {fuel} </h3></li>
+                    <li> <h3>{year}</h3></li>
+                    <li> <h3>{color}</h3></li>
+                    <li> <h3>{mileage} km</h3></li>
+                    
 
-            
+                </ul>
+                <Link to={`/details/${_id}`} className="rm">Read More</Link>
+
+            </aside>
+
+
+
+
         </article>
     )
 }

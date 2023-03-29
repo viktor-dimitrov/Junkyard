@@ -1324,13 +1324,15 @@
                 email: "peter@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 phone: "02234432",
-                username: "Peter Parcker"
+                username: "Peter Parcker",
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Tobey_Maguire_by_David_Shankbone_crop.jpg/220px-Tobey_Maguire_by_David_Shankbone_crop.jpg"
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "john@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 phone: "000911",
-                username: "John McClane"
+                username: "John McClane",
+                imageUrl: 'https://static.wikia.nocookie.net/diehard/images/2/27/John_McClane_DH3.jpeg/revision/latest?cb=20201109172109',
             }
         },
         sessions: {

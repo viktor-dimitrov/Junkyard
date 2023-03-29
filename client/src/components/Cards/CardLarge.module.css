@@ -1,0 +1,14 @@
+
+
+.card-large {
+    display:flex;
+    padding: 20px;
+    margin: 20px;
+
+   
+}
+
+.card-large h3 {
+    margin-bottom: 10px;
+    font-size: x-large;
+}

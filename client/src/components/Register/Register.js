@@ -17,6 +17,7 @@ export default function Register() {
         username: '',
         email: '',
         phone: '',
+        imageUrl: '',
         password: '',
         repassword: '',
     }, onRegisterSubmit);
@@ -28,13 +29,14 @@ export default function Register() {
             <div className="center">
                 <div className={styles['contactpost']}>
 
-                    {/* <span>&nbsp;</span> */}
+                
 
                     <form onSubmit={onSubmit} method="POST" className={styles['register']}  >
 
                         <p ><label htmlFor="name">Username</label><input type="user" name="username" placeholder="your username" value={values.name} onChange={changeHandler} /></p>
                         <p><label htmlFor="email">Email</label><input type="email" name="email" id="email" placeholder="your@email.com" value={values.email} onChange={changeHandler} /></p>
                         <p><label htmlFor="phone">Phone Number</label><input type="phone" name="phone" placeholder="0888123456" value={values.phone} onChange={changeHandler} /></p>
+                        <p><label htmlFor="imageUrld">ImageUrl</label><input type="text" name="imageUrl" placeholder="http://pictures.com/myPicture.jpeg" value={values.imageUrl} onChange={changeHandler} /></p>
                         <p><label htmlFor="password">Password</label><input type="password" name="password" placeholder="******" value={values.password} onChange={changeHandler} /></p>
                         <p><label htmlFor="repassword">Repeat Pasword</label><input type="password" name="repassword" id="repassword" placeholder="******" value={values.repassword} onChange={changeHandler} /></p>
 

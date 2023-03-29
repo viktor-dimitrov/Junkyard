@@ -21,7 +21,7 @@ export default function Likes({
 
 
     useEffect(() => {
-        console.log(userId)
+     
         getMyDealerLike(dealerId, userId)
             .then(result => {
 
@@ -32,8 +32,7 @@ export default function Likes({
             })
     }, [dealerId, userId, dealerLikes])
 
-    console.log(myLike)
-
+   
 
     return (
 

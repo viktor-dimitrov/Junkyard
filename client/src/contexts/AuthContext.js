@@ -53,6 +53,9 @@ export const AuthProvider = ({
         onLogout,
         userId: auth._id,
         userName: auth?.username,
+        phone: auth.phone,
+        email: auth.email,
+        imageUrl: auth.imageUrl,
         isAuth: !!auth?.accessToken,
       }
 

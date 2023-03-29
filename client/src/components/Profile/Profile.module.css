@@ -1,0 +1,21 @@
+
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.profile img {
+
+    width: 200px;
+    height: 200px;
+
+   max-width:  200px;
+   max-height: 200px;
+   border-radius: 50%;
+}
+
+.profile h1 {
+    margin-bottom: 30px;
+}
