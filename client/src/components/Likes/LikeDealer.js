@@ -15,7 +15,7 @@ export default function Likes({
     userId
 
 }) {
-    const { dealerLikes, likeDealer, unlikeDealer } = useLikeContext();
+    const { followers, likeDealer, unlikeDealer } = useLikeContext();
 
     const [myLike, setMyLike] = useState([]);
 
@@ -30,7 +30,7 @@ export default function Likes({
             }).catch(error => {
                 console.log(error)
             })
-    }, [dealerId, userId, dealerLikes])
+    }, [dealerId, userId, followers])
 
    
 

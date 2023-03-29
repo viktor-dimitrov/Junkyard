@@ -33,6 +33,8 @@ import Profile from "./components/Profile/Profile";
 function App() {
 
 
+  
+
 
 
 
@@ -43,6 +45,8 @@ function App() {
       < AuthProvider >
 
         < CarProvider >
+
+        < LikeProvider>
 
           < Header />
 
@@ -58,7 +62,7 @@ function App() {
               < Route path="/catalog" element={< CatalogSmall />} />
               < Route path="/create" element={< Create />} />
 
-              < Route path="/details/:carId" element={< LikeProvider> < Details /> </LikeProvider>} />
+              < Route path="/details/:carId" element={ < Details />} />
               < Route path="/details/:carId/edit" element={< EditCar />} />
               < Route path="/profile/:userId" element={< Profile />} />
 
@@ -70,6 +74,8 @@ function App() {
 
           </div>
           < Footer />
+
+          </LikeProvider>
 
         </CarProvider>
 

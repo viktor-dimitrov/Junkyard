@@ -1,21 +1,39 @@
-import { Link } from "react-router-dom"
-import { useAuthContext } from "../../contexts/AuthContext"
+import { Link } from "react-router-dom";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { useCarContext } from "../../contexts/CarContext";
+
 
 import LineLarge from "../Lines/LineLarge"
 import CatalogLarge from '../Catalogs/CatalogLarge';
 
 import styles from './Profile.module.css'
+import { useLikeContext } from "../../contexts/LikeContext";
+import { useEffect, useState } from "react";
 
 
 export default function Profile () {
 
     const {userId, userName, phone,  imageUrl, email} = useAuthContext();
     const {cars} = useCarContext();
+    const { followers, followings, getFollowings, getFollowers } = useLikeContext();
+
+    // const [follows , setFollows] = useState([]);
+
+    useEffect(() => {
+        getFollowers(userId)
+        getFollowings(userId)
+     
+        
+        .catch(error => {
+            console.log(error.message)
+        })
+
+    }, [userId]);
+
+  
 
     const userCars = cars.filter(car => car._ownerId === userId);
 
-   
     return (
         <>
         
@@ -32,8 +50,8 @@ export default function Profile () {
             </div>
 
             <div>
-            < Link to={`#`} > <button type="button" >Followers  </button> </Link>
-            < Link to={`#`} > <button type="button"  >Followings  </button> </Link>
+            < Link to={`#`} > <button type="button" > <strong>{followers?.length}</strong> &nbsp;&nbsp;&nbsp; Followers  </button> </Link>
+            < Link to={`#`} > <button type="button"  > <strong>{followings?.length}</strong> &nbsp;&nbsp;&nbsp; Following  </button> </Link>
 
             </div>
         </div>

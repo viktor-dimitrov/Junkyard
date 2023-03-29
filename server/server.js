@@ -1332,7 +1332,7 @@
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 phone: "000911",
                 username: "John McClane",
-                imageUrl: 'https://static.wikia.nocookie.net/diehard/images/2/27/John_McClane_DH3.jpeg/revision/latest?cb=20201109172109',
+                imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/John_MacClane.jpg/220px-John_MacClane.jpg",
             }
         },
         sessions: {

@@ -21,7 +21,7 @@ export default function Details({
 }) {
 
     const { userId, isAuth } = useAuthContext();
-    const { dealerLikes, getDealerLikes, carLikes, getCarLikes } = useLikeContext();
+    const { followers, getFollowers, carLikes, getCarLikes } = useLikeContext();
     const { carId } = useParams();
 
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -31,7 +31,7 @@ export default function Details({
         carService.getOne(carId)
             .then(result => {
                 setCar(result);
-                getDealerLikes(result?.dealer?._id);
+                getFollowers(result?.dealer?._id);
                 getCarLikes(result?._id);
             })
             .catch(err => {
@@ -131,7 +131,7 @@ export default function Details({
 
                         <div>
                             <h3>5 &nbsp;&nbsp;&nbsp; Cars </h3>
-                            <h3> {dealerLikes.length} &nbsp;&nbsp;&nbsp; Followers</h3>
+                            <h3> {followers.length} &nbsp;&nbsp;&nbsp; Followers</h3>
                         </div>
 
 

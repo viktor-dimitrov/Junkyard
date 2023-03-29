@@ -4,6 +4,8 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    margin-left:200px;
+    margin-right: 200px;
 }
 
 .profile img {
