@@ -1,6 +1,6 @@
 
-import { createContext, useState, useEffect } from 'react'
-import { carList } from '../constants/carList';
+import { createContext, useState, useContext } from 'react'
+
 import * as likeService from '../services/likeService'
 
 
@@ -76,4 +76,10 @@ export const LikeProvider = ({
 </>
 
 
+}
+
+export const useLikeContext = () => {
+    const context = useContext(LikeContext);
+
+    return context
 }

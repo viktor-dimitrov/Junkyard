@@ -1,14 +1,14 @@
 import './Create.css';
 import LineLarge from "../Lines/LineLarge";
 import { carList } from '../../constants/carList';
-import { useContext, useState } from 'react';
-import { CarContext } from '../../contexts/CarContext';
+import { useState } from 'react';
+import { useCarContext } from '../../contexts/CarContext';
 
 
 
 export default function Create() {
 
-    const { onSubmitCreateCar } = useContext( CarContext )
+    const { onSubmitCreateCar } = useCarContext();
 
     const [carBrand, setCarBrand] = useState({});
 

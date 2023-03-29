@@ -19,6 +19,7 @@ import Logout from "./components/Logout/Logout";
 import EditCar from "./components/EditCar/EditCar";
 
 import './App.css';
+import Profile from "./components/Profile/Profile";
 
 
 
@@ -59,6 +60,7 @@ function App() {
 
               < Route path="/details/:carId" element={< LikeProvider> < Details /> </LikeProvider>} />
               < Route path="/details/:carId/edit" element={< EditCar />} />
+              < Route path="/profile/:userId" element={< Profile />} />
 
 
 

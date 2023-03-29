@@ -1,12 +1,15 @@
-import { useContext } from "react"
-import { CarContext } from "../../contexts/CarContext"
+
+import {  useCarContext } from "../../contexts/CarContext"
 import CardLarge from "../Cards/CardLarge"
 
 import styles from './CatalogLarge.module.css'
 
+
+
+
 export default function CatalogLagre() {
 
-    const { cars } = useContext(CarContext);
+    const { cars } = useCarContext();
 
 
 

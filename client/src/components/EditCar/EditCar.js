@@ -1,16 +1,16 @@
-import {  useContext, useEffect, useState } from "react";
+import {   useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getOne } from "../../services/carService";
 import LineLarge from "../Lines/LineLarge";
 import { carList } from "../../constants/carList";
-import { CarContext } from "../../contexts/CarContext";
+import {  useCarContext } from "../../contexts/CarContext";
 
 
 
 
 export default  function EditCar () {
-    const { onSubmitEditCar } = useContext(CarContext);
+    const { onSubmitEditCar } = useCarContext();
     const { carId } = useParams();
 
     const [carBrand, setCarBrand] = useState({});

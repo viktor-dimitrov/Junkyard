@@ -1,15 +1,13 @@
-import { useState, useEffect, useContext } from "react";
-import * as carService from '../../services/carService';
-import Search from "../Search/Search";
+
 import LineLarge from "../Lines/LineLarge";
 import CardSmall from "../Cards/CardSmall";
-import { CarContext } from "../../contexts/CarContext";
+import {  useCarContext } from "../../contexts/CarContext";
 
 
 
 export default function CatalogSmall( ) {
 
-    const { cars } = useContext(CarContext);
+    const { cars } = useCarContext();
 
     
     return (

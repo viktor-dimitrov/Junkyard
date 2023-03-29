@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { useState, useEffect } from 'react';
+import {  useAuthContext } from '../../contexts/AuthContext';
 import * as carService from '../../services/carService';
 import LineLarge from '../Lines/LineLarge';
 import DeleteConfirmation from '../DeleteCar/DeleteCar';
@@ -8,10 +8,11 @@ import DeleteConfirmation from '../DeleteCar/DeleteCar';
 
 
 import styles from './Details.module.css'
+
 import LikeDealer from '../Likes/LikeDealer';
 import LikeCar from '../Likes/LikeCar';
 
-import { LikeContext } from '../../contexts/LikeContext';
+import { useLikeContext } from '../../contexts/LikeContext';
 
 
 
@@ -19,8 +20,8 @@ export default function Details({
  
 }) {
 
-    const { userId, isAuth } = useContext(AuthContext);
-    const { dealerLikes, getDealerLikes, carLikes, getCarLikes } = useContext(LikeContext);
+    const { userId, isAuth } = useAuthContext();
+    const { dealerLikes, getDealerLikes, carLikes, getCarLikes } = useLikeContext();
     const { carId } = useParams();
 
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -39,7 +40,8 @@ export default function Details({
     }, [carId]);
 
     const dealer = { ...car.dealer }
-    const isOwner = (userId === car._ownerId) ? true : false
+    const isOwner = (userId === car._ownerId) ? true : false;
+
 
 
     const timestampCreate = car._createdOn;

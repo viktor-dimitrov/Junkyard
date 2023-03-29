@@ -1,18 +1,17 @@
 
-import {useContext} from 'react';
+
 import { useForm } from '../../hooks/useForm';
 import LineLarge from "../Lines/LineLarge";
 import styles from './Register.module.css';
-import * as userService from '../../services/userService';
-import { AuthContext } from '../../contexts/AuthContext';
-// import { getUserData } from '../../services/util';
+import { useAuthContext } from '../../contexts/AuthContext';
+
 
 
 
 
 export default function Register() {
 
-    const { onRegisterSubmit } = useContext(AuthContext);
+    const { onRegisterSubmit } = useAuthContext();
 
     const {values, changeHandler, onSubmit} = useForm({
         username: '',

@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-
-import { AuthContext } from '../../contexts/AuthContext';
+import {  useAuthContext } from '../../contexts/AuthContext';
 
 import styles from './Header.css';
 
@@ -9,7 +7,7 @@ import styles from './Header.css';
 
 export default function Header() {
 
-    const { userName, isAuth } = useContext(AuthContext);
+    const { userName, isAuth, userId } = useAuthContext();
 
   
 
@@ -37,6 +35,10 @@ export default function Header() {
 
             <nav>
                 <ul>
+
+                {isAuth  && <li><Link to={`/profile/${userId}`} >My Profile</Link></li> }
+
+
                     <li><Link to="/" >Home</Link></li>
                     <li><Link to="/catalog" >Catalog</Link></li>
                     {isAuth && <li><Link to="/create" >Create</Link></li> }
@@ -44,8 +46,7 @@ export default function Header() {
                     {!isAuth && <li><Link to="/login">Login</Link></li> }
                     {!isAuth && <li><Link to="/register">Register</Link></li> }
                     
-                    
-                    {/* <li><Link to="/logout">logout</Link></li> */}
+                
                 </ul>
             </nav>
         </header>

@@ -1,15 +1,21 @@
-import { useContext, useEffect, useState } from 'react';
-import { LikeContext } from '../../contexts/LikeContext';
-import styles from './Likes.module.css';
+import {  useEffect, useState } from 'react';
+import {  useLikeContext } from '../../contexts/LikeContext';
 
 import { getMyDealerLike } from '../../services/likeService';
+
+
+
+
+import styles from './Likes.module.css';
+
+
 
 export default function Likes({
     dealerId,
     userId
 
 }) {
-    const { dealerLikes, likeDealer, unlikeDealer } = useContext(LikeContext);
+    const { dealerLikes, likeDealer, unlikeDealer } = useLikeContext();
 
     const [myLike, setMyLike] = useState([]);
 

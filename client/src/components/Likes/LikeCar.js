@@ -1,5 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { LikeContext } from '../../contexts/LikeContext';
+import { useEffect, useState } from 'react';
+import {  useLikeContext } from '../../contexts/LikeContext';
+
+
+
 import styles from './Likes.module.css';
 
 import { getMyCarLike } from '../../services/likeService';
@@ -9,7 +12,7 @@ export default function Likes({
     userId
 
 }) {
-    const { carLikes, likeCar, unlikeCar } = useContext(LikeContext);
+    const { carLikes, likeCar, unlikeCar } = useLikeContext();
 
     const [myLike, setMyLike] = useState([]);
 
