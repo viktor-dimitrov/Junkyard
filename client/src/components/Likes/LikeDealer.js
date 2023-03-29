@@ -38,7 +38,7 @@ export default function Likes({
 
  
         <>
-            {!myLike ? <input type="button" name="like" value="Follow" onClick={() => likeDealer(dealerId)} /> : <input type="button" name="like" value="Unfollow" onClick={() => unlikeDealer(myLike?._id)} />}
+            {!myLike ? <input type="button" name="like" value="Follow" className={styles['rm']}  onClick={() => likeDealer(dealerId)} /> : <input type="button" name="like" value="Unfollow" className={styles['rm']}  onClick={() => unlikeDealer(myLike?._id)} />}
         </>
 
     )

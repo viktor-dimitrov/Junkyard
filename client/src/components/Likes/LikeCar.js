@@ -35,7 +35,7 @@ export default function Likes({
 
 
         <>
-            {!myLike ? <input type="button" name="like" value="Favorite" onClick={() => likeCar(carId)} /> : <input type="button" name="like" value="Unfavorite" onClick={() => unlikeCar(myLike?._id)} />}
+            {!myLike ? <input type="button" name="like" value="Favorite" className={styles['rm']} onClick={() => likeCar(carId)} /> : <input type="button" name="like" value="Unfavorite" className={styles['rm']} onClick={() => unlikeCar(myLike?._id)} />}
         </>
 
     )

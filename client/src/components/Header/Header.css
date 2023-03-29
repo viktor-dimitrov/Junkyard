@@ -25,7 +25,7 @@ header h2{
 }
 
 
-#tagline{
+.tagline{
 	display: inline-block;
 	text-align: center;
 	margin-left: 50px;
@@ -35,6 +35,33 @@ header h2{
 		box-shadow: 0 3px 4px #B82924;
 		border-radius: 10%;
 }		
+.tagline a {
+	max-width: 100px;
+	
+	margin-left: 15px;
+}
+
+.img {
+	display:flex
+}
+
+.img img{
+	width: 60px;
+	height: 60px;
+	margin-right: 10px;
+	border: 1px solid #B82924;
+	box-shadow: 0 3px 4px #B82924;
+	border-radius: 10%;
+}
+
+.img p {
+	font-size:20px;
+	font-style:oblique;
+	color:#B82924;
+}
+
+
+
 #logo, nav, nav li{
 	display: inline-block;
 	vertical-align: top;

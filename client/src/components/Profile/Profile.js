@@ -43,9 +43,12 @@ export default function Profile () {
             <img src={imageUrl} alt="userImg" />
 
             <div>
+            <h2>Username</h2>
             <h1>{userName}</h1>
-            <h2>{email}</h2>
-            <h2>{phone}</h2>
+            <h2>Email</h2>
+            <h1>{email}</h1>
+            <h2>Phone Number</h2>
+            <h1>{phone}</h1>
             
             </div>
 

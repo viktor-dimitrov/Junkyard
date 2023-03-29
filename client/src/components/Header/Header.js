@@ -7,7 +7,7 @@ import styles from './Header.css';
 
 export default function Header() {
 
-    const { userName, isAuth, userId } = useAuthContext();
+    const { userName, isAuth, userId, imageUrl } = useAuthContext();
 
   
 
@@ -21,11 +21,25 @@ export default function Header() {
 
             </div>
 
-
+           
         
-        {isAuth && <div id="tagline">
-                    <h2>{userName}</h2>
-                    <Link to="/logout" >Logout</Link>
+        {isAuth && <div className="tagline">
+        <div className="img">
+
+                    <h2>
+                        {userName} 
+
+                 <p> <Link to="/logout" >Logout</Link> </p> 
+
+                    </h2>
+                    <img src={imageUrl} alt="user" />
+                  
+        </div>
+                    
+
+       
+                   
+                    
                 </div>}
       
            

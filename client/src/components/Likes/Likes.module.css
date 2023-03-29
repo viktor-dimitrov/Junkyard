@@ -23,3 +23,23 @@
 .dealer input[type="submit"]:active{
 	border: 2px inset #dd3b3b;
 }
+
+
+.rm{
+	color: #121212;
+	background-color: #F2F2F2;
+	padding: 1px 4px;
+	display:block;
+	width: 70px;
+	margin-top: 5px;
+    margin-bottom: 10px;
+	box-shadow: 0px 0px 3px #000;
+	font-family: LeagueGothic, sans-serif;
+	text-transform: uppercase; 
+	font-size: 18px;
+	border-radius: 2px;
+}
+.rm:hover{
+	background-color: #B82924;
+	color: #121212;
+}

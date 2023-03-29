@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {  useAuthContext } from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 import * as carService from '../../services/carService';
 import LineLarge from '../Lines/LineLarge';
 import DeleteConfirmation from '../DeleteCar/DeleteCar';
@@ -17,7 +17,7 @@ import { useLikeContext } from '../../contexts/LikeContext';
 
 
 export default function Details({
- 
+
 }) {
 
     const { userId, isAuth } = useAuthContext();
@@ -53,42 +53,42 @@ export default function Details({
 
     const handleDeleteClick = () => {
         setShowConfirmation(true);
-      };
-    
-      const handleCloseConfirmation = () => {
+    };
+
+    const handleCloseConfirmation = () => {
         setShowConfirmation(false);
-      };
+    };
 
 
-   
+
 
     return (
         <>
             <p>Posted at: {formattedDateCreate} </p>
-            {car._updatedOn && <p>Last Update: {formattedDateUpdate} </p> }
+            {car._updatedOn && <p>Last Update: {formattedDateUpdate} </p>}
 
             < LineLarge title={"Details"} />
 
 
             <div className={styles['details']} >
-           
 
-            
+
+
                 <article>
 
-                {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId}  /> }
+                    {showConfirmation && < DeleteConfirmation closeConfirmation={handleCloseConfirmation} carId={carId} />}
 
 
 
-                {isOwner && <div className={styles['ownerbtn']}>
-                          < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
-                            <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
-                        </div>}
-    
+                    {isOwner && <div className={styles['ownerbtn']}>
+                        < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
+                        <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
+                    </div>}
+
                     <div className={styles['specifications']}>
 
-                
-                       
+
+
 
                         <ul >
                             <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
@@ -97,26 +97,28 @@ export default function Details({
                             <li ><h1 className={styles.left} >Fuel</h1> <h1 className={styles.right}> {car.fuel} </h1>  </li>
                             <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
                             <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
-                            <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> { car.mileage } </h1>  </li>
-                            <li> 
-                                <h1 className={styles.center} > <strong> {carLikes.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1> 
-                             { !isOwner && <h1 className={styles.right} > < LikeCar carId={carId} userId={userId}  /> </h1> }
+                            <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {car.mileage} </h1>  </li>
+                            <li>
+                                <h1 className={styles.center} > <strong> {carLikes.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1>
+                                {!isOwner && <h1 className={styles.right} > < LikeCar carId={carId} userId={userId} /> </h1>}
                             </li>
                         </ul>
 
                     </div>
-                    
+
 
                     <div className={styles['img']} >
                         <img src={car.imageUrl} alt="car" />
                     </div>
 
-                    
+
                     {isAuth && <div className={styles['dealer']}>
 
                         <div>
-                            <h3>Dealer</h3>
+
+                            <h3>Dealer </h3>
                             <h2> {dealer.username}</h2>
+
                         </div>
 
                         <div>
@@ -129,15 +131,20 @@ export default function Details({
                             <h2>{dealer.phone} </h2>
                         </div>
 
+
+
                         <div>
                             <h3>5 &nbsp;&nbsp;&nbsp; Cars </h3>
                             <h3> {followers.length} &nbsp;&nbsp;&nbsp; Followers</h3>
                         </div>
 
 
-
-                        {!isOwner && < LikeDealer dealerId={dealer._id} userId={userId} />}
-
+                        <div className={styles['flex']}>
+                       
+                            {!isOwner ? < LikeDealer dealerId={dealer._id} userId={userId} /> : < Link to={`/profile/${userId}`} > <input type="button" value="My Profile" className={styles['rm']} /></Link> }
+                            <img src={dealer.imageUrl} alt="dealer" />
+                            
+                        </div>
                     </div>
                     }
 
