@@ -18,20 +18,16 @@ export default function Profile() {
     const { cars } = useCarContext();
     const { followers, followings, getFollowings, getFollowers } = useLikeContext();
 
-    // const [follows , setFollows] = useState([]);
-
     useEffect(() => {
         getFollowers(userId)
         getFollowings(userId)
-
-
             .catch(error => {
                 console.log(error.message)
             })
 
     }, [userId]);
 
-
+console.log(followers)
 
     const userCars = cars.filter(car => car._ownerId === userId);
 
@@ -75,8 +71,8 @@ export default function Profile() {
 
             < Routes>
 
-                < Route path="/followers" element={< UsersList title={'Followers'}  users={followers.map(x => x = x.follower)} /> } />
-                < Route path="/followings" element={ < UsersList title={' Following'} users={followings.map(x => x = x.following)} /> } />
+                < Route path="/followers" element={< UsersList title={'Followers'}  users={followers} /> } />
+                < Route path="/followings" element={ < UsersList title={' Following'} users={followings} /> } />
                 < Route path="" element={< CatalogLarge cars={userCars} />} />
 
             </Routes>
