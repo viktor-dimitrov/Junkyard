@@ -2,17 +2,12 @@
 import { createContext, useState, useContext } from 'react'
 
 import * as likeService from '../services/likeService'
-
-
-
 export const LikeContext = createContext();
 
 
 export const LikeProvider = ({
     children
 }) => {
-
-    
 
     const [followers, setFollowers] = useState([]);
     const [followings, setFollowings] = useState({})
@@ -23,22 +18,25 @@ export const LikeProvider = ({
 
     const getFollowers = async (dealerId) => {
         const result =  await likeService.getFollowers(dealerId);
-        setFollowers(result);
+        return result
     }
     const getFollowings = async (userId) => {
         const result =  await likeService.getFollowings(userId);
-        setFollowings(result);
+        return result
     }
 
     const unlikeDealer = async (likeId) => {
          await likeService.unlikeDealer(likeId);
-         setFollowers(state => state.filter(x => x._id != likeId));
+         setFollowers(state => state.filter(x => x._id !== likeId));
     }
        
     const likeDealer = async (dealerId) => {
         const result = await likeService.likeDealer(dealerId);
-        setFollowers(state => ([...state, result]))
+        setFollowers(state => ([...state, result]));
+        return result
      }
+
+
 
              //  CAR LIKES
 
@@ -49,7 +47,7 @@ export const LikeProvider = ({
         
             const unlikeCar = async (likeId) => {
                  await likeService.unlikeCar(likeId);
-                 setCarLikes(state => state.filter(x => x._id != likeId));
+                 setCarLikes(state => state.filter(x => x._id !== likeId));
             }
                
             const likeCar = async (carId) => {

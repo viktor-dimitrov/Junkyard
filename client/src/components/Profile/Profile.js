@@ -11,24 +11,30 @@ import { useLikeContext } from "../../contexts/LikeContext";
 import { useEffect, useState } from "react";
 import UsersList from "./UsersList";
 
-
 export default function Profile() {
 
     const { userId, userName, phone, imageUrl, email } = useAuthContext();
     const { cars } = useCarContext();
-    const { followers, followings, getFollowings, getFollowers } = useLikeContext();
+    const { getFollowings, getFollowers } = useLikeContext();
+
+    const [myFollowers, setMyFollowers] = useState([]);
+    const [myFollowings, setMyFollowings] = useState([]);
 
     useEffect(() => {
         getFollowers(userId)
+        .then(result => {setMyFollowers(result)})
         getFollowings(userId)
+        .then(result => {setMyFollowings(result)})
             .catch(error => {
                 console.log(error.message)
             })
+    }, [userId, getFollowers, getFollowings]);
 
-    }, [userId]);
 
-console.log(followers)
 
+
+
+ 
     const userCars = cars.filter(car => car._ownerId === userId);
 
     return (
@@ -50,29 +56,21 @@ console.log(followers)
 
                 </div>
 
-
                 <div>
 
-                
-
-                    < Link to={`followers`} > <h3>  <strong>{followers?.length}</strong> &nbsp;&nbsp;&nbsp; Followers </h3> </Link>
-                    < Link to={`followings`} >  <h3>   <strong>{followings?.length}</strong> &nbsp;&nbsp;&nbsp; Following </h3> </Link>
+                    < Link to={`followers`} > <h3> <strong>{myFollowers.length}</strong> &nbsp;&nbsp;&nbsp;  Followers </h3> </Link>
+                    < Link to={`followings`} >  <h3> <strong>{myFollowings.length}</strong> &nbsp;&nbsp;&nbsp;   Following </h3> </Link>
                     < Link to='' >  <h3> <strong>{userCars?.length}</strong> &nbsp;&nbsp;&nbsp; Cars  </h3> </Link> 
 
-                   
-
                 </div>
-
-
 
             </div>
 
 
-
             < Routes>
 
-                < Route path="/followers" element={< UsersList title={'Followers'}  users={followers} /> } />
-                < Route path="/followings" element={ < UsersList title={' Following'} users={followings} /> } />
+                < Route path="/followers" element={< UsersList title={'Followers'}  users={myFollowers} /> } />
+                < Route path="/followings" element={ < UsersList title={' Following'} users={myFollowings}  /> } />
                 < Route path="" element={< CatalogLarge cars={userCars} />} />
 
             </Routes>

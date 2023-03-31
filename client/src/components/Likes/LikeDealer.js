@@ -1,22 +1,27 @@
 import { useEffect, useState } from 'react';
+import { useAuthContext } from '../../contexts/AuthContext';
 import { useLikeContext } from '../../contexts/LikeContext';
 import { getMyDealerLike } from '../../services/likeService';
 
 import styles from './Likes.module.css';
 
+
+
 export default function Likes({
     dealerId,
-    userId,
     isOwner
 
 }) {
+    const {userId} = useAuthContext();
     const { getFollowers, followers, likeDealer, unlikeDealer } = useLikeContext();
 
     const [myLike, setMyLike] = useState([]);
+    const [dealerFollowers, setDealerFollowers] = useState([]);
 
     useEffect(() => {
-        getFollowers(dealerId);
-    }, [])
+        getFollowers(dealerId)
+        .then(result => { setDealerFollowers(result)} )
+    }, [dealerId])
 
     useEffect(() => {
         getMyDealerLike(dealerId, userId)
@@ -27,15 +32,25 @@ export default function Likes({
             })
     }, [dealerId, userId, followers]);
 
+    const onLikeClick = async () => {
+        const result = await likeDealer(dealerId);
+        setDealerFollowers(state => ([...state, result]));
+    }
+
+    const onUnlikeClick = async (likeId) => {
+        await unlikeDealer(likeId);
+        setDealerFollowers(state => state.filter(x => x._id !== likeId))
+    }
+
 
     return (
 
         <>
-            <h3> {followers.length} &nbsp;&nbsp;&nbsp; Followers</h3>
+            <h3> {dealerFollowers.length} &nbsp;&nbsp;&nbsp; Followers</h3>
             {!isOwner && <>
                 {!myLike
-                    ? <input type="button" name="like" value="Follow" className={styles['rm']} onClick={() => likeDealer(dealerId)} />
-                    : <input type="button" name="like" value="Unfollow" className={styles['rm']} onClick={() => unlikeDealer(myLike?._id)} />
+                    ? <input type="button" name="like" value="Follow" className={styles['rm']} onClick={() => onLikeClick()} />
+                    : <input type="button" name="like" value="Unfollow" className={styles['rm']} onClick={() => onUnlikeClick(myLike?._id)} />
                 }
             </>}
         </>

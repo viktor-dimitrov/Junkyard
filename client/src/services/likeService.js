@@ -14,13 +14,13 @@ export const unlikeDealer = async (likeId) => {
 
 export const getFollowers = async (dealerId) => {
     const query = encodeURIComponent(`dealerId="${dealerId}"`)
-    const load = encodeURIComponent(`follower=_ownerId:users`);
+    const load = encodeURIComponent(`userInfo=_ownerId:users`);
     const result = await get(`/data/dealerLikes?where=${query}&load=${load}`)
     return result
 }
 export const getFollowings = async (userId) => {
     const query = encodeURIComponent(`_ownerId="${userId}"`)
-    const load = encodeURIComponent(`following=dealerId:users`);
+    const load = encodeURIComponent(`userInfo=dealerId:users`);
     const result = await get(`/data/dealerLikes?where=${query}&load=${load}`)
     return result
 }

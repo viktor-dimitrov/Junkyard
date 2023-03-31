@@ -3,7 +3,7 @@ import LikeDealer from '../Likes/LikeDealer';
 
 import styles from './Details.module.css'
 
-export default function DealerCard({userId , _id, username, imageUrl, email, phone , isOwner}) {
+export default function DealerCard({ _id, username, imageUrl, email, phone , isOwner}) {
 
 
 
@@ -31,7 +31,7 @@ export default function DealerCard({userId , _id, username, imageUrl, email, pho
             {/* < Link to={`/profile/${userId}`} > <input type="button" value="My Profile" className={styles['rm']} /></Link>  */}
             <div className={styles['flex']}>
                 <div>
-                    < LikeDealer dealerId={_id} userId={userId} isOwner={isOwner} />
+                    < LikeDealer dealerId={_id}  isOwner={isOwner} />
                 </div>
                 <img src={imageUrl} alt="dealer" />
             </div>

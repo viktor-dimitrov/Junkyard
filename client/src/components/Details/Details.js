@@ -9,9 +9,7 @@ import DealerCard from './DealerCard';
 
 import styles from './Details.module.css'
 
-export default function Details({
-
-}) {
+export default function Details() {
 
     const { userId, isAuth } = useAuthContext();
     const { carId } = useParams();
@@ -98,7 +96,7 @@ export default function Details({
 
                     </>
 
-                    {isAuth &&  < DealerCard   userId={userId} {...dealer} isOwner={isOwner} /> }
+                    {isAuth &&  < DealerCard    {...dealer} isOwner={isOwner} /> }
 
                 </article>
 
