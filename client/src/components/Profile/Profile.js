@@ -10,7 +10,6 @@ import UsersList from "./UsersList";
 
 import styles from './Profile.module.css'
 
-
 export default function Profile() {
 
     const { userId, userName, phone, imageUrl, email } = useAuthContext();

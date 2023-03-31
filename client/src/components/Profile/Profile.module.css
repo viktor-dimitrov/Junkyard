@@ -16,10 +16,14 @@
    max-width:  200px;
    max-height: 200px;
    border-radius: 50%;
+   border: 1px solid #B82924;
+   box-shadow: 0 3px 50px #B82924;
 }
 
 .profile h1 {
     margin-bottom: 10px;
+    color: #B82924;
+    font-style: italic;
 }
 
 .profile h3 {
@@ -30,4 +34,11 @@
     border: 1px solid #B82924;
     box-shadow: 0 3px 5px #B82924;
     margin-bottom: 20px;
+}
+
+.userslist {
+    display: flex;
+    justify-content:flex-start;
+    padding: 50px;
+ 
 }

@@ -48,16 +48,19 @@
     padding-left: 3px;
     margin-left:20px;
 }
-/* 
-.dealer div {
-    margin: 10px;
-} */
+
+.dealer h2 {
+    color:#B82924;
+    font-style: italic;
+}
 
 .flex img {
     
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 10px #B82924;
 
 
     
