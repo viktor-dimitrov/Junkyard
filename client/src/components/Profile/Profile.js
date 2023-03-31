@@ -1,26 +1,28 @@
 import { Link, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useCarContext } from "../../contexts/CarContext";
-
+import { useLikeContext } from "../../contexts/LikeContext";
+import { getMyCars } from "../../services/carService";
 
 import LineLarge from "../Lines/LineLarge"
 import CatalogLarge from '../Catalogs/CatalogLarge';
+import UsersList from "./UsersList";
 
 import styles from './Profile.module.css'
-import { useLikeContext } from "../../contexts/LikeContext";
-import { useEffect, useState } from "react";
-import UsersList from "./UsersList";
+
 
 export default function Profile() {
 
     const { userId, userName, phone, imageUrl, email } = useAuthContext();
-    const { cars } = useCarContext();
     const { getFollowings, getFollowers } = useLikeContext();
 
     const [myFollowers, setMyFollowers] = useState([]);
     const [myFollowings, setMyFollowings] = useState([]);
+    const [userCars, setCars] = useState([]);
 
     useEffect(() => {
+        getMyCars(userId)
+        .then(result => { setCars(result)})
         getFollowers(userId)
         .then(result => {setMyFollowers(result)})
         getFollowings(userId)
@@ -30,12 +32,6 @@ export default function Profile() {
             })
     }, [userId, getFollowers, getFollowings]);
 
-
-
-
-
- 
-    const userCars = cars.filter(car => car._ownerId === userId);
 
     return (
         <>
@@ -74,9 +70,6 @@ export default function Profile() {
                 < Route path="" element={< CatalogLarge cars={userCars} />} />
 
             </Routes>
-
-
-
 
 
         </>

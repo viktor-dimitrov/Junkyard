@@ -17,6 +17,12 @@ export const getOne = async (carId) => {
     return result[0]
 }
 
+export const getMyCars = async (userId) => {
+    const query = encodeURIComponent(`_ownerId="${userId}"`);
+    const result = await get(`/data/cars?where=${query}`);
+    return result
+}
+
 export const createCar = async (body) => {
     const result = await post(baseUrl, {...body})
     return result;
