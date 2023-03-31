@@ -21,7 +21,7 @@ export default function Likes({
     useEffect(() => {
         getFollowers(dealerId)
         .then(result => { setDealerFollowers(result)} )
-    }, [dealerId])
+    }, [dealerId, getFollowers])
 
     useEffect(() => {
         getMyDealerLike(dealerId, userId)

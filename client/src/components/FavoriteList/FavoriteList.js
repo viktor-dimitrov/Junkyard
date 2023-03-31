@@ -5,9 +5,6 @@ import CatalogLagre from "../Catalogs/CatalogLarge"
 import LineLarge from "../Lines/LineLarge"
 
 
-
-
-
 export default function FavoriteList () {
 
     const {userId} = useParams();
@@ -21,8 +18,6 @@ export default function FavoriteList () {
         })
 
     },[userId])
-
-    console.log(cars)
 
     return(
         

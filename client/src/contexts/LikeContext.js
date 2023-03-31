@@ -10,7 +10,6 @@ export const LikeProvider = ({
 }) => {
 
     const [followers, setFollowers] = useState([]);
-    const [followings, setFollowings] = useState({})
 
     const [carLikes, setCarLikes] = useState([]);
 
@@ -41,8 +40,8 @@ export const LikeProvider = ({
              //  CAR LIKES
 
              const getCarLikes = async (carId) => {
-                const result =  await likeService.getCarLikes(carId);
-                setCarLikes(result);
+                await likeService.getCarLikes(carId);
+           
             }
         
             const unlikeCar = async (likeId) => {
@@ -61,7 +60,7 @@ export const LikeProvider = ({
 
     const context = {
         followers,
-        followings,
+    
         likeDealer,
         getFollowers,
         getFollowings,

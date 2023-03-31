@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import styles from './Header.css';
+import './Header.css';
 
 
 
