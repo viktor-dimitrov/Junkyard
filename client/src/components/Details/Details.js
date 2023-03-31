@@ -1,41 +1,43 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
-import * as carService from '../../services/carService';
+import { getOneCar } from '../../services/carService';
+import { getAllComments, createComment } from '../../services/commentService';
+
+
 import LineLarge from '../Lines/LineLarge';
 import DeleteConfirmation from '../DeleteCar/DeleteCar';
 import LikeCar from '../Likes/LikeCar';
 import DealerCard from './DealerCard';
+import Comments from './Comments/Comments';
 
 import styles from './Details.module.css'
+
+
+
 
 export default function Details() {
 
     const { userId, isAuth } = useAuthContext();
     const { carId } = useParams();
+
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [car, setCar] = useState({});
 
     useEffect(() => {
-        carService.getOne(carId)
-            .then(result => {
-                setCar(result);
+      Promise.all([ getOneCar(carId), getAllComments(carId) ]) 
+            .then(([carResult, comments]) => {
+                setCar({...carResult,  comments});
             })
             .catch(err => {
                 console.log(err.message);
             })
     }, [carId]);
 
+    console.log(car)
+
     const dealer = { ...car.dealer };
     const isOwner = (userId === car._ownerId) ? true : false;
-
-
-    const timestampCreate = car._createdOn;
-    const timestampUpdate = car._updatedOn;
-    const dateCreate = new Date(timestampCreate);
-    const dateUpdate = new Date(timestampUpdate);
-    const formattedDateCreate = dateCreate.toLocaleString();
-    const formattedDateUpdate = dateUpdate.toLocaleString();
 
     const handleDeleteClick = () => {
         setShowConfirmation(true);
@@ -45,6 +47,20 @@ export default function Details() {
         setShowConfirmation(false);
     };
 
+    const onCommentSubmit = async (values) => {
+        
+        const result = await createComment(values)
+        console.log(result)
+    }
+
+
+
+    const timestampCreate = car._createdOn;
+    const timestampUpdate = car._updatedOn;
+    const dateCreate = new Date(timestampCreate);
+    const dateUpdate = new Date(timestampUpdate);
+    const formattedDateCreate = dateCreate.toLocaleString();
+    const formattedDateUpdate = dateUpdate.toLocaleString();
 
 
 
@@ -54,11 +70,7 @@ export default function Details() {
             {car._updatedOn && <p>Last Update: {formattedDateUpdate} </p>}
 
             < LineLarge title={"Details"} />
-
-
             <div className={styles['details']} >
-
-
 
                 <article>
 
@@ -84,7 +96,7 @@ export default function Details() {
                                 <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
                                 <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {car.mileage} </h1>  </li>
                                 <li>
-                                    < LikeCar carId={carId} userId={userId} isOwner={isOwner} />
+                                    {!isAuth && < LikeCar carId={carId} userId={userId} isOwner={isOwner} />}
                                 </li>
                             </ul>
 
@@ -96,11 +108,29 @@ export default function Details() {
 
                     </>
 
-                    {isAuth &&  < DealerCard    {...dealer} isOwner={isOwner} /> }
+                    {isAuth && < DealerCard    {...dealer} isOwner={isOwner} />}
 
                 </article>
 
             </div>
+
+            <div>
+
+                <div>
+                    < Comments onCommentSubmit={onCommentSubmit} />
+                </div>
+
+                <ul>
+
+                {car.comments && Object.values(car.comments).map( c =>  <li> {c.comment } </li>)}
+                   
+                      
+                   
+                </ul>
+
+            </div>
+
+
 
 
 

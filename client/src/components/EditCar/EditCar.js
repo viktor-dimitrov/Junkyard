@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getOne } from "../../services/carService";
+import { getOneCar } from "../../services/carService";
 import LineLarge from "../Lines/LineLarge";
 import { carList } from "../../constants/carList";
 import { useCarContext } from "../../contexts/CarContext";
@@ -26,7 +26,7 @@ export default function EditCar() {
     });
 
     useEffect(() => {
-        getOne(carId)
+        getOneCar(carId)
             .then(result => {
                 setCarBrand(carList.find(c => c.brand === (result.brand)))
                 setCarInputs(result)

@@ -10,7 +10,7 @@ export const getAll = async () => {
     return result
 }
 
-export const getOne = async (carId) => {
+export const getOneCar = async (carId) => {
     const where = encodeURIComponent(`_id="${carId}"`);
     const load = encodeURIComponent(`dealer=_ownerId:users`);
     let result = await get(`${baseUrl}?where=${where}&load=${load}`)
