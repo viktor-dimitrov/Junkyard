@@ -16,18 +16,21 @@ export default function Profile() {
     const { userId, userName, phone, imageUrl, email } = useAuthContext();
     const { getFollowings, getFollowers } = useLikeContext();
 
-    const [myFollowers, setMyFollowers] = useState([]);
-    const [myFollowings, setMyFollowings] = useState([]);
-    const [userCars, setCars] = useState([]);
+    const [userData, setUserData] = useState({
+        userCars: [],
+        myFollowers: [],
+        myFollowings: [],
+    })
 
     useEffect(() => {
-        getMyCars(userId)
-        .then(result => { setCars(result)})
-        getFollowers(userId)
-        .then(result => {setMyFollowers(result)})
-        getFollowings(userId)
-        .then(result => {setMyFollowings(result)})
-            .catch(error => {
+        Promise.all([getMyCars(userId), getFollowers(userId), getFollowings(userId)])
+            .then(([cars, followers, followings]) => {
+                setUserData({
+                    userCars: cars,
+                    myFollowers: followers,
+                    myFollowings: followings
+                });
+            }).catch(error => {
                 console.log(error.message)
             })
     }, [userId, getFollowers, getFollowings]);
@@ -54,9 +57,9 @@ export default function Profile() {
 
                 <div>
 
-                    < Link to={`followers`} > <h3> <strong>{myFollowers.length}</strong> &nbsp;&nbsp;&nbsp;  Followers </h3> </Link>
-                    < Link to={`followings`} >  <h3> <strong>{myFollowings.length}</strong> &nbsp;&nbsp;&nbsp;   Following </h3> </Link>
-                    < Link to='' >  <h3> <strong>{userCars?.length}</strong> &nbsp;&nbsp;&nbsp; Cars  </h3> </Link> 
+                    < Link to={`followers`} > <h3> <strong>{userData['myFollowers'].length}</strong> &nbsp;&nbsp;&nbsp;  Followers </h3> </Link>
+                    < Link to={`followings`} >  <h3> <strong>{userData['myFollowings'].length}</strong> &nbsp;&nbsp;&nbsp;   Following </h3> </Link>
+                    < Link to='' >  <h3> <strong>{userData['userCars'].length}</strong> &nbsp;&nbsp;&nbsp; Cars  </h3> </Link>
 
                 </div>
 
@@ -65,9 +68,9 @@ export default function Profile() {
 
             < Routes>
 
-                < Route path="/followers" element={< UsersList title={'Followers'}  users={myFollowers} /> } />
-                < Route path="/followings" element={ < UsersList title={' Following'} users={myFollowings}  /> } />
-                < Route path="" element={< CatalogLarge cars={userCars} />} />
+                < Route path="/followers" element={< UsersList title={'Followers'} users={userData['myFollowers']} />} />
+                < Route path="/followings" element={< UsersList title={' Following'} users={userData['myFollowings']} />} />
+                < Route path="" element={< CatalogLarge cars={userData['userCars']} />} />
 
             </Routes>
 
