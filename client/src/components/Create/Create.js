@@ -31,12 +31,12 @@ export default function Create() {
     }
 
     const onChangeCarInputs = (e) => {
-        setCarInputs(state => ({...state, [e.target.name]: e.target.value}));
+        setCarInputs(state => ({ ...state, [e.target.name]: e.target.value }));
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        onSubmitCreateCar({...carInputs, brand: carBrand.brand});
+        onSubmitCreateCar({ ...carInputs, brand: carBrand.brand });
     }
 
     return (
@@ -58,7 +58,7 @@ export default function Create() {
                                 <td>
                                     <label htmlFor="model">Model</label>
                                     <select id="model" name="model" value={carInputs.model} onChange={onChangeCarInputs}>
-                                    <option defaultValue={''} ></option>
+                                        <option defaultValue={''} ></option>
                                         {carBrand.models?.map((x, i) => <option key={i} defaultValue={x}>{x}</option>)}
                                     </select>
                                 </td>
@@ -98,14 +98,14 @@ export default function Create() {
 
                             <tr>
 
-                            <td>
+                                <td>
                                     <label htmlFor="engine">Mileage</label>
                                     <input id="mileage" name="mileage" type="number" value={carInputs.mileage} onChange={onChangeCarInputs} />
                                 </td>
 
                                 <td>
                                     <label htmlFor="image">Image</label>
-                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs}/>
+                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} />
                                 </td>
                             </tr>
 
@@ -113,17 +113,17 @@ export default function Create() {
                                 <td>
                                     <p>
 
-                                    <input type="submit" />
+                                        <input type="submit" />
                                     </p>
-                                
+
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    
 
-                    
+
+
 
                 </form>
 

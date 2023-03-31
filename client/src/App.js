@@ -20,6 +20,7 @@ import EditCar from "./components/EditCar/EditCar";
 
 import './App.css';
 import Profile from "./components/Profile/Profile";
+import FavoriteList from "./components/FavoriteList/FavoriteList";
 
 
 
@@ -65,6 +66,7 @@ function App() {
               < Route path="/details/:carId" element={ < Details />} />
               < Route path="/details/:carId/edit" element={< EditCar />} />
               < Route path="/profile/:userId/*" element={< Profile />} />
+              < Route path="/favorite/:userId" element={< FavoriteList />} />
 
 
 
