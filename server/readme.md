@@ -17,14 +17,14 @@ The Base URL for the API is: `http://localhost:3030/jsonstore`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
-# Endpoints: Todos
+# Endpoints: cars
 
-- `/todos` -- get todo list/ create todo;
-- `/todos/{todoId}` -- get todo/update todo/ delete todo by provided id;;
+- `/cars` -- get car list/ create car;
+- `/cars/{carId}` -- get cars/update cars/ delete cars by provided id;;
 
-## Get todo list
+## Get cars list
 
-Send a `GET` request to `/todos`. The service will respond with an array of todo objects.
+Send a `GET` request to `/cars`. The service will respond with an array of car objects.
 
 ### Success Response:
 
@@ -35,23 +35,38 @@ Content:
 ```
 [
   {
-    "_id": string,
-    "text": string,
-    "isCompleted": boolean,
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "model": String,
+        "year": Number,
+        "fuel": String,
+        "engine": String,
+        "color": String,
+        "mileage": Number,
+        "imageUrl": String,
+        "brand": String,
+        "_createdOn": 1679578986904,
+        "_id": "4be91d66-a99c-4d99-8a80-e08779565967"
+
   }, ...
 ]
 ```
 
-## Create a new todo
+## Create a new car
 
-Create a new todo by sending a `POST` request to `/todos` with properties `text` and `isCompleted`. The service will respond with an object, containing newly created todo.
+Create a new car by sending a `POST` request to `/cars` with properties `model` , `brand`, `year`, `fuel`, `engine`, `color`, `miliage`and `imageUrl`. The service will respond with an object, containing newly created car.
 
 ### Body
 
 ```
 {
-  "text": string,
-  "isCompleted": boolean
+         "model": String,
+        "year": Number,
+        "fuel": String,
+        "engine": String,
+        "color": String,
+        "mileage": Number,
+        "imageUrl": String,
+        "brand": String,
 }
 ```
 
@@ -63,21 +78,40 @@ Content:
 
 ```
 {
-  "_id": string,
-  "text": string,
-  "isCompleted": boolean,
+    "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "model": String,
+        "year": Number,
+        "fuel": String,
+        "engine": String,
+        "color": String,
+        "mileage": Number,
+        "imageUrl": String,
+        "brand": String,
+        "_createdOn": 1679578986904,
+        "_id": "4be91d66-a99c-4d99-8a80-e08779565967"
 }
 ```
 
-## Update todo by provided todoId
+## Update car by provided carId
 
-Update an existing todo by sending a `PUT` request to `/todos/{todoId}` with property `isCompleted`. The service will respond with an object, containing newly updated todo.
+Update an existing car by sending a `PUT` request to `/cars/{carId}` with properties `model` , `brand`, `year`, `fuel`, `engine`, `color`, `miliage`and `imageUrl`. The service will respond with an object, containing newly updated car.
 
 ### Body
 
 ```
 {
-  isCompleted: boolean,
+     
+        "model": String,
+        "year": Number,
+        "fuel": String,
+        "engine": String,
+        "color": String,
+        "mileage": Number,
+        "imageUrl": String,
+        "brand": String,
+        
+   
+  
 }
 ```
 
@@ -89,9 +123,18 @@ Content:
 
 ```
 {
-  "_id": string,
-  "text": string,
-  "isCompleted": boolean,
+     "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "model": String,
+        "year": Number,
+        "fuel": String,
+        "engine": String,
+        "color": String,
+        "mileage": Number,
+        "imageUrl": String,
+        "brand": String,
+        "_createdOn": 1679578986904,
+        "_id": "4be91d66-a99c-4d99-8a80-e08779565967",
+        "_updatedOn": 1680361700865
 }
 ```
 

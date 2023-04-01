@@ -59,8 +59,6 @@ export default function Details() {
         await deleteComment(commentId)
         const newComments = car.comments.filter(c => c._id !== commentId)
         setCar((state) => ({ ...state, comments: newComments }))
-
-
     }
 
     return (
@@ -79,13 +77,8 @@ export default function Details() {
                         < Link to={`edit`} > <button type="button" className={styles['rm']} >Edit  </button> </Link>
                         <button type="button" className={styles['rm']} onClick={handleDeleteClick} >Delete</button>
                     </div>}
-
-
-
                     <>
-
                         <div className={styles['specifications']}>
-
                             <ul >
                                 <li ><h1 className={styles.left} >Brand</h1> <h1 className={styles.right}> {car.brand} </h1>  </li>
                                 <li ><h1 className={styles.left} >Model</h1> <h1 className={styles.right}> {car.model} </h1>  </li>
@@ -132,7 +125,6 @@ export default function Details() {
                                 {userId === c._ownerId && <>
                                     <button type="button" onClick={() => onCommentDelete(c._id)} >Delete</button>
                                     <button type="button" onClick={() => onCommentDelete(c._id)} >Edit</button>
-
                                 </>}
                             </li>
                         )}
