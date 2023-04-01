@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { getOneCar } from '../../services/carService';
 import { getAllComments, createComment } from '../../services/commentService';
+import { dateCreator } from '../../utils/dateCreator';
 
 
 import LineLarge from '../Lines/LineLarge';
@@ -47,31 +48,20 @@ export default function Details() {
     };
 
     const onCommentSubmit = async (values) => {
-      
-        const result = await createComment({...values, carId: carId});
+
+        const result = await createComment({ ...values, carId: carId });
         setCar((state) => (
-             { ...state, comments: [...state.comments, result] }
+            { ...state, comments: [...state.comments, result] }
         ))
-       
+
     }
 
     console.log(car.comments)
 
-
-
-    const timestampCreate = car._createdOn;
-    const timestampUpdate = car._updatedOn;
-    const dateCreate = new Date(timestampCreate);
-    const dateUpdate = new Date(timestampUpdate);
-    const formattedDateCreate = dateCreate.toLocaleString();
-    const formattedDateUpdate = dateUpdate.toLocaleString();
-
-
-
     return (
         <>
-            <p>Posted at: {formattedDateCreate} </p>
-            {car._updatedOn && <p>Last Update: {formattedDateUpdate} </p>}
+            <p>Posted at: {dateCreator(car._createdOn)} </p>
+            {car._updatedOn && <p>Last Update: {(dateCreator(car._updatedOn))} </p>}
 
             < LineLarge title={"Details"} />
             <div className={styles['details']} >
@@ -118,28 +108,24 @@ export default function Details() {
 
             </div>
 
-            <div className={styles['comments']} >
+           <div className={styles['comments']} >
 
                 <div>
-                    < Comments onCommentSubmit={onCommentSubmit} />
+                  {isAuth &&  < Comments onCommentSubmit={onCommentSubmit} />}
                 </div>
 
-                <div   >
+    { (car.comments?.length  !== 0  ) ? <div >
                     <ul>
-
                         {car.comments && Object.values(car.comments).map(c =>
                             <li key={c._id}>
 
-                                <p className={styles['comment-header']}> Posted by: <strong> {c.author.username} </strong> </p>
+                                <p className={styles['comment-header']}>
+                                    Posted by:&nbsp;<strong> {c?.author?.username}</strong>&nbsp;at&nbsp;{dateCreator(c._createdOn)}</p>
                                 <p>{c.comment}</p>
-
                             </li>
-
                         )}
-
-
                     </ul>
-                </div>
+                </div> : <ul> <li>No comments yet.</li> </ul> }
 
             </div>
 

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { getOneCar } from "../../services/carService";
 import LineLarge from "../Lines/LineLarge";
-import { carList } from "../../constants/carList";
+import { carList } from "../../utils/constants/carList";
 import { useCarContext } from "../../contexts/CarContext";
 
 

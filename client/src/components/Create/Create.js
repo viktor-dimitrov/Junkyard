@@ -1,6 +1,6 @@
 import './Create.css';
 import LineLarge from "../Lines/LineLarge";
-import { carList } from '../../constants/carList';
+import { carList } from '../../utils/constants/carList';
 import { useState } from 'react';
 import { useCarContext } from '../../contexts/CarContext';
 
