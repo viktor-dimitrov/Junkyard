@@ -12,7 +12,7 @@ export default function Likes({ carId, userId, isOwner }) {
 
     useEffect(() => {
         getCarLikes(carId)
-    }, []);
+    }, [carId, getCarLikes]);
 
 
     useEffect(() => {
@@ -24,11 +24,13 @@ export default function Likes({ carId, userId, isOwner }) {
             })
     }, [carId, userId, carLikes]);
 
+
+   
+
     return (
         <>
             <h1>  <strong> {carLikes.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1>
             <h1>
-
                 {!isOwner && <>
                     {!myLike
                         ? <input type="button" name="like" value="Favorite" className={styles['rm']} onClick={() => likeCar(carId)} />

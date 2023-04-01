@@ -10,14 +10,14 @@ export default function DeleteConfirmation ({
     
  }) {
 
-  const { onSubmitDeleteCar } = useContext( CarContext )
+  const { onSubmitDeleteCar } = useContext( CarContext );
 
+ 
     const confirmDelete = async() => {
-        closeConfirmation();
+      closeConfirmation();
         onSubmitDeleteCar(carId);
-    }
-
-
+  }
+  
     return (
         
         <div className={styles["overlay"]}>

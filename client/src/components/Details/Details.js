@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { getOneCar } from '../../services/carService';
-import { getAllComments, createComment } from '../../services/commentService';
+import { getAllComments, createComment, deleteComment } from '../../services/commentService';
 import { dateCreator } from '../../utils/dateCreator';
 
 
@@ -19,7 +19,7 @@ import styles from './Details.module.css'
 
 export default function Details() {
 
-    const { userId, isAuth } = useAuthContext();
+    const { userId, isAuth, userName } = useAuthContext();
     const { carId } = useParams();
 
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -48,15 +48,20 @@ export default function Details() {
     };
 
     const onCommentSubmit = async (values) => {
-
         const result = await createComment({ ...values, carId: carId });
+        result.author = { username: userName };
         setCar((state) => (
             { ...state, comments: [...state.comments, result] }
         ))
-
     }
 
-    console.log(car.comments)
+    const onCommentDelete = async (commentId) => {
+        await deleteComment(commentId)
+        const newComments = car.comments.filter(c => c._id !== commentId)
+        setCar((state) => ({ ...state, comments: newComments }))
+
+
+    }
 
     return (
         <>
@@ -90,7 +95,7 @@ export default function Details() {
                                 <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
                                 <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {car.mileage} </h1>  </li>
                                 <li>
-                                    {!isAuth && < LikeCar carId={carId} userId={userId} isOwner={isOwner} />}
+                                    {isAuth && < LikeCar carId={carId} userId={userId} isOwner={isOwner} />}
                                 </li>
                             </ul>
 
@@ -108,13 +113,15 @@ export default function Details() {
 
             </div>
 
-           <div className={styles['comments']} >
+            <div className={styles['comments']} >
+
+                <h1>Commnets</h1>
 
                 <div>
-                  {isAuth &&  < Comments onCommentSubmit={onCommentSubmit} />}
+                    {isAuth && < Comments onCommentSubmit={onCommentSubmit} />}
                 </div>
 
-    { (car.comments?.length  !== 0  ) ? <div >
+                {(car.comments?.length !== 0) ? <div >
                     <ul>
                         {car.comments && Object.values(car.comments).map(c =>
                             <li key={c._id}>
@@ -122,16 +129,17 @@ export default function Details() {
                                 <p className={styles['comment-header']}>
                                     Posted by:&nbsp;<strong> {c?.author?.username}</strong>&nbsp;at&nbsp;{dateCreator(c._createdOn)}</p>
                                 <p>{c.comment}</p>
+                                {userId === c._ownerId && <>
+                                    <button type="button" onClick={() => onCommentDelete(c._id)} >Delete</button>
+                                    <button type="button" onClick={() => onCommentDelete(c._id)} >Edit</button>
+
+                                </>}
                             </li>
                         )}
                     </ul>
-                </div> : <ul> <li>No comments yet.</li> </ul> }
+                </div> : <ul> <li>No comments yet.</li> </ul>}
 
             </div>
-
-
-
-
 
 
 
