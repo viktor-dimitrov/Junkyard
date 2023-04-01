@@ -29,19 +29,14 @@ export async function request(method, url, data) {
             return response;
         }
 
-   
+        if (response.status === 403) {
+            return
+        }
 
-        // if (response.url === 'http://localhost:3030/users/me') {
-        //    const result = await response.json()
-        // //    const data =  await JSON.parse(result)
-          
-        //     return result
-        // }
 
         const result = await response.json();
 
-       
-
+    
         if (!response.ok) {
        
             throw result;
