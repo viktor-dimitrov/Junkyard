@@ -11,6 +11,8 @@ export default function Comments ({
         }, onCommentSubmit);
     
         return (
+
+
             <article className="create-comment">
                 <label>Add new comment:</label>
                 <form className="form" onSubmit={onSubmit}>
@@ -18,5 +20,7 @@ export default function Comments ({
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>
+
+            
         );
     };

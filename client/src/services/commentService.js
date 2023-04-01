@@ -4,8 +4,10 @@ const baseUrl =  '/data/comments'
 
 
 
-export const getAllComments = async () => {
-    const result = await get(baseUrl);
+export const getAllComments = async (carId) => {
+    const where = encodeURIComponent(`carId="${carId}"`);
+    const load = encodeURIComponent(`author=_ownerId:users`)
+    const result = await get(`${baseUrl}?where=${where}&load=${load}`);
 
     return result
 }

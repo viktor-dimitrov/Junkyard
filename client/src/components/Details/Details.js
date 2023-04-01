@@ -25,16 +25,15 @@ export default function Details() {
     const [car, setCar] = useState({});
 
     useEffect(() => {
-      Promise.all([ getOneCar(carId), getAllComments(carId) ]) 
+        Promise.all([getOneCar(carId), getAllComments(carId)])
             .then(([carResult, comments]) => {
-                setCar({...carResult,  comments});
+                setCar({ ...carResult, comments });
             })
             .catch(err => {
                 console.log(err.message);
             })
     }, [carId]);
 
-    console.log(car)
 
     const dealer = { ...car.dealer };
     const isOwner = (userId === car._ownerId) ? true : false;
@@ -48,10 +47,15 @@ export default function Details() {
     };
 
     const onCommentSubmit = async (values) => {
-        
-        const result = await createComment(values)
-        console.log(result)
+      
+        const result = await createComment({...values, carId: carId});
+        setCar((state) => (
+             { ...state, comments: [...state.comments, result] }
+        ))
+       
     }
+
+    console.log(car.comments)
 
 
 
@@ -114,19 +118,28 @@ export default function Details() {
 
             </div>
 
-            <div>
+            <div className={styles['comments']} >
 
                 <div>
                     < Comments onCommentSubmit={onCommentSubmit} />
                 </div>
 
-                <ul>
+                <div   >
+                    <ul>
 
-                {car.comments && Object.values(car.comments).map( c =>  <li> {c.comment } </li>)}
-                   
-                      
-                   
-                </ul>
+                        {car.comments && Object.values(car.comments).map(c =>
+                            <li key={c._id}>
+
+                                <p className={styles['comment-header']}> Posted by: <strong> {c.author.username} </strong> </p>
+                                <p>{c.comment}</p>
+
+                            </li>
+
+                        )}
+
+
+                    </ul>
+                </div>
 
             </div>
 

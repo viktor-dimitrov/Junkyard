@@ -156,6 +156,47 @@
     margin-left: 120px;
 }
 
+.comments {
+
+    width: 500px;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding:30px;
+    flex-direction: column;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 4px #B82924;
+    font-size: medium;
+}
+
+
+
+.comments li {
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 4px #B82924;
+    margin-bottom: 20px;
+
+}
+
+.comments p {
+    word-wrap: break-word;
+    padding: 5px;
+    
+}
+
+.comments ul{
+    margin-top: 30px;
+}
+
+.comment-header{
+
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 4px #B82924;
+    font-style: italic;
+    font-size: small;
+    padding:3px;
+}
 
 
 
