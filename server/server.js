@@ -1340,7 +1340,7 @@
     };
     var seedData = {
         cars: {
-            "4be91d66-a99c-4d99-8a80-e08779565967":     {
+            "4be91d66-a99c-4d99-8a80-e08779565967": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "model": "Golf",
                 "year": "2005",
@@ -1352,6 +1352,32 @@
                 "brand": "Volkswagen",
                 "_createdOn": 1679578986904,
                 "_id": "4be91d66-a99c-4d99-8a80-e08779565967"
+            },
+            "e93cbcd8-982b-4489-a3bb-98033073beb2": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "model": "Santa Fe",
+                "year": "2018",
+                "fuel": "Gassoline",
+                "engine": "2.0 T Ultimate",
+                "color": "Silver",
+                "imageUrl": "https://anvis.iaai.com/resizer?imageKeys=33988999~SID~B747~S0~I1~RW2592~H1944~TH0&width=845&height=633",
+                "mileage": "23000",
+                "brand": "Hyundai",
+                "_createdOn": 1680362219654,
+                "_id": "e93cbcd8-982b-4489-a3bb-98033073beb2"
+            },
+            "ab416865-f33d-4ff8-8663-bfa2884648dd": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "model": "Rio",
+                "year": "2022",
+                "fuel": "Diesel",
+                "engine": "1.2 G3Lf",
+                "color": "White",
+                "imageUrl": "https://www.alo.bg/user_files/k/kumanovo/8403041_121121010_big.jpg",
+                "mileage": "4600",
+                "brand": "Kia",
+                "_createdOn": 1680362031975,
+                "_id": "ab416865-f33d-4ff8-8663-bfa2884648dd"
             },
             "bc520d99-4567-4a06-87c4-38d67c764b4c": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1366,8 +1392,8 @@
                 "_createdOn": 1679579652681,
                 "_id": "bc520d99-4567-4a06-87c4-38d67c764b4c"
             },
-            
-                "673de213-bfcd-4465-9f5f-4648ee54d23c": {
+
+            "673de213-bfcd-4465-9f5f-4648ee54d23c": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "model": "C4 Grand Picasso",
                 "year": "2014",
@@ -1380,7 +1406,7 @@
                 "_createdOn": 1680032119699,
                 "_id": "673de213-bfcd-4465-9f5f-4648ee54d23c"
             },
-            "2d572b73-aa31-46bc-a870-9454a0442436" : {
+            "2d572b73-aa31-46bc-a870-9454a0442436": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "model": "HR-V",
                 "year": "2005",
@@ -1392,19 +1418,45 @@
                 "brand": "Honda",
                 "_createdOn": 1680038196623,
                 "_id": "2d572b73-aa31-46bc-a870-9454a0442436"
+            },
+            "233436bd-f83a-473d-be18-f7719ea699c8":{
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "model": "Qashqai",
+                "year": "2018",
+                "fuel": "LPG",
+                "engine": "1.5 DCI",
+                "color": "Red",
+                "imageUrl": "https://tnsautosalvage.com/wp-content/uploads/2018/08/1-6-876x535.jpg",
+                "mileage": "56000",
+                "brand": "Nissan",
+                "_createdOn": 1680362408631,
+                "_id": "233436bd-f83a-473d-be18-f7719ea699c8"
+            },
+            "dacf4594-638e-4dc0-820c-9a24b6464500": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "model": "Juke",
+                "year": "2014",
+                "fuel": "LPG",
+                "engine": "1.3 UUA",
+                "color": "Yellow",
+                "imageUrl": "https://www.jukeforums.com/attachments/37717515_01x-jpg.118049/",
+                "mileage": "85500",
+                "brand": "Nissan",
+                "_createdOn": 1680362529697,
+                "_id": "dacf4594-638e-4dc0-820c-9a24b6464500"
             }
-            
-           
-  
+
+
+
         },
         dealerLikes: {
-           
+
         },
         carLikes: {
-           
+
         },
         comments: {
-        
+
         }
     };
     var rules$1 = {
