@@ -34,7 +34,7 @@ export const deleteComment = async (commentId) => {
     await del(`${baseUrl}/${commentId}`);
 }
 
-export const editComment = async (commentId, body) => {
+export const updateComment = async (commentId, body) => {
     const result = await put(`${baseUrl}/${commentId}`, body);
     return result
 }

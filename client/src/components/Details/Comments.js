@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { dateCreator } from '../../utils/dateCreator';
-import { getAllComments, createComment, deleteComment } from '../../services/commentService';
+import { getAllComments, createComment, deleteComment, getOneComment, updateComment } from '../../services/commentService';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 import styles from './Details.module.css'
 
 
 export default function Comments({ carId }) {
-    const { userId,  userName } = useAuthContext();
+    const { userId, userName } = useAuthContext();
 
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState([]);
+
+    const [editComment, setEditComment] = useState(null);
 
     useEffect(() => {
         getAllComments(carId)
@@ -20,17 +22,26 @@ export default function Comments({ carId }) {
     const onCommentSubmit = async (values) => {
         const result = await createComment({ ...values, carId: carId });
         result.author = { username: userName };
-        console.log(comments)
-        setComments((state) => (  [...state, result ] ))
+        setComments((state) => ([...state, result]))
     }
 
-    const { values, changeHandler, onSubmit } = useForm({
+    const onEditClick = async (commentId) => {
+        const result = await getOneComment(commentId);
+        setEditComment(result);
+        changeValues({ comment: result.comment })
+    }
+
+    const onEditSubmit = async (values) => {
+        const result = await updateComment(editComment._id, { ...editComment, comment: values.comment });
+        result.author = { username: userName };
+        setComments(comments.map(c => c._id === result._id ? result : c));
+        setEditComment(null);
+    }
+
+
+    const { values, changeHandler, onSubmit, changeValues } = useForm({
         comment: ''
-    }, onCommentSubmit);
-
-
-
-
+    }, onCommentSubmit, onEditSubmit, editComment)
 
     const onCommentDelete = async (commentId) => {
         await deleteComment(commentId)
@@ -41,18 +52,21 @@ export default function Comments({ carId }) {
 
 
 
+
+
+
     return (
 
 
         <div className={styles['comments']} >
 
-            <h1>Commnets</h1>
+            <h1>Comments</h1>
             <div>
                 <article className="create-comment">
-                    <label>Add new comment:</label>
+                    <label> {!editComment ? 'Add new comment: ' : 'Edit your comment:'}  </label>
                     <form className="form" onSubmit={onSubmit}>
                         <textarea name="comment" placeholder="Comment......" value={values.comment} onChange={changeHandler}></textarea>
-                        <input className="btn submit" type="submit" value="Add Comment" />
+                        <input className={styles['rm']}  type="submit" value={!editComment ? "Add Comment" : "Edit Comment"} />
                     </form>
                 </article>
 
@@ -67,9 +81,14 @@ export default function Comments({ carId }) {
                                 <p className={styles['comment-header']}>
                                     Posted by:&nbsp;<strong> {c?.author?.username}</strong>&nbsp;at&nbsp;{dateCreator(c._createdOn)}</p>
                                 <p>{c.comment}</p>
+
                                 {userId === c._ownerId && <>
-                                    <button type="button" onClick={() => onCommentDelete(c._id)} >Delete</button>
-                                    <button type="button" onClick={() => onCommentDelete(c._id)} >Edit</button>
+                                    {!editComment && <>
+                                        <button type="button" onClick={() => onCommentDelete(c._id)} >Delete</button>
+                                        <button type="button" onClick={() => onEditClick(c._id)} >Edit</button>
+                                        </>
+                                    }
+
                                 </>}
                             </li>
                         )}

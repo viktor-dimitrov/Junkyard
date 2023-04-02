@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useLikeContext } from '../../contexts/LikeContext';
 import { getMyCarLike } from '../../services/likeService';
-
+import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './Likes.module.css';
 
 
-export default function Likes({ carId, userId, isOwner }) {
+export default function Likes({ carId, isOwner }) {
+    
+    const {userId} = useAuthContext();
 
     const { getCarLikes, likes, likeCar, unlikeCar } = useLikeContext();
-    const [carLikes, setCarLikes] = useState([])
+    const [carLikes, setCarLikes] = useState([]);
     const [myLike, setMyLike] = useState([]);
 
     useEffect(() => {
@@ -20,6 +22,7 @@ export default function Likes({ carId, userId, isOwner }) {
     useEffect(() => {
         getMyCarLike(carId, userId)
             .then(result => {
+                console.log(result)
                 setMyLike(result[0]);
             }).catch(error => {
                 console.log(error);
@@ -39,7 +42,7 @@ export default function Likes({ carId, userId, isOwner }) {
 
 
 
-   console.log(carLikes )
+   console.log(myLike)
 
     return (
         <>

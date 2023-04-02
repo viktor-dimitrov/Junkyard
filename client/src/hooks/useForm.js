@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
-export const useForm = (initialValues, onSubmitHandler) => {
+export const useForm = (initialValues, onSubmitHandler, onEditSubmit, editComment, onEditClick) => {
 
     const [values, setValues] = useState(initialValues);
 
@@ -11,13 +11,25 @@ export const useForm = (initialValues, onSubmitHandler) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+       if(editComment) {
+        onEditSubmit(values);
+       } else {
         onSubmitHandler(values);
-        setValues(initialValues);
+       }
+       setValues(initialValues);
     }
 
     const changeValues = (newValues) => {   
         setValues(newValues);
+        
     };
+
+    useEffect(() => {
+        if (typeof onEditClick === "function") {
+          onEditClick(changeValues);
+        }
+      }, []);
 
     return {
         values,

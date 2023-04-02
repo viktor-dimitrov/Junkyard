@@ -75,7 +75,7 @@ export default function Details() {
                                 <li ><h1 className={styles.left} >Year</h1> <h1 className={styles.right}> {car.year} </h1>  </li>
                                 <li ><h1 className={styles.left} >Color</h1> <h1 className={styles.right}> {car.color} </h1>  </li>
                                 <li ><h1 className={styles.left} >KM</h1> <h1 className={styles.right}> {car.mileage} </h1>  </li>
-                                <li>
+                                <li className={styles['like']}  >
                                     {isAuth && < LikeCar carId={carId} isOwner={isOwner} />}
                                 </li>
                             </ul>

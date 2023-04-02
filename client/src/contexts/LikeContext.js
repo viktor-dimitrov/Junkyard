@@ -52,7 +52,8 @@ export const LikeProvider = ({
                
             const likeCar = async (carId) => {
                 const result = await likeService.likeCar(carId);
-                setLikes(state => ([...state, result]))
+                setLikes(state => ([...state, result]));
+                return result
              }
 
 
