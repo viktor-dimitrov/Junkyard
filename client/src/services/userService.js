@@ -21,11 +21,13 @@ export async function login(data) {
 }
 
 export async function register(data) {
-
-    return await post(endpoints.register, data );
+return await post(endpoints.register, data );
+    
     
 }
 
 export async function logout(){
-    get(endpoints.logout);
+     get(endpoints.logout);
+
+   
 }

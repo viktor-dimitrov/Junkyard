@@ -7,11 +7,13 @@ import styles from './Likes.module.css';
 
 export default function Likes({ carId, userId, isOwner }) {
 
-    const { getCarLikes, carLikes, likeCar, unlikeCar } = useLikeContext();
+    const { getCarLikes, likes, likeCar, unlikeCar } = useLikeContext();
+    const [carLikes, setCarLikes] = useState([])
     const [myLike, setMyLike] = useState([]);
 
     useEffect(() => {
         getCarLikes(carId)
+        .then( result => { setCarLikes(result)})
     }, [carId, getCarLikes]);
 
 
@@ -22,19 +24,31 @@ export default function Likes({ carId, userId, isOwner }) {
             }).catch(error => {
                 console.log(error);
             })
-    }, [carId, userId, carLikes]);
+    }, [carId, userId, likes]);
+
+    
+    const onLikeClick = async () => {
+        const result = await likeCar(carId);
+        setCarLikes(state => ([...state, result]));
+    }
+
+    const onUnlikeClick = async (likeId) => {
+        await unlikeCar(likeId);
+        setCarLikes(state => state.filter(x => x._id !== likeId))
+    }
 
 
-   
+
+   console.log(carLikes )
 
     return (
         <>
-            <h1>  <strong> {carLikes.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1>
+            <h1>  <strong> {carLikes?.length} </strong> &nbsp;&nbsp;&nbsp; interested</h1>
             <h1>
                 {!isOwner && <>
                     {!myLike
-                        ? <input type="button" name="like" value="Favorite" className={styles['rm']} onClick={() => likeCar(carId)} />
-                        : <input type="button" name="like" value="Unfavorite" className={styles['rm']} onClick={() => unlikeCar(myLike?._id)} />
+                        ? <input type="button" name="like" value="Favorite" className={styles['rm']} onClick={() => onLikeClick(carId)} />
+                        : <input type="button" name="like" value="Unfavorite" className={styles['rm']} onClick={() => onUnlikeClick(myLike?._id)} />
                     }
                 </>}
             </h1>

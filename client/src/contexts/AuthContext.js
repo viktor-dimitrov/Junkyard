@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import * as userService from '../services/userService';
@@ -37,15 +37,10 @@ export const AuthProvider = ({
       }
 
       const onLogout = async () => {
-        try{
-            await userService.logout();
+        await userService.logout()
             setAuth({});
             navigate('/');
-        }catch(error){
-            console.log(error);
-        }
       }
-    
     
       const context = {
         onLoginSubmit,

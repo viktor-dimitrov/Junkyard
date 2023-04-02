@@ -7,7 +7,9 @@ import './Header.css';
 
 export default function Header() {
 
-    const { userName, isAuth, userId, imageUrl } = useAuthContext();
+    const { onLogout, userName, isAuth, userId, imageUrl } = useAuthContext();
+
+    
 
     return (
         <header className="wrapper" id="header">
@@ -20,7 +22,7 @@ export default function Header() {
                 <div className="img">
                     <h2>
                         {userName}
-                        <p> <Link to="/logout" >Logout</Link> </p>
+                        <p> <button onClick={onLogout}>logout</button> </p>
                     </h2>
                     <img src={imageUrl} alt="user" />
                 </div>

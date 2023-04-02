@@ -16,7 +16,7 @@ export default function Home () {
        
        < LineLarge title={'Welocme to JunkYard'} />
 
-       <CatalogLagre cars={cars} />
+       {/* <CatalogLagre cars={cars} /> */}
 
 
         

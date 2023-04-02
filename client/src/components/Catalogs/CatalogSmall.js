@@ -9,6 +9,8 @@ export default function CatalogSmall( ) {
 
     const { cars } = useCarContext();
 
+    console.log(cars)
+
     
     return (
 

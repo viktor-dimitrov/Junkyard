@@ -11,7 +11,7 @@ export const LikeProvider = ({
 
     const [followers, setFollowers] = useState([]);
 
-    const [carLikes, setCarLikes] = useState([]);
+    const [likes, setLikes] = useState([]);
 
                // DEALER LIKES
 
@@ -40,18 +40,19 @@ export const LikeProvider = ({
              //  CAR LIKES
 
              const getCarLikes = async (carId) => {
-                await likeService.getCarLikes(carId);
+               const result = await likeService.getCarLikes(carId);
+               return result
            
             }
         
             const unlikeCar = async (likeId) => {
                  await likeService.unlikeCar(likeId);
-                 setCarLikes(state => state.filter(x => x._id !== likeId));
+                 setLikes(state => state.filter(x => x._id !== likeId));
             }
                
             const likeCar = async (carId) => {
                 const result = await likeService.likeCar(carId);
-                setCarLikes(state => ([...state, result]))
+                setLikes(state => ([...state, result]))
              }
 
 
@@ -65,7 +66,7 @@ export const LikeProvider = ({
         getFollowers,
         getFollowings,
         unlikeDealer,
-        carLikes,
+        likes,
         likeCar,
         getCarLikes,
         unlikeCar,

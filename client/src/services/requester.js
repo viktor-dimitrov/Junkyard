@@ -16,7 +16,7 @@ export async function request(method, url, data) {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    if(user.accessToken){
+    if( user && user.accessToken){
         options.headers['X-Authorization'] = user.accessToken;
     }
 
@@ -26,15 +26,18 @@ export async function request(method, url, data) {
     
 
         if (response.status === 204) {
-            return response;
+      
+            return 
         }
 
         if (response.status === 403) {
+         
             return
         }
 
 
         const result = await response.json();
+      
 
     
         if (!response.ok) {

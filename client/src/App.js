@@ -15,7 +15,6 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Logout from "./components/Logout/Logout";
 import EditCar from "./components/EditCar/EditCar";
 
 import './App.css';
@@ -32,12 +31,6 @@ import FavoriteList from "./components/FavoriteList/FavoriteList";
 
 
 function App() {
-
-
-  
-
-
-
 
   return (
     <>
@@ -57,8 +50,7 @@ function App() {
 
               < Route path="/login" element={< Login />} />
               < Route path="/register" element={< Register />} />
-              < Route path="/logout" element={< Logout />} />
-
+            
               < Route path="/" element={< Home />} />
               < Route path="/catalog" element={< CatalogSmall />} />
               < Route path="/create" element={< Create />} />
