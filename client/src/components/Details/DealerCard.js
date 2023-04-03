@@ -1,9 +1,19 @@
 
+import { useEffect, useState } from 'react';
 import LikeDealer from '../Likes/LikeDealer';
 
 import styles from './Details.module.css'
+import { getMyCars } from '../../services/carService';
+
 
 export default function DealerCard({ _id, username, imageUrl, email, phone , isOwner}) {
+
+const [dealerCars, setDealerCars] = useState([]);
+
+useEffect( () => {
+    getMyCars(_id)
+    .then( result => { setDealerCars(result)})
+}, [_id])
 
 
 
@@ -25,10 +35,9 @@ export default function DealerCard({ _id, username, imageUrl, email, phone , isO
             </div>
 
             <div>
-                <h3>5 &nbsp;&nbsp;&nbsp; Cars </h3>
+                <h3>{dealerCars.length} &nbsp;&nbsp;&nbsp; Cars </h3>
             </div>
 
-            {/* < Link to={`/profile/${userId}`} > <input type="button" value="My Profile" className={styles['rm']} /></Link>  */}
             <div className={styles['flex']}>
                 <div>
                     < LikeDealer dealerId={_id}  isOwner={isOwner} />

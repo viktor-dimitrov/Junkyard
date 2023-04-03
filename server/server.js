@@ -1385,7 +1385,7 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "model": "Santa Fe",
                 "year": "2018",
-                "fuel": "Gassoline",
+                "fuel": "Gasoline",
                 "engine": "2.0 T Ultimate",
                 "color": "Silver",
                 "imageUrl": "https://anvis.iaai.com/resizer?imageKeys=33988999~SID~B747~S0~I1~RW2592~H1944~TH0&width=845&height=633",

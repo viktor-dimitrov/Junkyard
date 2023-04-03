@@ -95,7 +95,6 @@ export default function Create() {
                                         <option defaultValue="Hybrid(Electric/Diesel)">Hybrid(Electric/Diesel)</option>
                                         <option defaultValue="Others">Others</option>
 
-                                        
                                     </select>
                                 </td>
 
