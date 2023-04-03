@@ -1333,6 +1333,13 @@
                 phone: "000911",
                 username: "John McClane",
                 imageUrl: "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/John_MacClane.jpg/220px-John_MacClane.jpg",
+            },
+            "8679eed9-7a24-4907-a7f0-c059ce60385f": {
+                email: "tom@abv.bg",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+                phone: "0666333666",
+                username: "Tom Morello",
+                imageUrl: "https://i1.sndcdn.com/avatars-000109014620-ile8fr-t500x500.jpg",
             }
         },
         sessions: {
@@ -1352,6 +1359,27 @@
                 "brand": "Volkswagen",
                 "_createdOn": 1679578986904,
                 "_id": "4be91d66-a99c-4d99-8a80-e08779565967"
+            },
+            "3ab5eae0-eade-43b5-ac18-7fc974842f56": {
+                "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
+                "model": "H2",
+                "year": "2004",
+                "fuel": "Ethanol",
+                "engine": "6.0L V8 LQ4",
+                "color": "Black",
+                "imageUrl": "https://cs.copart.com/v1/AUTH_svc.pdoc00001/PIX250/46e58e5d-a8ba-45c5-a147-138d0cb97884.JPG",
+                "mileage": "132000",
+                "brand": "Hummer",
+                "_createdOn": 1680544062206,
+                "_id": "3ab5eae0-eade-43b5-ac18-7fc974842f56",
+                "dealer": {
+                    "email": "tom@abv.bg",
+                    "phone": "0666333666",
+                    "username": "Tom Morello",
+                    "imageUrl": "https://i1.sndcdn.com/avatars-000109014620-ile8fr-t500x500.jpg",
+                    "_id": "8679eed9-7a24-4907-a7f0-c059ce60385f"
+                },
+                "_updatedOn": 1680545311638
             },
             "e93cbcd8-982b-4489-a3bb-98033073beb2": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1419,7 +1447,7 @@
                 "_createdOn": 1680038196623,
                 "_id": "2d572b73-aa31-46bc-a870-9454a0442436"
             },
-            "233436bd-f83a-473d-be18-f7719ea699c8":{
+            "233436bd-f83a-473d-be18-f7719ea699c8": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "model": "Qashqai",
                 "year": "2018",

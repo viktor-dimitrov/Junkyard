@@ -84,9 +84,18 @@ export default function Create() {
                                     <label htmlFor="fuel">Fuel</label>
                                     <select id="fuel" name="fuel" value={carInputs.fuel} onChange={onChangeCarInputs}>
                                         <option defaultValue=""></option>
+                                        <option defaultValue="Gasoline">Gasoline</option>
                                         <option defaultValue="Diesel">Diesel</option>
+                                        <option defaultValue="Ethanol">Ethanol</option>
+                                        <option defaultValue="Electric">Electric</option>
+                                        <option defaultValue="Hydrogen">Hydrogen</option>
                                         <option defaultValue="LPG">LPG</option>
-                                        <option defaultValue="Gassoline">Gassoline</option>
+                                        <option defaultValue="CNG">CNG</option>
+                                        <option defaultValue="Hybrid(Electric/Gasoline)">Hybrid(Electric/Gasoline)</option>
+                                        <option defaultValue="Hybrid(Electric/Diesel)">Hybrid(Electric/Diesel)</option>
+                                        <option defaultValue="Others">Others</option>
+
+                                        
                                     </select>
                                 </td>
 

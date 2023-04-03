@@ -29,7 +29,7 @@ export const useForm = (initialValues, onSubmitHandler, onEditSubmit, editCommen
         if (typeof onEditClick === "function") {
           onEditClick(changeValues);
         }
-      }, []);
+      }, [onEditClick]);
 
     return {
         values,

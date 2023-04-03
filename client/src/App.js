@@ -20,6 +20,7 @@ import EditCar from "./components/EditCar/EditCar";
 import './App.css';
 import Profile from "./components/Profile/Profile";
 import FavoriteList from "./components/FavoriteList/FavoriteList";
+import { RouteGuard } from "./components/common/Guards/RouteGuard";
 
 
 
@@ -40,34 +41,31 @@ function App() {
 
         < CarProvider >
 
-        < LikeProvider>
+          < LikeProvider>
 
-          < Header />
+            < Header />
 
-          <div className="wrapper ">
+            <div className="wrapper ">
 
-            < Routes >
+              < Routes >
 
-              < Route path="/login" element={< Login />} />
-              < Route path="/register" element={< Register />} />
-            
-              < Route path="/" element={< Home />} />
-              < Route path="/catalog" element={< CatalogSmall />} />
-              < Route path="/create" element={< Create />} />
+                < Route path="/login" element={< Login />} />
+                < Route path="/register" element={< Register />} />
+                < Route path="/" element={< Home />} />
+                < Route path="/catalog" element={< CatalogSmall />} />
+                < Route path="/details/:carId" element={< Details />} />
 
-              < Route path="/details/:carId" element={ < Details />} />
-              < Route path="/details/:carId/edit" element={< EditCar />} />
-              < Route path="/profile/:userId/*" element={< Profile />} />
-              < Route path="/favorite/:userId" element={< FavoriteList />} />
+                < Route element={< RouteGuard />} >
+                  < Route path="/create" element={< Create />} />
+                  < Route path="/details/:carId/edit" element={< EditCar />} />
+                  < Route path="/profile/:userId/*" element={< Profile />} />
+                  < Route path="/favorite/:userId" element={< FavoriteList />} />
+                </Route>
 
+              </Routes>
 
-
-            </Routes>
-
-
-
-          </div>
-          < Footer />
+            </div>
+            < Footer />
 
           </LikeProvider>
 
