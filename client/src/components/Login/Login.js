@@ -33,7 +33,7 @@ export default function Login () {
          
             <p><label htmlFor="email">Password</label><input type="password" name="password" id="password" placeholder="*****" value={values.password} onChange={changeHandler} /></p>
          
-            <p><span>&nbsp;</span><input className="submit" type="submit" name="contact_submitted" defaultValue="Login" /></p>
+            <p><span>&nbsp;</span><input className="submit" type="submit" name="contact_submitted" value="Login" /></p>
           </div>
         </form>
       </div>
