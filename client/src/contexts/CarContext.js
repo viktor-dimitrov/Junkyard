@@ -17,7 +17,6 @@ export const CarProvider = ({
     useEffect( () => {
         carService.getAll()
         .then(cars => {
-       
             setCars(cars);
         })
          .catch(err => {

@@ -6,7 +6,6 @@ const baseUrl =  '/data/cars'
 
 export const getAll = async () => {
     const result = await get(baseUrl);
-
     return result
 }
 
@@ -17,11 +16,24 @@ export const getOneCar = async (carId) => {
     return result[0]
 }
 
+export const getPageData = async ( pageSize, offset ) => {
+    const result = get(`${baseUrl}?offset=${offset}&pageSize=${pageSize}`);
+    return result
+}
+
+export const getSearchedCars = async ( brand, model , year) => {
+    const query = encodeURIComponent(``);
+    const result = await get(`/data/cars?where=${query}`);
+    return result
+}
+
 export const getMyCars = async (userId) => {
     const query = encodeURIComponent(`_ownerId="${userId}"`);
     const result = await get(`/data/cars?where=${query}`);
     return result
 }
+
+
 
 export const createCar = async (body) => {
     const result = await post(baseUrl, {...body})

@@ -33,6 +33,7 @@ export default function Header() {
                     {isAuth && <>
                         <li><Link to={`/profile/${userId}`} >My Profile</Link></li>
                         <li><Link to={`/favorite/${userId}`} >Favorite List</Link></li>
+                        <li><Link to="/search" >Search</Link></li>
                         <li><Link to="/create" >Create</Link></li>
                     </>}
                     <li><Link to="/catalog" >Catalog</Link></li>

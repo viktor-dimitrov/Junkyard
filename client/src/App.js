@@ -16,8 +16,12 @@ import Register from "./components/Register/Register";
 import EditCar from "./components/EditCar/EditCar";
 import Profile from "./components/Profile/Profile";
 import FavoriteList from "./components/FavoriteList/FavoriteList";
+import Search from "./components/Search/Search";
 
 import './App.css';
+
+
+
 
 
 function App() {
@@ -36,6 +40,7 @@ function App() {
                 < Route path="/register" element={< Register />} />
                 < Route path="/" element={< Home />} />
                 < Route path="/catalog" element={< CatalogSmall />} />
+                < Route path="/search" element={< Search />} />
                 < Route path="/details/:carId" element={< Details />} />
 
                 < Route element={< RouteGuard />} >
