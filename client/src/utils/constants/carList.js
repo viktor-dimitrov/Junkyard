@@ -1,5 +1,9 @@
 export const carList = [
     {
+        "brand": '',
+        "models": []
+    },
+    {
         "brand": "Seat",
         "models": [
             "Alhambra",

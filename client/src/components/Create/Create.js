@@ -121,7 +121,7 @@ export default function Create() {
                                 <td>
                                     <p>
 
-                                        <input type="submit" />
+                                        <input type="submit" value={'Create'} />
                                     </p>
 
                                 </td>

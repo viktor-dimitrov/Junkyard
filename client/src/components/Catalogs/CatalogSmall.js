@@ -1,35 +1,52 @@
 
 import LineLarge from "../Lines/LineLarge";
 import CardSmall from "../Cards/CardSmall";
- import {  useCarContext } from "../../contexts/CarContext";
+//  import {  useCarContext } from "../../contexts/CarContext";
 import { useEffect, useState } from "react";
 import {  getPageData } from "../../services/carService";
+import Search from "../Search/Search";
 
 
 export default function CatalogSmall( ) {
 
-    const { cars } = useCarContext();
+    // const { cars } = useCarContext();
 
 
      const [currentPage, setCurrentPage] = useState(1);
       const [totalPages, setTotalPages] = useState(0);
       const [data, setData] = useState([]);
+      const [queryParams, setQueryParams] = useState({
+        brand: '',
+        model: '',
+        year: '',
+        fuel: '',
+    })
 
       useEffect(() => {
         const pageSize = 10;
         const offset = (currentPage - 1) * pageSize; 
-            getPageData(pageSize, offset)
-            .then(result => {
+            getPageData(pageSize, offset, {...queryParams})
+            .then(([result, length]) => {
            
                 setData(result);
-                setTotalPages(Math.ceil(cars.length / pageSize));
+                setTotalPages(Math.ceil(length / pageSize));
             });
-      },[currentPage, cars.length])
+      },[currentPage, queryParams, totalPages]);
+
+      const searchHandler = (values) => {
+        setQueryParams(values);
+        setCurrentPage(1)
+      }
+
+
+
     
     return (
 
         <>
          < LineLarge title={'Catalog'} />
+
+         < Search searchHandler={searchHandler} />
 
         <div className="latestp">
             {data.map(car => < CardSmall key={car._id} {...car} /> )}

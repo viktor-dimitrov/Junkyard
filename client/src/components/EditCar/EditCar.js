@@ -137,7 +137,7 @@ export default function EditCar() {
                                 <td>
                                     <p>
 
-                                        <input type="submit" />
+                                        <input type="submit" value={'Edit'} />
                                     </p>
 
                                 </td>
