@@ -57,7 +57,8 @@ export default function CatalogSmall() {
         {data.map(car => < CardSmall key={car._id} {...car} />)}
       </div>
 
-      <div className={styles['pagination']} >
+      {totalPages > 0 
+      ? <div className={styles['pagination']} >
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
           Previous
         </button>
@@ -66,6 +67,11 @@ export default function CatalogSmall() {
           Next
         </button>
       </div>
+       : <div className={styles['empty']} >
+       <p>We're sorry, but we couldn't find any results for your search.</p>
+   </div> }
+
+
 
     </>
 
