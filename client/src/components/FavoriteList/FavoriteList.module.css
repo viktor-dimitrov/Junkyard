@@ -1,0 +1,14 @@
+
+
+.empty {
+    text-align: center;
+    margin-top: 50px;    border: 1px solid #B82924;
+    box-shadow: 0 3px 4px #B82924;
+    height: 200px;
+}
+
+.empty p {
+    margin-top: 50px;
+    font-size: x-large
+   
+}

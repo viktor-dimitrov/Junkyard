@@ -1,0 +1,39 @@
+
+
+.search {
+    display: flex;
+
+    margin-bottom: 20px;
+}
+
+.search tr {
+      
+    max-width:fit-content
+}
+
+
+
+.search input[type="submit"]{
+	display: block;
+    margin-top: 15px;
+	font-family: LeagueGothic, sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	border: 2px outset #e44444;
+	color: #121212;
+	height: 30px;
+	margin-right: 3px;
+    margin-left: 30px;
+}
+
+.search input[type="submit"]:hover{
+	cursor:pointer;
+    border: 4px inset #dd3b3b;
+}
+.search input[type="submit"]:active{
+	border: 2px inset #dd3b3b;
+}
+
+.year {
+    width:70px;
+}

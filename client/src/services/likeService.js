@@ -48,9 +48,7 @@ export const getCarLikes = async (carId) => {
 }
 
 export const getMyCarLike = async (carId, userId) => {
-    console.log(userId)
     const result = await get(`/data/carLikes?where=carId%3D%22${carId}%22%20and%20_ownerId%3D%22${userId}%22`);
-    console.log(result)
     return result
 }
 

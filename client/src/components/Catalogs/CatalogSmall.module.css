@@ -1,0 +1,54 @@
+
+.catalog-small{
+	margin-left: 20px;
+
+}
+
+
+.catalog-small article{
+	width: 210px;
+	display: inline-block;
+	*display: inline;
+	zoom:1;
+	margin-right: 20px;
+}
+
+
+.pagination {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    padding-left: 300px;
+    padding-right: 300px;
+    max-width: 100%;
+}
+
+.pagination span {
+
+  font-size: x-large;
+}
+
+
+.pagination button {
+
+    display: inline;
+	font-family: LeagueGothic, sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	border: 2px outset #e44444;
+	color: #121212;
+	height: fit-content;
+    width: fit-content;
+    padding: 5px;;
+}
+
+.pagination button:hover{
+	cursor:pointer;
+    border: 1px inset #dd3b3b;
+}
+.pagination button:active{
+	border: 2px inset #dd3b3b;
+}
+

@@ -67,9 +67,25 @@ export default function Profile() {
 
             < Routes>
 
-                < Route path="/followers" element={< UsersList title={'Followers'} users={userData['myFollowers']} />} />
-                < Route path="/followings" element={< UsersList title={' Following'} users={userData['myFollowings']} />} />
-                < Route path="" element={< CatalogLarge cars={userData['userCars']} />} />
+                < Route path="/followers" element={userData.myFollowers?.length
+                    ? < UsersList title={'Followers'} users={userData['myFollowers']} />
+                    : <div className={styles['empty']} >
+                        <p>You currently have no followers. Start sharing your content and engaging with other users to grow your following.</p>
+                    </div>} />
+
+
+                < Route path="/followings" element={userData.myFollowings?.length
+                    ? < UsersList title={' Following'} users={userData['myFollowings']} />
+                    : <div className={styles['empty']} >
+                        <p>You are not currently following any users. Start exploring and following other users to see their vCards in your feed.</p>
+                    </div>} />
+
+
+                < Route path="" element={userData.userCars?.length
+                    ? < CatalogLarge cars={userData['userCars']} />
+                    : <div className={styles['empty']} >
+                        <p>You have not posted any cars yet. Start sharing your cars by clicking on the <strong>'Create'</strong> button and fill out the fields to create a post.</p>
+                    </div>} />
 
             </Routes>
 

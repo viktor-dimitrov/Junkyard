@@ -22,7 +22,6 @@ export default function Likes({ carId, isOwner }) {
     useEffect(() => {
         getMyCarLike(carId, userId)
             .then(result => {
-                console.log(result)
                 setMyLike(result[0]);
             }).catch(error => {
                 console.log(error);
@@ -40,9 +39,6 @@ export default function Likes({ carId, isOwner }) {
         setCarLikes(state => state.filter(x => x._id !== likeId))
     }
 
-
-
-   console.log(myLike)
 
     return (
         <>

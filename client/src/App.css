@@ -255,16 +255,7 @@ body{
 	margin-bottom: 10px;
 
 }
-.latestp article{
-	width: 210px;
-	display: inline-block;
-	*display: inline;
-	zoom:1;
-	margin-right: 20px;
-}
-.latestp{
-	margin-left: 20px;
-}
+
 
 /************* B L O G    S T Y L E  &   C O N T A C T   P A G E *****************************/
 .articles, .sidebar{

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { carList } from "../../utils/constants/carList";
 
-
+import styles from './Search.module.css';
 
 
 export default function Search({ searchHandler }) {
@@ -40,7 +40,7 @@ export default function Search({ searchHandler }) {
 
     return (
         
-            <div className="create">
+            <div className={styles['search']}>
                 <form onSubmit={onSubmit} >
                     <table>
                         <tbody>
@@ -61,9 +61,9 @@ export default function Search({ searchHandler }) {
                                     </select>
                                 </td>
 
-                                <td>
+                                <td >
                                     <label htmlFor="year">Year</label>
-                                    <select id="year" name="year" value={carInputs.year} onChange={onChangeCarInputs}>
+                                    <select className={styles['year']}  id="year" name="year" value={carInputs.year} onChange={onChangeCarInputs}>
                                         <option defaultValue={''} ></option>
                                         {carList.map((x, i) => <option key={i} defaultValue={currYear - i}>{currYear - i}</option>)}
                                     </select>
@@ -86,9 +86,9 @@ export default function Search({ searchHandler }) {
                                     </select>
                                 </td>
                                 <td>
-                                <p>
+                               
                                     <input type="submit" value={'Search'} />
-                                </p>
+                                
                             </td>
 
 

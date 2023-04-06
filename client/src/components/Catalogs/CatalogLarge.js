@@ -1,5 +1,4 @@
 
-import {  useCarContext } from "../../contexts/CarContext"
 import CardLarge from "../Cards/CardLarge"
 import LineLarge from "../Lines/LineLarge"
 
@@ -22,10 +21,6 @@ export default function CatalogLagre({
             {cars.map(car => < CardLarge key={car._id} {...car} /> )}
 
         </div>
-
-
-
-
 </>
         
     )
