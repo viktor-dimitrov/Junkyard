@@ -64,9 +64,9 @@ export default function Comments({ carId }) {
             <div>
                 <article className="create-comment">
                     <label> {!editComment ? 'Add new comment: ' : 'Edit your comment:'}  </label>
-                    <form className="form" onSubmit={onSubmit}>
-                        <textarea name="comment" placeholder="Comment......" value={values.comment} onChange={changeHandler}></textarea>
-                        <input className={styles['rm']}  type="submit" value={!editComment ? "Add Comment" : "Edit Comment"} />
+                    <form name="comment" className="form" onSubmit={onSubmit}>
+                        <textarea name="comment" placeholder="Comment......" value={values.comment} onChange={changeHandler}  minlength={5}  maxLength={150} required={true}  ></textarea>
+                        <input  className={styles['rm']}  type="submit" value={!editComment ? "Add Comment" : "Edit Comment"} />
                     </form>
                 </article>
 

@@ -17,7 +17,10 @@ export const useForm = (initialValues, onSubmitHandler, onEditSubmit, editCommen
        } else {
         onSubmitHandler(values);
        }
-       setValues(initialValues);
+
+       if(e.target.name === 'comment') {
+        setValues(initialValues);
+       }   
     }
 
     const changeValues = (newValues) => {   

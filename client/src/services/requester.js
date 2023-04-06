@@ -16,40 +16,28 @@ export async function request(method, url, data) {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    if( user && user.accessToken){
+    if( user && user.accessToken !== undefined){
         options.headers['X-Authorization'] = user.accessToken;
     }
-
     try{
         const response = await fetch(host + url, options);
-
-    
-
         if (response.status === 204) {
-      
-            return 
+            return {}
         }
-
-        if (response.status === 403) {
-         
-            return
-        }
-
-
         const result = await response.json();
       
-
-    
         if (!response.ok) {
-       
-            throw result;
+            throw new Error(result.message);
         }
 
+        
+        if (response.status === 403) {
+            return {}
+        }
         return result;
 
-    }catch(err){
-       alert(err.message);
-       throw err
+    }catch(error){
+       throw error
     }
 }
 

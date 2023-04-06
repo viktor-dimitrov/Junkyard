@@ -49,7 +49,7 @@ export default function Create() {
                             <tr>
                                 <td>
                                     <label htmlFor="brand">Brand</label>
-                                    <select id="brand" name="brand" value={carBrand.brand} onChange={onChangeBrand} >
+                                    <select id="brand" name="brand" value={carBrand.brand} onChange={onChangeBrand} required >
                                         <option defaultValue={''} ></option>
                                         {carList.sort((a, b) => a.brand.localeCompare(b.brand)).map(x => <option key={x.brand} defaultValue={x.brand}>{x.brand}</option>)}
                                     </select>
@@ -57,7 +57,7 @@ export default function Create() {
 
                                 <td>
                                     <label htmlFor="model">Model</label>
-                                    <select id="model" name="model" value={carInputs.model} onChange={onChangeCarInputs}>
+                                    <select id="model" name="model" value={carInputs.model} onChange={onChangeCarInputs} required >
                                         <option defaultValue={''} ></option>
                                         {carBrand.models?.map((x, i) => <option key={i} defaultValue={x}>{x}</option>)}
                                     </select>
@@ -65,7 +65,7 @@ export default function Create() {
 
                                 <td>
                                     <label htmlFor="year">Year</label>
-                                    <select id="year" name="year" value={carInputs.year} onChange={onChangeCarInputs}>
+                                    <select id="year" name="year" value={carInputs.year} onChange={onChangeCarInputs} required >
                                         <option defaultValue={''} ></option>
                                         {carList.map((x, i) => <option key={i} defaultValue={currYear - i}>{currYear - i}</option>)}
                                     </select>
@@ -77,12 +77,12 @@ export default function Create() {
                             <tr>
                                 <td>
                                     <label htmlFor="engine">Engine</label>
-                                    <input id="engine" name="engine" type="text" value={carInputs.engine} onChange={onChangeCarInputs} />
+                                    <input id="engine" name="engine" type="text" value={carInputs.engine} onChange={onChangeCarInputs} required />
                                 </td>
 
                                 <td>
                                     <label htmlFor="fuel">Fuel</label>
-                                    <select id="fuel" name="fuel" value={carInputs.fuel} onChange={onChangeCarInputs}>
+                                    <select id="fuel" name="fuel" value={carInputs.fuel} onChange={onChangeCarInputs} required>
                                         <option defaultValue=""></option>
                                         <option defaultValue="Gasoline">Gasoline</option>
                                         <option defaultValue="Diesel">Diesel</option>
@@ -100,30 +100,28 @@ export default function Create() {
 
                                 <td>
                                     <label htmlFor="color">Color</label>
-                                    <input id="color" name="color" type="text" value={carInputs.color} onChange={onChangeCarInputs} />
+                                    <input id="color" name="color" type="text" value={carInputs.color} onChange={onChangeCarInputs} required />
                                 </td>
                             </tr>
 
                             <tr>
 
                                 <td>
-                                    <label htmlFor="engine">Mileage</label>
-                                    <input id="mileage" name="mileage" type="number" value={carInputs.mileage} onChange={onChangeCarInputs} />
+                                    <label htmlFor="mileage">Mileage</label>
+                                    <input id="mileage" name="mileage" type="number" value={carInputs.mileage} onChange={onChangeCarInputs} required />
                                 </td>
 
                                 <td>
                                     <label htmlFor="image">Image</label>
-                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} />
+                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} required />
                                 </td>
                             </tr>
 
                             <tr >
                                 <td>
                                     <p>
-
                                         <input type="submit" value={'Create'} />
                                     </p>
-
                                 </td>
                             </tr>
                         </tbody>

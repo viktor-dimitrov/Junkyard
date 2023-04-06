@@ -85,18 +85,15 @@ export default function Search({ searchHandler }) {
                                         <option defaultValue="Others">Others</option>
                                     </select>
                                 </td>
-
-
-                            </tr>
-
-                            <tr>
-
-                            <td>
+                                <td>
                                 <p>
                                     <input type="submit" value={'Search'} />
                                 </p>
                             </td>
+
+
                             </tr>
+
 
                         </tbody>
                     </table>

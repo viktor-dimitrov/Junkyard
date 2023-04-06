@@ -6,8 +6,8 @@ import { get, post } from "./requester.js";
 const endpoints = {
     "login": "/users/login",
     "register": "/users/register",
-    "logout":"/users/logout",
-    "myData":"/users/me"
+    "logout": "/users/logout",
+    "myData": "/users/me"
 
 }
 
@@ -16,18 +16,36 @@ const endpoints = {
 
 
 export async function login(data) {
-    return await post(endpoints.login, data );
-  
+
+    try {
+        const result = await post(endpoints.login, data);
+        return result
+    } catch (error){
+        throw error
+    }
+
 }
 
 export async function register(data) {
-return await post(endpoints.register, data );
-    
-    
+
+    try{
+        const result = await post(endpoints.register, data);
+        return result
+    }catch (error) {
+        throw error
+    }
+   
+
+
 }
 
-export async function logout(){
-     get(endpoints.logout);
-
+export async function logout() {
+    try {
+        get(endpoints.logout);
+    }catch (error) {
+        console.log(error.message)
+    }
    
+
+
 }

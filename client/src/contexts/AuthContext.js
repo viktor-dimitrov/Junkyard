@@ -1,9 +1,7 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext,  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import * as userService from '../services/userService';
-
-
 
 export const AuthContext = createContext();
 
@@ -11,28 +9,38 @@ export const AuthProvider = ({
     children
 }) => {
 
-    const [auth, setAuth] = useLocalStorage('user', {});
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+    const [auth, setAuth] = useLocalStorage('user', {});
+    const [authError, setAuthError] = useState(null);
 
     const onLoginSubmit = async (data) => {
         try{
-          const result = await userService.login(data)
-          setAuth(result);
-            navigate('/catalog')
-        
+          const result = await userService.login(data);
+          if (result) {
+            setAuth(result);
+            navigate('/catalog');
+            setAuthError(null)
+          } 
         }catch(error) {
-          console.log(error)
+         setAuthError(error.message);
         }
       }
     
       const onRegisterSubmit = async (data) => {
         try{
+          if(data.password !== data.repassword){
+            setAuthError("Password don't match!");
+            return data
+          }
           const result = await userService.register(data);
-          setAuth(result);
-             navigate('/catalog');
+          if(result){
+            setAuth(result);
+            navigate('/catalog');
+            setAuthError(null)
+          }
         }catch(error){
-          console.log(error)
+          setAuthError(error.message);
         }
       }
 
@@ -41,16 +49,22 @@ export const AuthProvider = ({
             setAuth({});
             navigate('/');
       }
+
+      const clearAuthError = () => {
+        setAuthError(null)
+      }
     
       const context = {
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
-        userId: auth._id,
+        clearAuthError,
+        authError,
+        userId: auth?._id,
         userName: auth?.username,
-        phone: auth.phone,
-        email: auth.email,
-        imageUrl: auth.imageUrl,
+        phone: auth?.phone,
+        email: auth?.email,
+        imageUrl: auth?.imageUrl,
         isAuth: !!auth?.accessToken,
       }
 

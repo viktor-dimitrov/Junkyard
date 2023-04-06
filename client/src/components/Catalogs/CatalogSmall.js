@@ -5,10 +5,13 @@ import CardSmall from "../Cards/CardSmall";
 import { useEffect, useState } from "react";
 import {  getPageData } from "../../services/carService";
 import Search from "../Search/Search";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 
 export default function CatalogSmall( ) {
 
+   const { isAuth } = useAuthContext();
+ 
     // const { cars } = useCarContext();
 
 
@@ -46,7 +49,7 @@ export default function CatalogSmall( ) {
         <>
          < LineLarge title={'Catalog'} />
 
-         < Search searchHandler={searchHandler} />
+     {  isAuth &&  < Search searchHandler={searchHandler} /> }
 
         <div className="latestp">
             {data.map(car => < CardSmall key={car._id} {...car} /> )}
