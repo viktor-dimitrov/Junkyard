@@ -4,10 +4,9 @@ import { getMyCarLike } from '../../services/likeService';
 import { useAuthContext } from '../../contexts/AuthContext';
 import styles from './Likes.module.css';
 
-
 export default function Likes({ carId, isOwner }) {
-    
-    const {userId} = useAuthContext();
+
+    const { userId } = useAuthContext();
 
     const { getCarLikes, likes, likeCar, unlikeCar } = useLikeContext();
     const [carLikes, setCarLikes] = useState([]);
@@ -15,7 +14,7 @@ export default function Likes({ carId, isOwner }) {
 
     useEffect(() => {
         getCarLikes(carId)
-        .then( result => { setCarLikes(result)})
+            .then(result => { setCarLikes(result) })
     }, [carId, getCarLikes]);
 
 
@@ -28,7 +27,6 @@ export default function Likes({ carId, isOwner }) {
             })
     }, [carId, userId, likes]);
 
-    
     const onLikeClick = async () => {
         const result = await likeCar(carId);
         setCarLikes(state => ([...state, result]));
@@ -38,7 +36,6 @@ export default function Likes({ carId, isOwner }) {
         await unlikeCar(likeId);
         setCarLikes(state => state.filter(x => x._id !== likeId))
     }
-
 
     return (
         <>

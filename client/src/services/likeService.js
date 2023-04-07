@@ -7,9 +7,7 @@ export const likeDealer = async (dealerId) => {
 }
 
 export const unlikeDealer = async (likeId) => {
-
      await del(`/data/dealerLikes/${likeId}`);
-   
 }
 
 export const getFollowers = async (dealerId) => {
@@ -18,6 +16,7 @@ export const getFollowers = async (dealerId) => {
     const result = await get(`/data/dealerLikes?where=${query}&load=${load}`)
     return result
 }
+
 export const getFollowings = async (userId) => {
     const query = encodeURIComponent(`_ownerId="${userId}"`)
     const load = encodeURIComponent(`userInfo=dealerId:users`);
@@ -36,20 +35,18 @@ export const likeCar = async (carId) => {
 }
 
 export const unlikeCar = async (likeId) => {
-
      await del(`/data/carLikes/${likeId}`);
-   
 }
 
 export const getCarLikes = async (carId) => {
     const query = encodeURIComponent(`carId="${carId}"`)
     const result = await get(`/data/carLikes?where=${query}`)
-    return result
+    return result;
 }
 
 export const getMyCarLike = async (carId, userId) => {
     const result = await get(`/data/carLikes?where=carId%3D%22${carId}%22%20and%20_ownerId%3D%22${userId}%22`);
-    return result
+    return result;
 }
 
 export const getFavoriteCars = async (userId) => {

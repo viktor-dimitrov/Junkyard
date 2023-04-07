@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { getOneCar } from "../../services/carService";
-import LineLarge from "../Lines/LineLarge";
 import { carList } from "../../utils/constants/carList";
 import { useCarContext } from "../../contexts/CarContext";
+import LineLarge from "../Lines/LineLarge";
 
-
-
+import styles from './EditCar.module.css';
 
 export default function EditCar() {
     const { onSubmitEditCar } = useCarContext();
@@ -36,7 +34,6 @@ export default function EditCar() {
             })
     }, [carId]);
 
-
     const currYear = new Date().getFullYear();
 
     const onChangeBrand = (e) => {
@@ -54,15 +51,10 @@ export default function EditCar() {
         onSubmitEditCar(carInputs._id, carInputs);
     }
 
-
-
-
-
-
     return (
         <>
             < LineLarge title={'Edit Car'} />
-            <div className="create">
+            <div className={styles['edit']}>
                 <form onSubmit={onSubmit} >
                     <table>
                         <tbody>
@@ -101,7 +93,7 @@ export default function EditCar() {
                                 <td>
                                     <label htmlFor="fuel">Fuel</label>
                                     <select id="fuel" name="fuel" value={carInputs.fuel} onChange={onChangeCarInputs} required>
-                                   
+
                                         <option defaultValue="Gasoline">Gasoline</option>
                                         <option defaultValue="Diesel">Diesel</option>
                                         <option defaultValue="Ethanol">Ethanol</option>
@@ -129,11 +121,11 @@ export default function EditCar() {
 
                                 <td>
                                     <label htmlFor="image">Image</label>
-                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} required />
+                                    <input className={styles['image']} id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} required />
                                 </td>
                             </tr>
 
-                            <tr >
+                            <tr className={styles['submit']} >
                                 <td>
                                     <p>
 
@@ -144,9 +136,7 @@ export default function EditCar() {
                             </tr>
                         </tbody>
                     </table>
-
                 </form>
-
 
             </div>
             < LineLarge />

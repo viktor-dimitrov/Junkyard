@@ -1,21 +1,17 @@
 
 import { useEffect, useState } from 'react';
 import LikeDealer from '../Likes/LikeDealer';
-
-import styles from './Details.module.css'
 import { getMyCars } from '../../services/carService';
+import styles from './Details.module.css';
 
+export default function DealerCard({ _id, username, imageUrl, email, phone, isOwner }) {
 
-export default function DealerCard({ _id, username, imageUrl, email, phone , isOwner}) {
+    const [dealerCars, setDealerCars] = useState([]);
 
-const [dealerCars, setDealerCars] = useState([]);
-
-useEffect( () => {
-    getMyCars(_id)
-    .then( result => { setDealerCars(result)})
-}, [_id])
-
-
+    useEffect(() => {
+        getMyCars(_id)
+            .then(result => { setDealerCars(result) })
+    }, [_id]);
 
     return (
         <div className={styles['dealer']}>
@@ -40,7 +36,7 @@ useEffect( () => {
 
             <div className={styles['flex']}>
                 <div>
-                    < LikeDealer dealerId={_id}  isOwner={isOwner} />
+                    < LikeDealer dealerId={_id} isOwner={isOwner} />
                 </div>
                 <img src={imageUrl} alt="dealer" />
             </div>

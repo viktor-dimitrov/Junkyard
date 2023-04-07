@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import './Header.css';
-
-
+import  './Header.css';
 
 export default function Header() {
 
     const { onLogout, userName, isAuth, userId, imageUrl } = useAuthContext();
-
-    
 
     return (
         <header className="wrapper" id="header">
@@ -39,7 +35,6 @@ export default function Header() {
                     <li><Link to="/" >Home</Link></li>
                     {!isAuth && <li><Link to="/login">Login</Link></li >}
                     {!isAuth && <li><Link to="/register">Register</Link></li>}
-
 
                 </ul>
             </nav>

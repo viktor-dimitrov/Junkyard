@@ -2,9 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { getOneCar } from '../../services/carService';
-
 import { dateCreator } from '../../utils/dateCreator';
-
 
 import LineLarge from '../Lines/LineLarge';
 import DeleteConfirmation from '../DeleteCar/DeleteCar';
@@ -13,9 +11,6 @@ import DealerCard from './DealerCard';
 import Comments from './Comments';
 
 import styles from './Details.module.css'
-
-
-
 
 export default function Details() {
 
@@ -35,7 +30,6 @@ export default function Details() {
             })
     }, [carId]);
 
-
     const dealer = { ...car.dealer };
     const isOwner = (userId === car._ownerId) ? true : false;
 
@@ -47,14 +41,14 @@ export default function Details() {
         setShowConfirmation(false);
     };
 
-
-
     return (
         <>
             <p>Posted at: {dateCreator(car._createdOn)} </p>
+
             {car._updatedOn && <p>Last Update: {(dateCreator(car._updatedOn))} </p>}
 
             < LineLarge title={"Details"} />
+
             <div className={styles['details']} >
 
                 <article>
@@ -79,32 +73,18 @@ export default function Details() {
                                     {isAuth && < LikeCar carId={carId} isOwner={isOwner} />}
                                 </li>
                             </ul>
-
                         </div>
 
                         <div className={styles['img']} >
                             <img src={car.imageUrl} alt="car" />
                         </div>
-
                     </>
 
                     {isAuth && < DealerCard    {...dealer} isOwner={isOwner} />}
 
                 </article>
-
             </div>
-
-       
-
-             
                     {isAuth && < Comments  carId={carId} userId={userId} />}
-              
-
-                
-           
-
-
-
         </>
     )
 }

@@ -48,6 +48,7 @@ a{
 }
 a:hover{
 	color: #B82924;
+	text-shadow: 0 3px 45px #B82924;
 }
 p{
 	margin-bottom: 8px;
@@ -103,6 +104,27 @@ body{
 	font-family: ethno, sans-serif;
 	font-weight: normal;
 }
+
+header h1{
+	font-family: LeagueGothic, Impact, sans-serif;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: .5em;
+	text-shadow: 1px 1px 0 #000;
+	position: relative;
+	width: 200px;
+	margin-bottom: 2px;
+}
+header h2{
+	
+	font-size: 26px;
+	font-weight: normal;
+	font-family: LeagueGothic, sans-serif;
+	width: 170px;
+	text-shadow: 1px 1px 0 #000;
+	text-transform: uppercase;
+}
+
 #ii{
 	font-size: 60px;
 	font-family: LeagueGothic, sans-serif;
@@ -118,10 +140,8 @@ body{
 	letter-spacing: 2px;
 }
 
-/************* L O G O   &  N A V   B A R    S T Y L E ****************/
 
-/*************** B A N N E R    S T Y L E ******************/
-#banner{
+/* #banner{
 	position: relative;
 	margin-bottom: 30px;
 }
@@ -150,7 +170,7 @@ body{
 	padding: 4px 8px;
 	right: 3%;
 	bottom: -10%;
-}
+} */
 
 
 

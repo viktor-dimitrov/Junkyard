@@ -11,32 +11,22 @@ const endpoints = {
 
 }
 
-
-
-
-
 export async function login(data) {
-
     try {
         const result = await post(endpoints.login, data);
         return result
     } catch (error){
         throw error
     }
-
 }
 
 export async function register(data) {
-
     try{
         const result = await post(endpoints.register, data);
         return result
     }catch (error) {
         throw error
     }
-   
-
-
 }
 
 export async function logout() {
@@ -45,7 +35,4 @@ export async function logout() {
     }catch (error) {
         console.log(error.message)
     }
-   
-
-
 }

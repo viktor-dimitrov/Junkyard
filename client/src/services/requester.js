@@ -31,7 +31,6 @@ export async function request(method, url, data) {
             throw new Error(result.message);
         }
 
-        
         if (response.status === 403) {
             return {}
         }

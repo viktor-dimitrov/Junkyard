@@ -5,14 +5,12 @@ import { getMyDealerLike } from '../../services/likeService';
 
 import styles from './Likes.module.css';
 
-
-
 export default function Likes({
     dealerId,
     isOwner
 
 }) {
-    const {userId} = useAuthContext();
+    const { userId } = useAuthContext();
     const { getFollowers, followers, likeDealer, unlikeDealer } = useLikeContext();
 
     const [myLike, setMyLike] = useState([]);
@@ -20,7 +18,7 @@ export default function Likes({
 
     useEffect(() => {
         getFollowers(dealerId)
-        .then(result => { setDealerFollowers(result)} )
+            .then(result => { setDealerFollowers(result) })
     }, [dealerId, getFollowers])
 
     useEffect(() => {
@@ -41,7 +39,6 @@ export default function Likes({
         await unlikeDealer(likeId);
         setDealerFollowers(state => state.filter(x => x._id !== likeId))
     }
-
 
     return (
 

@@ -2,13 +2,17 @@
 
 .empty {
     text-align: center;
-    margin-top: 50px;    border: 1px solid #B82924;
+    margin-top: 50px;  
+    padding-left: 200px;
+    padding-right:200px;
+      border: 1px solid #B82924;
     box-shadow: 0 3px 4px #B82924;
     height: 200px;
 }
 
 .empty p {
     margin-top: 50px;
-    font-size: x-large
+    font-size: x-large;
+    font-weight:bolder;
    
 }

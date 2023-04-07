@@ -1,10 +1,10 @@
-import './Create.css';
-import LineLarge from "../Lines/LineLarge";
+
+
 import { carList } from '../../utils/constants/carList';
 import { useState } from 'react';
 import { useCarContext } from '../../contexts/CarContext';
-
-
+import LineLarge from "../Lines/LineLarge";
+import styles from './Create.module.css';
 
 export default function Create() {
 
@@ -42,7 +42,7 @@ export default function Create() {
     return (
         <>
             < LineLarge title={'Post Car'} />
-            <div className="create">
+            <div className={styles['create']}>
                 <form onSubmit={onSubmit} >
                     <table>
                         <tbody>
@@ -50,7 +50,7 @@ export default function Create() {
                                 <td>
                                     <label htmlFor="brand">Brand</label>
                                     <select id="brand" name="brand" value={carBrand.brand} onChange={onChangeBrand} required >
-                                        <option defaultValue={''} ></option>
+                                        {/* <option defaultValue={''} ></option> */}
                                         {carList.sort((a, b) => a.brand.localeCompare(b.brand)).map(x => <option key={x.brand} defaultValue={x.brand}>{x.brand}</option>)}
                                     </select>
                                 </td>
@@ -113,12 +113,12 @@ export default function Create() {
 
                                 <td>
                                     <label htmlFor="image">Image</label>
-                                    <input id="image" name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} required />
+                                    <input className={styles['image']} name="imageUrl" type="text" value={carInputs.imageUrl} onChange={onChangeCarInputs} required />
                                 </td>
                             </tr>
 
-                            <tr >
-                                <td>
+                            <tr className={styles['submit']}  >
+                                <td >
                                     <p>
                                         <input type="submit" value={'Create'} />
                                     </p>
@@ -126,19 +126,9 @@ export default function Create() {
                             </tr>
                         </tbody>
                     </table>
-
-
-
-
-
                 </form>
-
-
             </div>
             < LineLarge />
         </>
-
-
-
     )
 }

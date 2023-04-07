@@ -2,27 +2,24 @@ import { get, post, put, del } from "./requester.js";
 
 const baseUrl =  '/data/comments'
 
-
-
 export const getAllComments = async (carId) => {
     const where = encodeURIComponent(`carId="${carId}"`);
     const load = encodeURIComponent(`author=_ownerId:users`)
     const result = await get(`${baseUrl}?where=${where}&load=${load}`);
-
-    return result
+    return result;
 }
 
 export const getOneComment = async (commentId) => {
     const where = encodeURIComponent(`_id="${commentId}"`);
     const load = encodeURIComponent(`dealer=_ownerId:users`);
     let result = await get(`${baseUrl}?where=${where}&load=${load}`)
-    return result[0]
+    return result[0];
 }
 
 export const getMyComments = async (userId) => {
     const query = encodeURIComponent(`_ownerId="${userId}"`);
     const result = await get(`/data/comments?where=${query}`);
-    return result
+    return result;
 }
 
 export const createComment = async (body) => {
@@ -36,5 +33,5 @@ export const deleteComment = async (commentId) => {
 
 export const updateComment = async (commentId, body) => {
     const result = await put(`${baseUrl}/${commentId}`, body);
-    return result
+    return result;
 }

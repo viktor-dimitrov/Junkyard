@@ -1,10 +1,8 @@
-
-
 .profile {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-left:200px;
+    margin-left: 200px;
     margin-right: 200px;
 }
 
@@ -13,11 +11,11 @@
     width: 200px;
     height: 200px;
 
-   max-width:  200px;
-   max-height: 200px;
-   border-radius: 50%;
-   border: 1px solid #B82924;
-   box-shadow: 0 3px 50px #B82924;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid #B82924;
+    box-shadow: 0 3px 50px #B82924;
 }
 
 .profile h1 {
@@ -29,7 +27,7 @@
 .profile h3 {
     text-align: center;
     font-size: x-large;
-    width:300px;
+    width: 300px;
     padding: 3px;
     border: 1px solid #B82924;
     box-shadow: 0 3px 5px #B82924;
@@ -38,20 +36,24 @@
 
 .userslist {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     padding: 50px;
- 
+
 }
 
 .empty {
     text-align: center;
-    margin-top: 50px;    border: 1px solid #B82924;
+    margin-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    border: 1px solid #B82924;
     box-shadow: 0 3px 4px #B82924;
     height: 200px;
 }
 
 .empty p {
     margin-top: 50px;
-    font-size: x-large
-   
+    font-size: x-large;
+    font-weight: bolder;
+
 }

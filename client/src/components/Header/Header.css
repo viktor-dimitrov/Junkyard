@@ -1,22 +1,3 @@
-header h1{
-	font-family: LeagueGothic, Impact, sans-serif;
-	font-weight: normal;
-	text-transform: uppercase;
-	font-size: .5em;
-	text-shadow: 1px 1px 0 #000;
-	position: relative;
-	width: 200px;
-	margin-bottom: 2px;
-}
-header h2{
-	
-	font-size: 26px;
-	font-weight: normal;
-	font-family: LeagueGothic, sans-serif;
-	width: 170px;
-	text-shadow: 1px 1px 0 #000;
-	text-transform: uppercase;
-}
 
  .profile{
 	margin-right: 500px;
@@ -37,9 +18,23 @@ header h2{
 }		
 .tagline a {
 	max-width: 100px;
-	
 	margin-left: 15px;
 }
+.tagline button {
+	padding: 2px;
+	color:#B82924;
+	background-color: transparent;
+	border: none;
+}
+
+.tagline button:hover {
+
+	border: 1px solid #B82924;
+	box-shadow: 0 3px 4px #B82924;
+	border-radius: 10%;
+}
+
+
 
 .img {
 	display:flex
@@ -75,14 +70,15 @@ nav a {
 	color: #fff;
 	font-family: LeagueGothic, sans-serif;
 	text-decoration: none;
-	font-size: 1.5em;
+	font-size: 2.0em;
 	margin-left: 25px;
 	text-transform: uppercase;
 	text-shadow: 1px 1px 0px #000;
+
 }
 
 nav{
-	margin: 20px 24px 0 0;
+	margin: 10px 14px 0 0;
 	float: right;
 	
 	
