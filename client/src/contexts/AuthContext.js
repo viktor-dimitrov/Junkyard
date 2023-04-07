@@ -16,6 +16,7 @@ export const AuthProvider = ({
 
   const onLoginSubmit = async (data) => {
     try {
+
       const result = await userService.login(data);
       if (result) {
         setAuth(result);
@@ -29,13 +30,24 @@ export const AuthProvider = ({
 
   const onRegisterSubmit = async (data) => {
     try {
+
       if (data.password !== data.repassword) {
         setAuthError("Password don't match!");
         return data
       }
+
       const result = await userService.register(data);
       if (result) {
-        setAuth(result);
+        const userData = {
+          accessToken: result.accessToken,
+          email: result.email,
+          imageUrl: result.imageUrl,
+          phone: result.phone,
+          username: result.username,
+          _createdOn: result._createdOn,
+          _id: result._id
+        }
+        setAuth(userData);
         navigate('/catalog');
         setAuthError(null)
       }

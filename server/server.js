@@ -1347,6 +1347,19 @@
     };
     var seedData = {
         cars: {
+            "0f60e9fe-64af-4dc0-896d-a718473d4503": {
+                "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
+                "model": "Outlander",
+                "year": "2015",
+                "fuel": "CNG",
+                "engine": "2.4 L 4",
+                "color": "Red",
+                "imageUrl": "https://cs.copart.com/v1/AUTH_svc.pdoc00001/LPP400/74b038842146418c87566935c78a1287_ful.jpg",
+                "mileage": "82345",
+                "brand": "Mitsubishi",
+                "_createdOn": 1680886761580,
+                "_id": "0f60e9fe-64af-4dc0-896d-a718473d4503"
+            },
             "4be91d66-a99c-4d99-8a80-e08779565967": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "model": "Golf",
@@ -1491,19 +1504,19 @@
 
         },
         dealerLikes: {
-            "537e68ee-d8aa-461c-8c0f-037259fabf41":  {
+            "537e68ee-d8aa-461c-8c0f-037259fabf41": {
                 "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
                 "dealerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "_createdOn": 1680551059387,
                 "_id": "537e68ee-d8aa-461c-8c0f-037259fabf41"
             },
-            "83749392-5333-4639-a3e3-a80a5511f12f":  {
+            "83749392-5333-4639-a3e3-a80a5511f12f": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "dealerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
                 "_createdOn": 1680551440919,
                 "_id": "83749392-5333-4639-a3e3-a80a5511f12f"
-            },  
-            "21bee969-0b7c-4b5a-be60-c5dc87477ee8":  {
+            },
+            "21bee969-0b7c-4b5a-be60-c5dc87477ee8": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "dealerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
                 "_createdOn": 1680551570396,
