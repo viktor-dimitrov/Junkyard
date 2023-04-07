@@ -16,13 +16,9 @@ import Register from "./components/Register/Register";
 import EditCar from "./components/EditCar/EditCar";
 import Profile from "./components/Profile/Profile";
 import FavoriteList from "./components/FavoriteList/FavoriteList";
-
+import PageNotFound from "./components/Home/PageNotFound";
 
 import './App.css';
-
-
-
-
 
 function App() {
 
@@ -41,6 +37,8 @@ function App() {
                 < Route path="/" element={< Home />} />
                 < Route path="/catalog" element={< CatalogSmall />} />
                 < Route path="/details/:carId" element={< Details />} />
+                < Route path="/*" element={< PageNotFound />} />
+
 
                 < Route element={< RouteGuard />} >
                   < Route path="/create" element={< Create />} />

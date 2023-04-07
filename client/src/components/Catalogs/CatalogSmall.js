@@ -68,7 +68,7 @@ export default function CatalogSmall() {
         </button>
       </div>
        : <div className={styles['empty']} >
-       <p>We're sorry, but we couldn't find any results for your search.</p>
+       <h4>We're sorry, but we couldn't find any results for your search.</h4>
    </div> }
 
 
