@@ -1360,6 +1360,32 @@
                 "_createdOn": 1680886761580,
                 "_id": "0f60e9fe-64af-4dc0-896d-a718473d4503"
             },
+            "cee150fc-e1c1-4554-a031-4ae71b971afb": {
+                "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
+                "model": "i3",
+                "year": "2016",
+                "fuel": "Hybrid(Electric/Gasoline)",
+                "engine": "0.7L 2",
+                "color": "Black",
+                "imageUrl": "https://mercury.bid.cars/1-49855641/2016-BMW-I3-WBY1Z4C58GV508107-1.jpg",
+                "mileage": "68783",
+                "brand": "BMW",
+                "_createdOn": 1680958357092,
+                "_id": "cee150fc-e1c1-4554-a031-4ae71b971afb"
+            },
+            "ed6eca4f-f51f-4b0a-9d07-9231b52610ff": {
+                "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
+                "model": "Q7",
+                "year": "2013",
+                "fuel": "Diesel",
+                "engine": "4.2 TDI",
+                "color": "Black",
+                "imageUrl": "https://tnsautosalvage.com/wp-content/uploads/2021/06/IMG_20210524_170503-876x535.jpg",
+                "mileage": "120034",
+                "brand": "Audi",
+                "_createdOn": 1680959234093,
+                "_id": "ed6eca4f-f51f-4b0a-9d07-9231b52610ff"
+            },
             "4be91d66-a99c-4d99-8a80-e08779565967": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "model": "Golf",
@@ -1420,6 +1446,20 @@
                 "_createdOn": 1680362219654,
                 "_id": "e93cbcd8-982b-4489-a3bb-98033073beb2"
             },
+            "e0c41559-313a-4e2a-884e-8abccb65f5db":  {
+                "_ownerId": "8679eed9-7a24-4907-a7f0-c059ce60385f",
+                "model": "Beetle",
+                "year": "2007",
+                "fuel": "Gasoline",
+                "engine": "1.8 i",
+                "color": "Green",
+                "imageUrl": "https://1830262577.rsc.cdn77.org/files/3VWRW31C17M522124/COPART/47536981/photo/56ff75a0-5b42-4195-a6fd-e2d23702f60c.JPG",
+                "mileage": "187543",
+                "brand": "Volkswagen",
+                "_createdOn": 1680959432656,
+                "_id": "e0c41559-313a-4e2a-884e-8abccb65f5db"
+            },
+            
             "ab416865-f33d-4ff8-8663-bfa2884648dd": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "model": "Rio",

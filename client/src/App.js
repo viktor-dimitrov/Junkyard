@@ -37,6 +37,7 @@ function App() {
                 < Route path="/" element={< Home />} />
                 < Route path="/catalog" element={< CatalogSmall />} />
                 < Route path="/details/:carId" element={< Details />} />
+                
                 < Route path="/*" element={< PageNotFound />} />
 
 

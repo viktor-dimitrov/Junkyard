@@ -13,7 +13,7 @@ Note that changes to the data **will not be persisted**! All operations happen i
 
 ## Base URL
 
-The Base URL for the API is: `http://localhost:3030/jsonstore`
+The Base URL for the API is: `http://localhost:3030/data`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
