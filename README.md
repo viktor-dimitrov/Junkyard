@@ -22,4 +22,16 @@ These instructions should help users install and run the application successfull
 
 ![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/home.jpg?raw=true)
 
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/catalog.jpg?raw=true)
+
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/details.jpg?raw=true)
+
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/profile-cars.jpg?raw=true)
+
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/profile-followers.jpg?raw=true)
+
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/favorite.jpg?raw=true)
+
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/post.jpg?raw=true)
+
 
