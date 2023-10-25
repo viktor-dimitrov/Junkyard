@@ -17,3 +17,9 @@ Junkyard is a web application that allows dealers to publish cars for parts.
 3. To access the server side of the application, you can use HTTP requests to `http://localhost:3030`.
 
 These instructions should help users install and run the application successfully. 
+
+## Screenshots
+
+![](https://github.com/viktor-dimitrov/Junkyard/screenshots/home.jpg?raw=true)
+
+
