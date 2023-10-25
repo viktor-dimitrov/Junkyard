@@ -20,6 +20,6 @@ These instructions should help users install and run the application successfull
 
 ## Screenshots
 
-![](https://github.com/viktor-dimitrov/Junkyard/screenshots/home.jpg?raw=true)
+![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/home.jpg?raw=true)
 
 
