@@ -1,7 +1,7 @@
 
+//   const host = 'https://panicky-undershirt-mite.cyclic.app/';
 
-
-const host = 'http://localhost:3030';
+  const host = 'http://localhost:3000';
 
 export async function request(method, url, data) {
     const options = {
