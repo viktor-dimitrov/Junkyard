@@ -1,9 +1,9 @@
-# FROM node:18
+FROM node:18
 
-# WORKDIR /
+WORKDIR /app
 
-# COPY . .
+COPY . .
 
-# EXPOSE 3030
+EXPOSE 3030
 
-# CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
