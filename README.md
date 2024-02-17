@@ -18,6 +18,19 @@ Junkyard is a web application that allows dealers to publish cars for parts.
 
 These instructions should help users install and run the application successfully. 
 
+## Docker Deployment
+
+[Junkyard](https://github.com/viktor-dimitrov/Junkyard) supports Docker for easy deployment. Follow these steps to run the application using Docker:
+
+1. Ensure that Docker and Docker Compose are installed on your machine.
+
+2. Clone this repository on your local machine.
+
+3. Open a terminal and navigate to the project root directory.
+
+4. Run the command `docker-compose up -d` to start the application using Docker Compose:
+
+
 ## Screenshots
 
 ![](https://github.com/viktor-dimitrov/Junkyard/blob/master/screenshots/home.jpg?raw=true)
