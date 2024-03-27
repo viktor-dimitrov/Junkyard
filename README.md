@@ -1,6 +1,8 @@
 # Junkyard
 Junkyard is a web application that allows dealers to publish cars for parts.
 
+## You can access the deployed application [here](https://junkyard-fe.onrender.com).
+
 ## Installation
 1. Clone this repository on your local machine.
 2. Open a terminal and navigate to the client directory.
