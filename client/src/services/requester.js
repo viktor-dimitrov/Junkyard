@@ -1,5 +1,5 @@
 
-  const host = 'https://junkyard-be.onrender.com/';
+  const host = 'https://junkyard-be.onrender.com';
 
 //   const host = 'http://localhost:3030';
 
